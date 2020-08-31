@@ -14,6 +14,48 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <div id="navbar">
+      <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+        <a class="navbar-brand" href="#">
+          <img src="<%= image_path('logo.png') %>" />
+        </a>
+        <%#= link_to image_tag('logo.png') ,root_path %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <!-- <a class="nav-link" href="#">Home</a> -->
+              <%= link_to "Home", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Passeios", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#">Mergulho</a> -->
+              <%= link_to "Mergulho", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Contato", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Sobre", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+              <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= image_path('caio_profile.jpg') %>" />
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Ver seu carrinho</a>
+                <a class="dropdown-item" href="#">Atualizar perfil</a>
+                <a class="dropdown-item" href="#">Sair</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <%= yield %>
   </body>
 </html>
