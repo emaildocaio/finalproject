@@ -1,14 +1,13 @@
 class ProductsController < ApplicationController
-  
-  skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_product, only: [:edit, :update, :show, :destroy]
 
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @products = Product.all
   end
 
   def show
-    @product = Product.find(params[:id])
     authorize @product
   end
 
@@ -18,7 +17,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(strong_params)
+    @product = Product.new(product_params)
     @product.company = current_user.company
     authorize @product
     if @product.save
@@ -29,9 +28,18 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    authorize @product
   end
 
   def update
+    authorize @product
+    @product.update(product_params)
+
+    if @product.save
+      redirect_to product_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -39,7 +47,11 @@ class ProductsController < ApplicationController
 
   private
 
-  def strong_params
-    params.require(:product).permit(:name, :price, :activity, :capacity)
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def product_params
+    params.require(:product).permit(:name, :price, :activity, :capacity, :status)
   end
 end
