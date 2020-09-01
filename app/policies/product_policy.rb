@@ -17,5 +17,7 @@ class ProductPolicy < ApplicationPolicy
     # - user:   the `current_user` signed in with Devise.
     end
 
-
+  def show?
+    true
+  end
 end
