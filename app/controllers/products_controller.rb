@@ -12,9 +12,19 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
+    authorize @product
   end
 
   def create
+    @product = Product.new(product_params)
+    @product.company = current_user.company
+    authorize @product
+    if @product.save
+      redirect_to product_path(@product.id)
+    else
+      render :new
+    end
   end
 
   def edit
