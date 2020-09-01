@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  belongs_to :company, dependent: :destroy
+  belongs_to :company
   has_many :shopping_carts, through: :bookings
   validates :name, :capacity, :price, :activity, presence: true
   validates :activity, inclusion: { in: ["day trip", "dive"]}
