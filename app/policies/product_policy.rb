@@ -5,6 +5,18 @@ class ProductPolicy < ApplicationPolicy
     end
   end
 
+    def edit?
+      record.company.user == user
+    # - record: the restaurant passed to the `authorize` method in controller
+    # - user:   the `current_user` signed in with Devise.
+    end
+
+    def update?
+      edit?
+      # - record: the restaurant passed to the `authorize` method in controller
+    # - user:   the `current_user` signed in with Devise.
+    end
+
   def show?
     true
   end
