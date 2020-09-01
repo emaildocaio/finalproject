@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 2020_09_01_161523) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.string "activity"
+    t.integer "capacity"
+    t.boolean "status", default: true
+    t.bigint "company_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_products_on_company_id"
+  end
+
   create_table "shopping_carts", force: :cascade do |t|
     t.string "voucher"
     t.string "status"
@@ -52,5 +64,6 @@ ActiveRecord::Schema.define(version: 2020_09_01_161523) do
   end
 
   add_foreign_key "companies", "users"
+  add_foreign_key "products", "companies"
   add_foreign_key "shopping_carts", "users"
 end
