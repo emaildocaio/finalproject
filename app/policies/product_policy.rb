@@ -17,7 +17,12 @@ class ProductPolicy < ApplicationPolicy
     # - user:   the `current_user` signed in with Devise.
     end
 
-  def show?
-    true
-  end
+    def destroy?
+    end
+
+    def my_index?
+    end
+
+    def show?
+    end
 end
