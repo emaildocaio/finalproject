@@ -49,8 +49,7 @@ class ProductsController < ApplicationController
   end
 
   def my_index
-    @products = Product.where(company: current_user.company)#.order(price: :asc)
-    authorize @products
+    @products = Product.where(company: current_user.company)
   end
 
   private
