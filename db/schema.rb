@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_161523) do
+ActiveRecord::Schema.define(version: 2020_09_01_173538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "date"
+    t.boolean "canceled", default: false
+    t.bigint "shopping_cart_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_bookings_on_product_id"
+    t.index ["shopping_cart_id"], name: "index_bookings_on_shopping_cart_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "cnpj"
@@ -63,6 +74,8 @@ ActiveRecord::Schema.define(version: 2020_09_01_161523) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "products"
+  add_foreign_key "bookings", "shopping_carts"
   add_foreign_key "companies", "users"
   add_foreign_key "products", "companies"
   add_foreign_key "shopping_carts", "users"
