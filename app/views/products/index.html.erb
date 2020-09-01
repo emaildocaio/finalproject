@@ -1,6 +1,9 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
-
+<h1>Check out our amazing tours!</h1>
+<ul>
 <% @products.each do |product| %>
-  <%= product.name %>
+  <li>><%=link_to "#{product.name}
+   Type of tour #{product.activity}
+   only for: #{product.price}   
+   ", product_path(product)%></li>
+</ul>
 <% end %>
