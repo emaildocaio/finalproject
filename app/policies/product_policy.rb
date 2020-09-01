@@ -26,11 +26,14 @@ class ProductPolicy < ApplicationPolicy
     end
 
     def destroy?
+      true
     end
 
     def my_index?
+      true
     end
 
     def show?
+      true
     end
 end
