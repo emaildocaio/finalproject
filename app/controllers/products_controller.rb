@@ -43,6 +43,14 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    authorize @product
+    @product.destroy
+    redirect_to myproducts_path
+  end
+
+  def my_index
+    @products = Product.where(company: current_user.company)#.order(price: :asc)
+    authorize @products
   end
 
   private
