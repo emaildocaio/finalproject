@@ -1,12 +1,15 @@
 class CompaniesController < ApplicationController
   def new
+    
     @company = Company.new
+    authorize @company
   end
 
   def create
     @company = Company.new(strong_params)
+    authorize @company
     @company.user = current_user
-      if @company.after_save 
+      if @company.save 
         redirect_to company_path(@company.id)
       else
         render :new
@@ -15,6 +18,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    authorize @company
   end
 
   private
