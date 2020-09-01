@@ -1,4 +1,4 @@
-class CompanyPolicy < ApplicationPolicy
+class ProductPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -11,5 +11,9 @@ class CompanyPolicy < ApplicationPolicy
 
   def create?
     true
+  end
+
+  def show?
+    record.user == user
   end
 end
