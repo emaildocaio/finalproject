@@ -5,6 +5,14 @@ class ProductPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    true
+  end
+
+  def create?
+    true
+  end
+
     def edit?
       record.company.user == user
     # - record: the restaurant passed to the `authorize` method in controller
