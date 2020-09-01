@@ -1,0 +1,6 @@
+<h1>Create a Company!</h1>
+<%= simple_form_for(@company) do |f| %> 
+    <%= f.input :name %> 
+    <%= f.input :cnpj %>
+    <%= f.submit %> 
+<% end %>
