@@ -1,9 +1,33 @@
-<h1>Check out our amazing tours!</h1>
-<ul>
-<% @products.each do |product| %>
-  <li>><%=link_to "#{product.name}
-   Type of tour #{product.activity}
-   only for: #{product.price}   
-   ", product_path(product)%></li>
-</ul>
-<% end %>
+<div class="container mt-3">
+  <h1><strong>Boat trips</strong> and <strong>scuba dive</strong> in Arraial do Cabo</h1>
+  <div class="row">
+    <div class="col-7">
+      <% @products.each do |product| %>
+        <ul>
+          <li>
+            <div class="card-product mt-3">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <h2> <%= product.name %> </h2>
+                <p>Venha conhecer o nosso <strong> <%= product.activity %></strong>.</p>
+                <p>R$ <%= product.price %></p>
+              </div>
+            </div>
+           </li>
+        </ul>
+      <% end %>
+    </div>
+    <div>
+      <div id='map' class="sticky mt-3"></div>
+      <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiY2Fpb2ZhcmlhcyIsImEiOiJja2VrbHRjN3owNXplMnJuNjdmYXFmMHR6In0.qtqKH-mGlwFYEBBuBkQYNw';
+      var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+      center: [-42.0473204, -22.9646732], // starting position [lng, lat]
+      zoom: 11 // starting zoom
+      });
+      </script>
+    </div>
+  </div>
+</div>
