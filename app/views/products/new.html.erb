@@ -1,15 +1,16 @@
 <h1>Products#new</h1>
 <p>Find me in app/views/products/new.html.erb</p>
 <div class="container">
-  <%= simple_form_for @product  do |f| %>
-    <%= f.input :name %>
-    <%= f.input :price %>
-    <%= f.input :activity, collection: ["Day Trip", "Dive"] %>
-    <%= f.input :capacity %>
-    <%= f.input :photo, as: :file %>
-    <%= f.input :description %>
-    <%= f.input :status, label: 'Active' %>
-    <%= f.submit %>
-  <% end %>
-
+  <div class="mt-5 d-flex justify-content-center flex-column col-8">
+    <%= simple_form_for @product  do |f| %>
+      <%= f.input :name %>
+      <%= f.input :price %>
+      <%= f.input :activity, collection: ["Day Trip", "Dive"] %>
+      <%= f.input :capacity %>
+      <%= f.input :photo, as: :file %>
+      <%= f.input :description %>
+      <%= f.input :status, label: 'Active' %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+    </div>
 </div>
