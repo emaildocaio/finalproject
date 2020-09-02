@@ -1,6 +1,6 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
-<div class="container">
+<div class="container mt-3">
+  <h1>Hello, <%= current_user.first_name %>!</h1>
+  <p>Do you want to create a new tour acticity?</p>
   <div class="mt-5 d-flex justify-content-center flex-column col-8">
     <%= simple_form_for @product  do |f| %>
       <%= f.input :name %>
@@ -10,7 +10,7 @@
       <%= f.input :photo, as: :file %>
       <%= f.input :description %>
       <%= f.input :status, label: 'Active' %>
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.submit class: "btn btn-primary mb-5" %>
     <% end %>
-    </div>
+  </div>
 </div>
