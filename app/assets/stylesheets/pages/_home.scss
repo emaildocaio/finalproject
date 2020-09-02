@@ -1,1 +1,45 @@
 // Specific CSS for your home-page
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  height: 80vh;
+  margin-bottom: 15px;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 110px;
+  font-weight: bold;
+  font-family: 'Satisfy', cursive;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-family: 'Dosis', sans-serif;
+}
+
+h2 {
+  font-family: 'Satisfy', cursive;
+  color: #004461ff;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+.owner {
+  padding-top: 80px;
+  padding-bottom: 50px;
+  background-color: white;
+}
+
+.gridblock {
+  margin-bottom: 80px;
+}
+

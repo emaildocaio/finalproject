@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+
+    @products = @products.where(activity: params[:activity]) if params[:activity].present?
   end
 
   def show
