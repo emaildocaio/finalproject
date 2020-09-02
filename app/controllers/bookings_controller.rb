@@ -7,10 +7,15 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @shopping_cart = helpers.select_shopping_cart
     @booking.shopping_cart = @shopping_cart
     @booking.product = Product.find(params[:product_id])
-    raise
+    if @booking.save
+      redirect_to shopping_cart_path(@shopping_cart.id)
+    else
+      render :new
+    end
   end
 
   private
