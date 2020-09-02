@@ -69,3 +69,6 @@ gem 'devise'
 
 #pundit
 gem 'pundit'
+
+#geocode
+gem 'geocoder'
