@@ -35,6 +35,9 @@ gem 'simple_form'
 # Faker ge for seed file
 gem 'faker'
 
+# Cloudinary
+gem 'cloudinary', '~> 1.16.0'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
@@ -75,3 +78,4 @@ gem 'pundit'
 
 #geocode
 gem 'geocoder'
+
