@@ -1,3 +1,13 @@
-<h1>This is your company!</h1>
+<h1>Welcome! </h1>
 <p><%= @company.name %> </p>
 <p><%="This company belongs to #{@company.user.first_name}"%></p>
+<p><%= "My tours:" %> </p>
+<p><% companies = @company.products %></p>
+<ul>
+<% companies.each do |product|  %>
+    <li>
+        <%= link_to product.name, product_path(product.id) %>
+    </li>
+<% end %>
+</ul>
+<%= link_to 'Register a new activity', new_product_path, :class => "btn btn-primary" %> 
