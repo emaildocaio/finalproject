@@ -67,8 +67,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#Devise
+# Dotenv for hiding secret keys
+gem 'dotenv-rails', groups: [:development, :test]
+
+# Devise
 gem 'devise'
 
-#pundit
+# Pundit
 gem 'pundit'
+
+#geocode
+gem 'geocoder'

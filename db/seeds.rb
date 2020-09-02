@@ -34,10 +34,9 @@ puts "#{Company.count} companies created!"
 puts "Starting creating products..."
 
 15.times do
-p = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["day trip", "dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample)
+p = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
 file = open('https://mlrb7kr4x4r6.i.optimole.com/bWhSOyY-ZOG8NdXj/w:900/h:500/q:auto/https://www.baumhedlundlaw.com/wp-content/uploads/2019/09/Dive-Boat-Channel-Islands-img.jpg')
 p.photo.attach(io: file, filename: 'boat.jpg')
-
 end
 
 puts "#{Product.count} products created!"

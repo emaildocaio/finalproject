@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+
+    @products = @products.where(activity: params[:activity]) if params[:activity].present?
   end
 
   def show
@@ -59,6 +61,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :price, :activity, :capacity, :status, :photo)
+    params.require(:product).permit(:name, :price, :activity, :capacity, :status, :photo, :description)
   end
 end

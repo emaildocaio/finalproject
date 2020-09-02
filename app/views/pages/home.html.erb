@@ -1,2 +1,34 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(../assets/background-1.jpg);">
+  <div class="container">
+    <h1>Visite Arraial do Cabo!</h1>
+    <p>Come and explore the best of the Brazilian Carib!.</p>
+    <p>#visitearraialdocabo</p>
+  </div>
+</div>
+<div class="container">
+  <div class="gridblock">
+    <h2 class="whattodo">How do you want to enjoy the paradise?</h2>
+      <div class="cards justify-content-center">
+
+        <%= link_to products_path(activity: 'day trip') do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/barco-novo.jpg)">
+            Day Trip
+          </div>
+        <% end %>
+
+        <%= link_to products_path(activity: 'dive') do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/acqua-world.jpg)">
+            Dive
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>
+
+ <%if current_user.nil? || current_user.company.nil? %>
+  <div class="owner">
+    <div class="container">
+      <p>Do you have a tour company? Register <%= link_to "here", "/companies/new" %> and offer your tour!</p>
+    </div>
+  </div>
+<% end %>
