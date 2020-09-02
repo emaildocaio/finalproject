@@ -8,8 +8,8 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 Booking.destroy_all
 # ShoppingCart.destroy_all
-# Product.destroy_all
-# Company.destroy_all
+Product.destroy_all
+Company.destroy_all
 User.destroy_all
 
 
@@ -25,7 +25,7 @@ puts "#{User.count} users created!"
 puts "Starting creating companies..."
 
 10.times do
-  Company.create(cnpj: %w(50.260.485/0001-20 41.017.941/0001-15 15.433.887/0001-89 56.139.931/0001-20 20.809.660/0001-25 42.077.071/0001-32).sample, name: Faker::Cannabis.brand, user: User.all.sample)
+  Company.create(cnpj: %w(50.260.485/0001-20 41.017.941/0001-15 15.433.887/0001-89 56.139.931/0001-20 20.809.660/0001-25 42.077.071/0001-32).sample, name: Faker::Cannabis.brand, user: User.all.sample, address: "Rua Duque de Caxias, 21 - Arraial do Cabo")
 end
 
 puts "#{Company.count} companies created!"
