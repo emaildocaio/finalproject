@@ -1,5 +1,6 @@
 class ShoppingCart < ApplicationRecord
   belongs_to :user
+  has_many :bookings, dependent: :destroy
   has_many :products, through: :bookings
 
   validates :voucher, :total_price, :status, :user_id, presence: true
