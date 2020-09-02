@@ -9,7 +9,7 @@ require 'open-uri'
 #   Character.create(name: 'Luke', movie: movies.first)
 Booking.destroy_all
 # ShoppingCart.destroy_all
-# Product.destroy_all
+Product.destroy_all
 Company.destroy_all
 User.destroy_all
 
@@ -26,7 +26,7 @@ puts "#{User.count} users created!"
 puts "Starting creating companies..."
 
 10.times do
-  Company.create(cnpj: %w(50.260.485/0001-20 41.017.941/0001-15 15.433.887/0001-89 56.139.931/0001-20 20.809.660/0001-25 42.077.071/0001-32).sample, name: Faker::Cannabis.brand, address: ["R. Vera Cruz, 56 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "R. Édna Teixeira de Mello Fialho, 18 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "R. Gonçalves Dias, 46 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Pier 3 Marina dos Pescadores - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "R. Carlos Aguiar, 2 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "R. Miguel Ângelo, 3 - Praia Grande, Arraial do Cabo - RJ, 28390-000", "R. Epitácio Pessoa, 8 - Praia Grande, Arraial do Cabo - RJ, 28930-000", "R. Santa Cruz, 4 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "R. Santa Cruz, 50 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "R. Gonçalves Dias, 02 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Pier 3 Marina dos Pescadores - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Cais de Arraial do Cabo, Arraial do Cabo - RJ, 28930-000"].sample , user: User.all.sample)
+  Company.create(cnpj: %w(50.260.485/0001-20 41.017.941/0001-15 15.433.887/0001-89 56.139.931/0001-20 20.809.660/0001-25 42.077.071/0001-32).sample, name: Faker::Cannabis.brand, address: ["R. Vera Cruz, 56 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "R. Édna Teixeira de Mello Fialho, 18 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "R. Gonçalves Dias, 46 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Pier 3 Marina dos Pescadores - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "R. Carlos Aguiar, 2 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "R. Miguel Ângelo, 3 - Praia Grande, Arraial do Cabo - RJ, 28390-000", "R. Epitácio Pessoa, 8 - Praia Grande, Arraial do Cabo - RJ, 28930-000", "R. Santa Cruz, 4 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "R. Santa Cruz, 50 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "R. Gonçalves Dias, 02 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Pier 3 Marina dos Pescadores - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Cais de Arraial do Cabo, Arraial do Cabo - RJ, 28930-000"].sample, user: User.all.sample)
 end
 
 puts "#{Company.count} companies created!"
