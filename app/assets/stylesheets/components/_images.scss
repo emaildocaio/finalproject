@@ -1,0 +1,23 @@
+#image-main img {
+    margin-bottom: 30px;
+    max-width: 600px;
+    max-height: 2000px;
+    width: auto;
+    height: auto;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.galeria {
+  display: flex;
+}
+
+
+#image-sec img {
+    width: 500px;
+    height: 200px;
+    object-fit: cover;
+    padding-left: 6px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
