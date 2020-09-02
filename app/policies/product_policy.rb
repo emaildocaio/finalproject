@@ -6,11 +6,11 @@ class ProductPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    user.company.present?
   end
 
   def create?
-    true
+    new?
   end
 
   def edit?
