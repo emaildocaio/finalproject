@@ -6,4 +6,5 @@ class Product < ApplicationRecord
   validates :activity, inclusion: { in: ["Day Trip", "Dive"]}
   validates :price, numericality: { greater_than_or_equal_to: 0}
   validates :capacity, numericality: { greater_than: 0}
+  has_one_attached :photo
 end
