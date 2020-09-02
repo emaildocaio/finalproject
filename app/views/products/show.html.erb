@@ -25,4 +25,6 @@
     <%= link_to 'Edit product information', edit_product_path, :class => "btn btn-primary" %>
     <%= link_to 'Book it!', new_product_booking_path(@product.id), :class => "btn btn-primary" unless product_user_check(@product) %>
 
+    <%# render(:partial => "products/booking_form") unless product_user_check(@product) %>
+
 </div>
