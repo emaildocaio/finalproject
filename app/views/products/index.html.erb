@@ -8,7 +8,9 @@
             <div class="card-product mt-3">
               <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
               <div class="card-product-infos">
-                <h2> <%= product.name %> </h2>
+                <%= link_to product_path(product) do %>
+                  <h2> <%= product.name %> </h2>
+                <% end %>
                 <p>Venha conhecer o nosso <strong> <%= product.activity %></strong>.</p>
                 <p>R$ <%= product.price %></p>
               </div>
