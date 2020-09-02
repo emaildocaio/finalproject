@@ -4,8 +4,9 @@
   <%= simple_form_for @product  do |f| %>
     <%= f.input :name %>
     <%= f.input :price %>
-    <%= f.input :activity %>
+    <%= f.input :activity, collection: ["Day Trip", "Dive"] %>
     <%= f.input :capacity %>
+    <%= f.input :description %>
     <%= f.input :status, label: 'Active' %>
     <%= f.submit %>
   <% end %>
