@@ -1,15 +1,15 @@
 class ShoppingCartPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 
-  def index?
+  def pay?
     record.user == user
   end
 
-  def pay?
+  def show?
     record.user == user
   end
 end
