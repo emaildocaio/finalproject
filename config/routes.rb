@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
   resources :shopping_carts, only: %i[index]
+  resources :bookings, only: %i[edit update destroy]
 
   # Shopping cart custom routes
   get 'shopping_carts/current', to: 'shopping_carts#show', as: 'current_shopping_cart'

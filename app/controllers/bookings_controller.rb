@@ -18,6 +18,29 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(booking_params)
+    if @booking.save
+      redirect_to current_shopping_cart_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+    redirect_to current_shopping_cart_path
+  end
+
   private
 
   def booking_params
