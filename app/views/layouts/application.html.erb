@@ -45,11 +45,11 @@
             <li class="nav-item dropdown">
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= image_path('caio_profile.jpg') %>" />
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Check your shopping cart</a>
+                <%= link_to "Check your shopping cart", shopping_carts_path, class: "dropdown-item" %>
                 <a class="dropdown-item" href="#">Update your profile</a>
                 <% if user_signed_in? %>
                   <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", method: :delete %>
-                    <% if current_user.company.present? %> 
+                    <% if current_user.company.present? %>
                       <%= link_to "Manage your company", company_path(current_user.company.id), class: "dropdown-item" %>
                     <% else %>
                       <%= link_to "Subscribe your company", new_company_path, class: "dropdown-item" %>
