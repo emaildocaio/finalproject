@@ -4,8 +4,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @products = Product.all
-
+    @products = Product.where(status: true)
     @companies = Company.all
     @markers = @companies.geocoded.map do |company|
       {
