@@ -1,7 +1,9 @@
 <h1>Your shopping cart</h1>
 <ul>
   <% @shopping_cart.bookings.each do |booking| %>
-  <li> 1x <%= booking.product.name %>, R$ <%= booking.product.price %>, on <%= booking.date %></li>
+  <li> 1x <%= booking.product.name %>,
+    R$ <%= booking.product.price %>,
+    on <%= booking.date %></li>
   <% end %>
   <li> Total: R$ <%= total_price(@shopping_cart) %> </li>
 </ul>
