@@ -6,7 +6,9 @@
         <ul>
           <li>
             <div class="card-product mt-3">
+            <% if product.photo.attached?%>
               <%= cl_image_tag product.photo.key%>
+            <%end%>
               <div class="card-product-infos">
                 <%= link_to product_path(product) do %>
                   <h2> <%= product.name %> </h2>
