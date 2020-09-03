@@ -43,7 +43,15 @@
                 <%= link_to "Sobre", root_path, class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
-              <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= image_path('unisex avatar.jpg') %>" />
+            <%if current_user%>
+              <% if current_user.avatar.attached?%>
+                <%= cl_image_tag(current_user.avatar.key, options = {class: "avatar dropdown-toggle", aria: {haspopup: "true"}, id: "navbarDropdown", data: {toggle: "dropdown"}})%>
+              <%else%>
+                <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= image_path('unisex avatar.jpg') %>" />
+              <%end%>
+            <%else%>
+              <li class="nav-link" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Log in </li>
+            <%end%>            
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Check your shopping cart</a>
                 <a class="dropdown-item" href="#">Update your profile</a>
