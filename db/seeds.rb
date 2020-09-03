@@ -26,7 +26,8 @@ puts "#{User.count} users created!"
 puts "Starting creating companies..."
 
 10.times do
-  Company.create(cnpj: %w(50.260.485/0001-20 41.017.941/0001-15 15.433.887/0001-89 56.139.931/0001-20 20.809.660/0001-25 42.077.071/0001-32).sample, name: Faker::Cannabis.brand, address: ["Rua Vera Cruz, 56 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Rua Édna Teixeira de Mello Fialho, 18 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Rua Gonçalves Dias, 46 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Rua Cediel Gomes Marinho 49, Arraial do Cabo - RJ, 28930-000", "Rua Carlos Aguiar, 2 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Rua Miguel Ângelo, 3 - Praia Grande, Arraial do Cabo - RJ, 28390-000", "Rua Epitácio Pessoa, 8 - Praia Grande, Arraial do Cabo - RJ, 28930-000", "Rua Santa Cruz, 4 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Rua Santa Cruz, 50 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Rua Gonçalves Dias, 02 - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Pier 3 Marina dos Pescadores - Praia dos Anjos, Arraial do Cabo - RJ, 28930-000", "Cais de Arraial do Cabo, Arraial do Cabo - RJ, 28930-000"].sample , user: User.all.sample)
+  Company.create(cnpj: %w(50.260.485/0001-20 41.017.941/0001-15 15.433.887/0001-89 56.139.931/0001-20 20.809.660/0001-25 42.077.071/0001-32).sample, name: Faker::Cannabis.brand, address: ["Rua Vera Cruz 56, Arraial do Cabo", "Rua Édna Teixeira de Mello Fialho 18, Arraial do Cabo", "Rua Gonçalves Dias 46, Arraial do Cabo", "Rua Cediel Gomes Marinho 49, Arraial do Cabo", "Rua Carlos Aguiar 2, Arraial do Cabo", "Rua Miguel Ângelo 3, Arraial do Cabo", "Rua Epitácio Pessoa 8, Arraial do Cabo",  "Rua Santa Cruz 4, Arraial do Cabo", "Rua Santa Cruz 50, Arraial do Cabo", "Rua Gonçalves Dias 02, Arraial do Cabo"].sample , user: User.all.sample)
+  sleep 5
 end
 
 puts "#{Company.count} companies created!"
