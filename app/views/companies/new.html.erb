@@ -1,6 +1,11 @@
-<h1>Create a Company!</h1>
-<%= simple_form_for(@company) do |f| %> 
-    <%= f.input :name %> 
-    <%= f.input :cnpj %>
-    <%= f.submit %> 
-<% end %>
+<div class="container">
+  <h1>It will be a pleasure to have you as part of our Portal!</h1>
+  <div class="mt-5 d-flex justify-content-center flex-column col-8">
+    <%= simple_form_for(@company) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :cnpj %>
+        <%= f.input :address %>
+        <%= f.submit class: "btn btn-primary mt-3 mb-5" %>
+    <% end %>
+  </div>
+</div>
