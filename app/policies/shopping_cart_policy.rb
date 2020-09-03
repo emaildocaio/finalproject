@@ -5,7 +5,11 @@ class ShoppingCartPolicy < ApplicationPolicy
     end
   end
 
-  def show?
+  def index?
+    record.user == user
+  end
+
+  def pay?
     record.user == user
   end
 end

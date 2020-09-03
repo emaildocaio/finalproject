@@ -1,7 +1,0 @@
-<h1>Shopping Cart</h1>
-<ul>
-  <% @shopping_cart.bookings.each do |booking| %>
-  <li> 1x <%= booking.product.name %>, R$ <%= booking.product.price %></li>
-  <% end %>
-  <li> Total: R$ <%= total_price(@shopping_cart) %> </li>
-</ul>

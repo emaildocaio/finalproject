@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :bookings, only: %i[new create]
   end
-  resources :shopping_carts, only: %i[show]
+  resources :shopping_carts, only: %i[index]
+  get '/shopping_carts/:id/pay', to: 'shopping_carts#pay', as: 'pay_shopping_cart'
   get '/myproducts', to: 'products#my_index'
 end
