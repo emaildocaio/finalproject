@@ -9,7 +9,7 @@ require 'open-uri'
 #   Character.create(name: 'Luke', movie: movies.first)
 Booking.destroy_all
 # ShoppingCart.destroy_all
-# Product.destroy_all
+Product.destroy_all
 Company.destroy_all
 User.destroy_all
 
@@ -26,7 +26,8 @@ puts "#{User.count} users created!"
 puts "Starting creating companies..."
 
 10.times do
-  Company.create(cnpj: %w(50.260.485/0001-20 41.017.941/0001-15 15.433.887/0001-89 56.139.931/0001-20 20.809.660/0001-25 42.077.071/0001-32).sample, name: Faker::Cannabis.brand, user: User.all.sample)
+  Company.create(cnpj: %w(50.260.485/0001-20 41.017.941/0001-15 15.433.887/0001-89 56.139.931/0001-20 20.809.660/0001-25 42.077.071/0001-32).sample, name: Faker::Cannabis.brand, address: ["Rua Vera Cruz 56, Arraial do Cabo", "Rua Édna Teixeira de Mello Fialho 18, Arraial do Cabo", "Rua Gonçalves Dias 46, Arraial do Cabo", "Rua Cediel Gomes Marinho 49, Arraial do Cabo", "Rua Carlos Aguiar 2, Arraial do Cabo", "Rua Miguel Ângelo 3, Arraial do Cabo", "Rua Epitácio Pessoa 8, Arraial do Cabo",  "Rua Santa Cruz 4, Arraial do Cabo", "Rua Santa Cruz 50, Arraial do Cabo", "Rua Gonçalves Dias 02, Arraial do Cabo"].sample , user: User.all.sample)
+  sleep 5
 end
 
 puts "#{Company.count} companies created!"
@@ -34,7 +35,7 @@ puts "#{Company.count} companies created!"
 puts "Starting creating products..."
 
 15.times do
-p = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, description: Faker::Lorem.sentence(word_count: 25, supplemental: true), company: Company.all.sample)
 file = open('https://mlrb7kr4x4r6.i.optimole.com/bWhSOyY-ZOG8NdXj/w:900/h:500/q:auto/https://www.baumhedlundlaw.com/wp-content/uploads/2019/09/Dive-Boat-Channel-Islands-img.jpg')
 p.photo.attach(io: file, filename: 'boat.jpg')
 end

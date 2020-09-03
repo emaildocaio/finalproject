@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :avatar
   has_many :shopping_carts, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -6,4 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :company, dependent: :destroy
   has_many :products, through: :companies
+  
 end
