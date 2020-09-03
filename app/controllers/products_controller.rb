@@ -4,8 +4,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @products = Product.all
-    
+    @products = Product.where(status: true)
     @companies = Company.all
     @markers = @companies.geocoded.map do |company|
       {
@@ -16,7 +15,6 @@ class ProductsController < ApplicationController
     end
 
     @products = @products.where(activity: params[:activity]) if params[:activity].present?
-
   end
 
   def show
@@ -56,8 +54,9 @@ class ProductsController < ApplicationController
 
   def destroy
     authorize @product
+    @company = @product.company
     @product.destroy
-    redirect_to myproducts_path
+    redirect_to company_path(@company.id)
   end
 
   def my_index
