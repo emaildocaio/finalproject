@@ -5,7 +5,7 @@
     R$ <%= booking.product.price %>,
     on <%= booking.date %></li>
   <% end %>
-  <li> Total: R$ <%= total_price(@shopping_cart) %> </li>
+  <li> Total: R$ <%= @shopping_cart.calc_total_price %> </li>
 </ul>
 
 <%= link_to "Pay", pay_shopping_cart_path(@shopping_cart.id), class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>

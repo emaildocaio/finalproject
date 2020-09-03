@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     authorize @booking
-    @shopping_cart = helpers.select_shopping_cart
+    @shopping_cart = ShoppingCart.select(current_user)
     @booking.shopping_cart = @shopping_cart
     @booking.product = Product.find(params[:product_id])
     if @booking.save
