@@ -56,8 +56,9 @@ class ProductsController < ApplicationController
 
   def destroy
     authorize @product
+    @company = @product.company
     @product.destroy
-    redirect_to myproducts_path
+    redirect_to company_path(@company.id)
   end
 
   def my_index
