@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(../assets/background-1.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url("background-1.jpg") %>);">
   <div class="container">
     <h1>Visite Arraial do Cabo!</h1>
     <p>Come and explore the best of the Brazilian Carib!.</p>
@@ -10,14 +10,14 @@
     <h2 class="whattodo">How do you want to enjoy the paradise?</h2>
       <div class="cards justify-content-center">
 
-        <%= link_to products_path(activity: 'day trip') do %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/barco-novo.jpg)">
+        <%= link_to products_path(activity: 'Day Trip') do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_url("barco-novo.jpg") %>) ">
             Day Trip
           </div>
         <% end %>
 
-        <%= link_to products_path(activity: 'dive') do %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/acqua-world.jpg)">
+        <%= link_to products_path(activity: 'Dive') do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_url("acqua-world.jpg") %>)">
             Dive
           </div>
         <% end %>
