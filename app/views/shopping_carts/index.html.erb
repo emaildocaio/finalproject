@@ -1,3 +1,4 @@
+<div class='container'>
 <h1>Your shopping cart</h1>
 <ul>
   <% @shopping_cart.bookings.each do |booking| %>
@@ -9,3 +10,4 @@
 </ul>
 
 <%= link_to "Pay", pay_shopping_cart_path(@shopping_cart.id), class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
+</div>
