@@ -1,4 +1,7 @@
-<%= simple_form_for [@product, @booking] do |f| %>
-  <%= f.input :date %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+
+  <%= simple_form_for [@product, @booking] do |f| %>
+    <%= f.input :date, label: "Choose a date to have fun!" %>
+    <%= f.submit %>
+  <% end %>
+</div>

@@ -1,3 +1,5 @@
+<div class='container'>
+
 <h1>You order history (HAVE FUN FRONTEND GUYS)</h2>
 
 <h3>Completed</h3>
@@ -16,9 +18,11 @@
   <p> Order number <%= shopping_cart.id %> </p>
   <% shopping_cart.bookings.each do |booking| %>
     <li> 1x <%= booking.product.name %>,
+
     R$ <%= booking.product.price %>,
     made on <%= booking.updated_at %></li>
   <% end %>
   <br>
 <% end %>
+</div>
 
