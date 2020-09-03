@@ -1,15 +1,18 @@
-<div class='container'>
-<h1>Welcome! </h1>
-<p><%= @company.name %> </p>
-<p><%="This company belongs to #{@company.user.first_name}"%></p>
-<p><%= "My tours:" %> </p>
-<p><% companies = @company.products %></p>
-<ul>
-<% companies.each do |product|  %>
-    <li>
-        <%= link_to product.name, product_path(product.id) %>
-    </li>
-<% end %>
-</ul>
-<%= link_to 'Register a new activity', new_product_path, :class => "btn btn-primary" %> 
+<div class="container">
+  <div>
+    <h1>Welcome <%= current_user.first_name %>! </h1>
+    <p>This is what you have registered with us!</p>
+    <p>Company: <strong><%= @company.name %></strong> </p>
+    <p><%="This company belongs to #{@company.user.first_name}"%></p>
+    <p><%= "My tours:" %> </p>
+    <p><% companies = @company.products %></p>
+    <ul>
+    <% companies.each do |product|  %>
+        <li>
+            <%= link_to product.name, product_path(product.id) %>
+        </li>
+    <% end %>
+    </ul>
+    <%= link_to 'Register a new activity', new_product_path, :class => "btn btn-primary mb-5" %>
+  </div>
 </div>

@@ -1,0 +1,11 @@
+<h1>Your shopping cart</h1>
+<ul>
+  <% @shopping_cart.bookings.each do |booking| %>
+  <li> 1x <%= booking.product.name %>,
+    R$ <%= booking.product.price %>,
+    on <%= booking.date %></li>
+  <% end %>
+  <li> Total: R$ <%= total_price(@shopping_cart) %> </li>
+</ul>
+
+<%= link_to "Pay", pay_shopping_cart_path(@shopping_cart.id), class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
