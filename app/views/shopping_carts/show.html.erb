@@ -8,4 +8,4 @@
   <li> Total: R$ <%= @shopping_cart.calc_total_price %> </li>
 </ul>
 
-<%= link_to "Pay", pay_shopping_cart_path(@shopping_cart.id), class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
+<%= link_to "Pay", pay_shopping_cart_path, class: "btn btn-primary", method: :patch unless @shopping_cart.bookings.empty?%>

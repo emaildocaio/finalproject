@@ -12,4 +12,8 @@ class ShoppingCartPolicy < ApplicationPolicy
   def pay?
     record.user == user
   end
+
+  def show?
+    record.user == user
+  end
 end

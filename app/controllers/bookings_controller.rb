@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.shopping_cart = @shopping_cart
     @booking.product = Product.find(params[:product_id])
     if @booking.save
-      redirect_to shopping_carts_path
+      redirect_to current_shopping_cart_path
     else
       render :new
     end
