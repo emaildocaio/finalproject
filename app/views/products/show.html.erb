@@ -2,7 +2,9 @@
     <div class="row">
       <div class="galeria">
         <div id="image-main">
+        <% if @product.photo.attached?%>
           <%= cl_image_tag @product.photo.key%>
+        <% end %>
         </div>
         <div id="image-sec">
           <%= image_tag("melhor.jpg")%>
