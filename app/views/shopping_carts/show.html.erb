@@ -11,3 +11,4 @@
 </ul>
 
 <%= link_to "Pay", pay_shopping_cart_path, class: "btn btn-primary", method: :patch unless @shopping_cart.bookings.empty?%>
+<%= link_to "Booking history", shopping_carts_path, class: "btn btn-primary" %>

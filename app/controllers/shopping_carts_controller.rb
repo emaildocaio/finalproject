@@ -2,8 +2,8 @@ class ShoppingCartsController < ApplicationController
   before_action :select_shopping_cart, only: %i[show pay]
 
   def index
-    @shopping_cart = ShoppingCart.select(current_user)
-    authorize @shopping_cart
+    @pay_shopping_carts = policy_scope(ShoppingCart).where(status: 'pago')
+    @cancel_shopping_carts = policy_scope(ShoppingCart).where(status: 'cancelado')
   end
 
   def show

@@ -1,0 +1,24 @@
+<h1>You order history (HAVE FUN FRONTEND GUYS)</h2>
+
+<h3>Completed</h3>
+<% @pay_shopping_carts.each do |shopping_cart| %>
+  <p> Order number <%= shopping_cart.id %> </p>
+  <% shopping_cart.bookings.each do |booking| %>
+    <li> 1x <%= booking.product.name %>,
+    R$ <%= booking.product.price %>,
+    made on <%= booking.updated_at %></li>
+  <% end %>
+  <br>
+<% end %>
+
+<h3>Cancelled</h3>
+<% @cancel_shopping_carts.each do |shopping_cart| %>
+  <p> Order number <%= shopping_cart.id %> </p>
+  <% shopping_cart.bookings.each do |booking| %>
+    <li> 1x <%= booking.product.name %>,
+    R$ <%= booking.product.price %>,
+    made on <%= booking.updated_at %></li>
+  <% end %>
+  <br>
+<% end %>
+
