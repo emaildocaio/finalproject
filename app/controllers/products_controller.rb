@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    
+
     @companies = Company.all
     @markers = @companies.geocoded.map do |company|
       {
@@ -16,7 +16,6 @@ class ProductsController < ApplicationController
     end
 
     @products = @products.where(activity: params[:activity]) if params[:activity].present?
-
   end
 
   def show
