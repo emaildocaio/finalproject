@@ -6,7 +6,7 @@
         <ul>
           <li>
             <div class="card-product mt-3">
-              <%= image_tag("juan.jpg")%>
+              <%= cl_image_tag product.photo.key%>
               <div class="card-product-infos">
                 <%= link_to product_path(product) do %>
                   <h2> <%= product.name %> </h2>
@@ -19,17 +19,11 @@
         </ul>
       <% end %>
     </div>
-    <div>
-      <div id='map' class="sticky mt-3"></div>
-      <script>
-      mapboxgl.accessToken = 'pk.eyJ1IjoiY2Fpb2ZhcmlhcyIsImEiOiJja2VrbHRjN3owNXplMnJuNjdmYXFmMHR6In0.qtqKH-mGlwFYEBBuBkQYNw';
-      var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-      center: [-42.0473204, -22.9646732], // starting position [lng, lat]
-      zoom: 11 // starting zoom
-      });
-      </script>
+      <div id='map' class="sticky mt-3"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key= "<%= ENV['MAPBOX_API_KEY'] %> "> 
     </div>
   </div>
 </div>
+
+     

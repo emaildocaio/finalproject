@@ -2,7 +2,7 @@
     <div class="row">
       <div class="galeria">
         <div id="image-main">
-          <%= image_tag("melhor.jpg")%>
+          <%= cl_image_tag @product.photo.key%>
         </div>
         <div id="image-sec">
           <%= image_tag("melhor.jpg")%>
@@ -15,16 +15,9 @@
   <h1 class="product-title mt-3"><%= @product.name %></h1>
   <p><%= "A #{@product.activity} brought to you by #{@product.company.name}" %></p>
   <div>
-    <p>Investimos na qualidade de atendimento e em novas tecnologias; prestar assessoria
-    personalizada em viagens corporativas/eventos e lazer; fazer da sua viagem a melhor.
-    Contamos com uma equipe de profissionais pronta para organizar todos os detalhes de uma
-    viagem, toda a estrutura necessária, sempre em sintonia com sua empresa. Sua melhor
-    experiência de lazer! ♥</p>
+    <p><%= @product.description %></p>
   </div>
-
-    <%= link_to 'Edit product information', edit_product_path, :class => "btn btn-primary" %>
-    <%= link_to 'Book it!', new_product_booking_path(@product.id), :class => "btn btn-primary" unless product_user_check(@product) %>
-
+    <%= link_to 'Book now!', new_product_booking_path(@product.id), :class => "btn btn-primary" unless product_user_check(@product) %>
     <%# render(:partial => "products/booking_form") unless product_user_check(@product) %>
-
+    <%# link_to 'Edit product information', edit_product_path, :class => "btn btn-primary" %>
 </div>

@@ -1,4 +1,5 @@
 require 'faker'
+require 'open-uri'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -8,8 +9,8 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 Booking.destroy_all
 # ShoppingCart.destroy_all
-# Product.destroy_all
-# Company.destroy_all
+Product.destroy_all
+Company.destroy_all
 User.destroy_all
 
 
@@ -25,7 +26,7 @@ puts "#{User.count} users created!"
 puts "Starting creating companies..."
 
 10.times do
-  Company.create(cnpj: %w(50.260.485/0001-20 41.017.941/0001-15 15.433.887/0001-89 56.139.931/0001-20 20.809.660/0001-25 42.077.071/0001-32).sample, name: Faker::Cannabis.brand, user: User.all.sample)
+  Company.create(cnpj: %w(50.260.485/0001-20 41.017.941/0001-15 15.433.887/0001-89 56.139.931/0001-20 20.809.660/0001-25 42.077.071/0001-32).sample, name: Faker::Cannabis.brand, user: User.all.sample, address: "Rua Duque de Caxias, 21 - Arraial do Cabo")
 end
 
 puts "#{Company.count} companies created!"
@@ -33,7 +34,9 @@ puts "#{Company.count} companies created!"
 puts "Starting creating products..."
 
 15.times do
-  Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["day trip", "dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample)
+p = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+file = open('https://mlrb7kr4x4r6.i.optimole.com/bWhSOyY-ZOG8NdXj/w:900/h:500/q:auto/https://www.baumhedlundlaw.com/wp-content/uploads/2019/09/Dive-Boat-Channel-Islands-img.jpg')
+p.photo.attach(io: file, filename: 'boat.jpg')
 end
 
 puts "#{Product.count} products created!"

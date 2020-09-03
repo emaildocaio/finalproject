@@ -5,6 +5,18 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    
+    @companies = Company.all
+    @markers = @companies.geocoded.map do |company|
+      {
+        lat: company.latitude,
+        lng: company.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { company: company })
+      }
+    end
+
+    @products = @products.where(activity: params[:activity]) if params[:activity].present?
+
   end
 
   def show
@@ -59,6 +71,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :price, :activity, :capacity, :status)
+    params.require(:product).permit(:name, :price, :activity, :capacity, :status, :photo, :description)
   end
 end
