@@ -1,8 +1,8 @@
-<h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
+<div class="container mt-3">
+<h1>Hello, <%= current_user.first_name %>!</h1>
+<p>Do you really want to edit your product? Go ahead!></p>
 
-<div class="container">
-  <div class="row">
+  <div class="mt-5 d-flex justify-content-center flex-column col-8">
     <%= simple_form_for(@product) do |f| %>
       <%= f.input :name %>
       <%= f.input :price %>
@@ -11,7 +11,7 @@
       <%= f.input :photo, as: :file %>
       <%= f.input :description %>
       <%= f.input :status, label: 'Active' %>
-      <%= f.submit %>
+      <%= f.submit class: "btn btn-primary mb-5" %>
     <% end %>
   </div>
 </div>
