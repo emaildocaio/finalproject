@@ -4,9 +4,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :companies
   resources :products do
-    resources :bookings, only: %i[new create]
+    resources :bookings, only: %i[create]
   end
   resources :shopping_carts, only: %i[index]
-  get '/shopping_carts/:id/pay', to: 'shopping_carts#pay', as: 'pay_shopping_cart'
+  resources :bookings, only: %i[edit update destroy]
+
+  # Shopping cart custom routes
+  get 'shopping_carts/current', to: 'shopping_carts#show', as: 'current_shopping_cart'
+  patch '/shopping_carts/', to: 'shopping_carts#pay', as: 'pay_shopping_cart'
+
   get '/myproducts', to: 'products#my_index'
 end

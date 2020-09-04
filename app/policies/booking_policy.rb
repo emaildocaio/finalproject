@@ -5,11 +5,19 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
-  def new?
+  def create?
     true
   end
 
-  def create?
-    true
+  def destroy?
+    record.shopping_cart.user == user
+  end
+
+  def edit?
+    destroy?
+  end
+
+  def update?
+    edit?
   end
 end
