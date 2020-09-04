@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    params[:booking][:count].to_i
     @booking = Booking.new(booking_params)
     authorize @booking
     @shopping_cart = ShoppingCart.select(current_user)
@@ -44,6 +45,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date)
+    params.require(:booking).permit(:date, :count)
   end
 end
