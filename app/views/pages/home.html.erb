@@ -1,8 +1,56 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url("background-1.jpg") %>);">
   <div class="container">
     <h1>Visite Arraial do Cabo!</h1>
-    <p>Come and explore the best of the Brazilian Carib!.</p>
+    <p>Come and explore the best of the Brazilian Caribbean!.</p>
     <p>#visitearraialdocabo</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="top-products"> 
+    <h2 class="mt-5">Top trips</h2>
+    <div class="d-flex mb-5">
+    
+    <%= link_to product_path(@products.first.id) do %>
+      <div class="card-trip mr-2">
+        <%= cl_image_tag @products.first.photo.key%>
+         <div class="card-trip-infos">
+          <div>
+            <h2><%= "#{@products.first.name} - #{@products.first.activity}" %></h2>
+            <p><%= @products.first.description.truncate(100) %></p>
+          </div>
+            <h2 class="card-trip-pricing"><%="R$ #{@products.first.price}" %></h2>
+          </div>
+      </div>
+    <% end %>
+
+    <%= link_to product_path(@products.second.id) do %>
+      <div class="card-trip ml-2 mr-2">
+        <%= cl_image_tag @products.second.photo.key%>
+         <div class="card-trip-infos">
+          <div>
+            <h2><%= "#{@products.second.name} - #{@products.second.activity}" %></h2>
+            <p><%= @products.second.description.truncate(100) %></p>
+          </div>
+            <h2 class="card-trip-pricing ml-1" ><%="R$ #{@products.second.price}" %></h2>
+          </div>
+      </div>
+    <%end%>
+
+    <%= link_to product_path(@products.third.id) do %>
+      <div class="card-trip ml-2">
+        <%= cl_image_tag @products.third.photo.key%>
+         <div class="card-trip-infos">
+          <div>
+            <h2><%= "#{@products.third.name} - #{@products.third.activity}" %></h2>
+            <p><%= @products.third.description.truncate(100) %></p>
+          </div>
+            <h2 class="card-trip-pricing"><%="R$ #{@products.third.price}" %></h2>
+          </div>
+      </div>
+    <%end%>
+
+    </div>
   </div>
 </div>
 
