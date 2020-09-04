@@ -7,7 +7,7 @@
   <p> Order number <%= shopping_cart.id %> </p>
   <% shopping_cart.bookings.each do |booking| %>
     <li> 1x <%= booking.product.name %>,
-    R$ <%= booking.product.price %>,
+    R$ <%= booking.product.price * booking.participants %> for <%= "#{booking.participants} people" %>,
     made on <%= booking.updated_at %></li>
   <% end %>
   <br>
@@ -19,7 +19,7 @@
   <% shopping_cart.bookings.each do |booking| %>
     <li> 1x <%= booking.product.name %>,
 
-    R$ <%= booking.product.price %>,
+    R$ <%= booking.product.price * booking.participants %>,
     made on <%= booking.updated_at %></li>
   <% end %>
   <br>

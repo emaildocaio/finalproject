@@ -21,7 +21,6 @@
     <p><strong>Description:</strong></p>
     <p><%= @product.description %></p>
   </div>
-    <%= link_to 'Book now!', new_product_booking_path(@product.id), :class => "btn btn-primary" unless product_user_check(@product) %>
-    <%# render(:partial => "products/booking_form") unless product_user_check(@product) %>
-    <%# link_to 'Edit product information', edit_product_path, :class => "btn btn-primary" %>
+    <%= link_to 'Login or register to book', new_user_session_path, :class => "btn btn-primary" unless user_signed_in? %>
+    <%= render(:partial => "products/booking_form") unless product_user_check(@product) || !user_signed_in? %>
 </div>
