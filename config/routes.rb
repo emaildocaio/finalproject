@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :companies
   resources :products do
-    resources :bookings, only: %i[new create]
+    resources :bookings, only: %i[create]
   end
   resources :shopping_carts, only: %i[index]
   resources :bookings, only: %i[edit update destroy]

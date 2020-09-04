@@ -2,7 +2,7 @@
 <%= simple_form_for [@product, @booking] do |f| %>
     <div class="header">
       <div class="header-row">
-      <div class="big-bold" id="price" data-amount-cents="15000"><%= "R$ #{@product.price}" %></div>
+      <div class="big-bold" id="price">R$ <span id="product-price"> <%= @product.price %></span></div>
       <div class="small-light"> / PARTICIPANT</div>
     </div>
     <%= f.input :date, label: "Choose a date to have fun!" %>
@@ -15,9 +15,12 @@
       </div>
     </div>
     <div class="header-row">
-      <div class="big-bold" id="price" data-amount-cents="15000"><%= "Total R$ #{@product.price}" %></div>
+      <div class="big-bold" id="price-input"><%= "Total R$ #{@product.price}" %></div>
     </div>
+    <%= f.input :participants, :as => :hidden, :input_html => {:value => 1} %>
     <%= f.submit %>
 <% end %>
 </div>
+
+<%= javascript_pack_tag 'booking_form' %>
 
