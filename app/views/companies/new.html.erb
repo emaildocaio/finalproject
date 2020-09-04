@@ -4,7 +4,7 @@
     <%= simple_form_for(@company) do |f| %>
         <%= f.input :name %>
         <%= f.input :cnpj %>
-        <%= f.input :address %>
+        <%= f.input :address, input_html: { id: 'address-new-company' } %>
         <%= f.submit class: "btn btn-primary mt-3 mb-5" %>
     <% end %>
   </div>

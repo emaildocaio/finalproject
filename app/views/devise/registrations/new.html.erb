@@ -24,7 +24,7 @@
     <%= f.input :document,
                 required: true %>
     <%= f.input :address,
-                required: true %>
+                required: true, input_html: { id: 'address-new-company' } %>
     <%= f.input :phone,
                 required: true %>
     <%= f.input :avatar, as: :file %>
