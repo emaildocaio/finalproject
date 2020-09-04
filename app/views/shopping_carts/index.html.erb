@@ -1,28 +1,41 @@
 <div class='container'>
+<h1>You order history</h2>
+<h3><strong>Completed</strong></h3>
+ <div class="card-product-index">
+  <i class="far fa-check-circle"></i>
+  <%# <img src="https://i.pinimg.com/originals/f2/c4/c7/f2c4c70c31d250f920f3c9f0f6804a5a.jpg" /> %>
+    <div class='card-product-infos-index'>
+      <ul>
+        <% @pay_shopping_carts.each do |shopping_cart| %>
+          <p> Order number <%= shopping_cart.id %> </p>
+            <% shopping_cart.bookings.each do |booking| %>
+            <li> 1x <%= booking.product.name %>,
+              R$ <%= booking.product.price * booking.participants %> for <%= "#{booking.participants} people" %>,
+              made on <%= booking.updated_at %></li>
+            <% end %>
+          <br>
+        <% end %>
+      </ul>
+    </div>
+</div>
+<p></p>
+<p></p>
+<h3><strong> Cancelled </strong></h3>
+<div class="card-product-index">
+  <i class="far fa-window-close" ></i>
+  <%# <img src="https://i.pinimg.com/originals/72/1f/e5/721fe5125e96eac682be7facba57a5ec.png" /> %>
+    <div class='card-product-infos-index'>
+      <% @cancel_shopping_carts.each do |shopping_cart| %>
+      <p> Order number <%= shopping_cart.id %> </p>
+      <% shopping_cart.bookings.each do |booking| %>
+      <li> 1x <%= booking.product.name %>,
 
-<h1>You order history (HAVE FUN FRONTEND GUYS)</h2>
-
-<h3>Completed</h3>
-<% @pay_shopping_carts.each do |shopping_cart| %>
-  <p> Order number <%= shopping_cart.id %> </p>
-  <% shopping_cart.bookings.each do |booking| %>
-    <li> 1x <%= booking.product.name %>,
-    R$ <%= booking.product.price * booking.participants %> for <%= "#{booking.participants} people" %>,
-    made on <%= booking.updated_at %></li>
+      R$ <%= booking.product.price * booking.participants %>,
+      made on <%= booking.updated_at %></li>
+    <% end %>
+     <br>
   <% end %>
-  <br>
-<% end %>
-
-<h3>Cancelled</h3>
-<% @cancel_shopping_carts.each do |shopping_cart| %>
-  <p> Order number <%= shopping_cart.id %> </p>
-  <% shopping_cart.bookings.each do |booking| %>
-    <li> 1x <%= booking.product.name %>,
-
-    R$ <%= booking.product.price * booking.participants %>,
-    made on <%= booking.updated_at %></li>
-  <% end %>
-  <br>
-<% end %>
+    </div>
+  </div>
 </div>
 

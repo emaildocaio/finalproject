@@ -5,11 +5,8 @@ class BookingsController < ApplicationController
     @shopping_cart = ShoppingCart.select(current_user)
     @booking.shopping_cart = @shopping_cart
     @booking.product = Product.find(params[:product_id])
-    if @booking.save
-      redirect_to current_shopping_cart_path
-    else
-      render :new
-    end
+    @booking.save
+    # redirect_to product_path(params[:product_id], anchor: "footer")
   end
 
   def edit
