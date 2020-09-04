@@ -17,7 +17,7 @@
     <div class="header-row">
       <div class="big-bold" id="price-input" data-amount-cents="15000"><%= "Total R$ #{@product.price}" %></div>
     </div>
-    <%= f.input :count, :as => :hidden, :input_html => {:value => 1} %>
+    <%= f.input :participants, :as => :hidden, :input_html => {:value => 1} %>
     <%= f.submit %>
 <% end %>
 </div>
