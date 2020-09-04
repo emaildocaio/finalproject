@@ -57,6 +57,27 @@
   padding: 3px
 }
 
+.fade-out {
+  animation: fade 0.5s;
+  -webkit-animation: fade 0.5s;
+  -moz-animation: fade 0.5s;
+}
+
+/* Fade opacity */
+@keyframes fade {
+  from { opacity: 1 }
+  to { opacity: 0 }
+}
+@-moz-keyframes fade {
+  from { opacity: 1 }
+  to { opacity: 0 }
+}
+@-webkit-keyframes fade {
+  from { opacity: 1 }
+  to { opacity: 0 }
+}
+
+
 // .btn-primary {
 //   background-color: #FF5A5F;
 //   padding: 16px 24px;

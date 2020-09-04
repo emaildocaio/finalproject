@@ -1,0 +1,11 @@
+bookedBtn = "<%= j link_to 'See your cart 🛒', current_shopping_cart_path, class: 'btn btn-primary align-self-center' %>";
+container = document.querySelector('.form-container');
+headerDiv = `<div class="header-row">Booking complete!</div>`;
+form = document.getElementById('new_booking');
+form.classList.add('fade-out');
+form.onanimationend = (element) => {
+  form.remove();
+  container.insertAdjacentHTML("afterbegin", headerDiv);
+  container.classList.add("d-flex");
+  container.insertAdjacentHTML("beforeend", bookedBtn);
+};
