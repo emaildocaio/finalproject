@@ -1,6 +1,5 @@
 class CompaniesController < ApplicationController
   def new
-    
     @company = Company.new
     authorize @company
   end
@@ -9,7 +8,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(strong_params)
     authorize @company
     @company.user = current_user
-      if @company.save 
+      if @company.save
         redirect_to company_path(@company.id)
       else
         render :new
@@ -24,6 +23,6 @@ class CompaniesController < ApplicationController
   private
 
   def strong_params
-  params.require(:company).permit(:name, :cnpj)
+    params.require(:company).permit(:name, :cnpj)
   end
 end

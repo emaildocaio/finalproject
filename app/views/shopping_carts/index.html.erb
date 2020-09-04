@@ -1,11 +1,28 @@
-<h1>Your shopping cart</h1>
-<ul>
-  <% @shopping_cart.bookings.each do |booking| %>
-  <li> 1x <%= booking.product.name %>,
-    R$ <%= booking.product.price %>,
-    on <%= booking.date %></li>
-  <% end %>
-  <li> Total: R$ <%= total_price(@shopping_cart) %> </li>
-</ul>
+<div class='container'>
 
-<%= link_to "Pay", pay_shopping_cart_path(@shopping_cart.id), class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
+<h1>You order history (HAVE FUN FRONTEND GUYS)</h2>
+
+<h3>Completed</h3>
+<% @pay_shopping_carts.each do |shopping_cart| %>
+  <p> Order number <%= shopping_cart.id %> </p>
+  <% shopping_cart.bookings.each do |booking| %>
+    <li> 1x <%= booking.product.name %>,
+    R$ <%= booking.product.price %>,
+    made on <%= booking.updated_at %></li>
+  <% end %>
+  <br>
+<% end %>
+
+<h3>Cancelled</h3>
+<% @cancel_shopping_carts.each do |shopping_cart| %>
+  <p> Order number <%= shopping_cart.id %> </p>
+  <% shopping_cart.bookings.each do |booking| %>
+    <li> 1x <%= booking.product.name %>,
+
+    R$ <%= booking.product.price %>,
+    made on <%= booking.updated_at %></li>
+  <% end %>
+  <br>
+<% end %>
+</div>
+
