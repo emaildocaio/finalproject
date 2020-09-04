@@ -1,10 +1,4 @@
 class BookingsController < ApplicationController
-  def new
-    @booking = Booking.new
-    authorize @booking
-    @product = Product.find(params[:product_id])
-  end
-
   def create
     @booking = Booking.new(booking_params)
     authorize @booking
@@ -44,6 +38,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date)
+    params.require(:booking).permit(:date, :participants)
   end
 end

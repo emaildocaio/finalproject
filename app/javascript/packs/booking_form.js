@@ -1,15 +1,17 @@
 const minusBtn = document.querySelector('.minus');
 const plusBtn = document.querySelector('.actions a:last-child');
+const bookingCount = document.getElementById('booking_participants');
 
 const updateValues = (counterN) => {
-  document.getElementById('price-input').value = (counterN * 150) * 100;
-  const price = counterN * 150;
-  document.getElementById('submit').value = `Pay ${priceEuros}€`;
+  const span_price_element = document.getElementById('product-price')
+  const unit_price = parseInt(span_price_element.innerText, 10)
+  const total_price = counterN * unit_price;
+  document.getElementById('price-input').innerText = `Total R$ ${total_price}`;
 };
 
 const updateMinusBtn = (counterN) => {
   if (counterN > 1) {
-    minusBtn.setAttribute('href', '#');
+    minusBtn.setAttribute('href', 'javascript:void(0)');
   } else minusBtn.removeAttribute('href');
 };
 
@@ -21,6 +23,7 @@ const changeCounter = (event) => {
   counter.innerText = counter.dataset.count;
   updateMinusBtn(counterN);
   updateValues(counterN);
+  bookingCount.value = counterN
 };
 
 plusBtn.addEventListener('click', changeCounter);
@@ -30,4 +33,3 @@ minusBtn.addEventListener('click', (event) => {
     changeCounter(event);
   }
 });
-
