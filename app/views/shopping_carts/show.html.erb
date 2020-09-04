@@ -1,15 +1,34 @@
-<div class='container'>
-<h1>Your shopping cart</h1>
-<ul>
-  <% @shopping_cart.bookings.each do |booking| %>
-  <li> 1x <%= booking.product.name %>,
-    R$ <%= "#{booking.product.price * booking.participants} for #{booking.participants} people" %>,
-    on <%= booking.date %></li>
-    <spam> <%= link_to "Remove from cart", booking_path(booking.id), method: :delete, remote: true %> </spam>
-    <p><%= link_to "Reschedule", edit_booking_path(booking.id) %> </p>
-  <% end %>
-  <li> Total: R$ <%= @shopping_cart.calc_total_price %> </li>
-</ul>
-<%= link_to "Pay", pay_shopping_cart_path, class: "btn btn-primary", method: :patch unless @shopping_cart.bookings.empty?%>
-<%= link_to "Booking history", shopping_carts_path, class: "btn btn-primary" %>
+<div class="container">
+  <h1>Your shopping cart</h1>
+
+<div>
+  <ul>
+    <% @shopping_cart.bookings.each do |booking| %>
+      <li>
+      <div class="row d-flex card-product mt-3 mb-3">
+          <div class="d-flex ml-5">
+            <%= image_tag(booking.product.photo) %>
+            <div class="ml-3">
+              <h4>You selected the <%= booking.product.name %> tour:</h4>
+              <p> R$ <%= "#{booking.product.price * booking.participants} for #{booking.participants} people" %>
+              on <%= booking.date %> </p>
+            </div>
+          </div>
+          <div class="row d-flex">
+            <div class="ml-5">
+              <p><%= link_to "Reschedule", edit_booking_path(booking.id) %> <i class="fas fa-calendar"></i> </p>
+              <p> <%= link_to "Remove from cart", booking_path(booking.id), method: :delete, remote: true %> <i class="fas fa-trash-alt"></i> </p>
+            </div>
+            <div class="ml-5 justify-content-left">
+              <p> Total: R$ <%= @shopping_cart.calc_total_price %>
+            </div>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <%= link_to "Pay", pay_shopping_cart_path, class: "btn btn-primary", method: :patch unless @shopping_cart.bookings.empty?%>
+  <%= link_to "Booking history", shopping_carts_path, class: "btn btn-primary" %>
 </div>
