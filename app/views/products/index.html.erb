@@ -13,7 +13,8 @@
                 <%= link_to product_path(product) do %>
                   <h2> <%= product.name %> </h2>
                 <% end %>
-                <p>Venha conhecer o nosso <strong> <%= product.activity %></strong>.</p>
+                <p>Come enyor our <strong> <%= product.activity %></strong>.</p>
+                <p>Offered by <strong> <%= product.company.name %> </strong> </p>
                 <p>R$ <%= product.price %></p>
               </div>
             </div>
