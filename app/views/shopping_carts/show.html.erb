@@ -1,3 +1,4 @@
+<div class='container'>
 <h1>Your shopping cart</h1>
 <ul>
   <% @shopping_cart.bookings.each do |booking| %>
@@ -9,6 +10,6 @@
   <% end %>
   <li> Total: R$ <%= @shopping_cart.calc_total_price %> </li>
 </ul>
-
 <%= link_to "Pay", pay_shopping_cart_path, class: "btn btn-primary", method: :patch unless @shopping_cart.bookings.empty?%>
 <%= link_to "Booking history", shopping_carts_path, class: "btn btn-primary" %>
+</div>
