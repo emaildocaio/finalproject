@@ -17,17 +17,15 @@
     <div class="header-row">
       <div class="big-bold" id="price-input"><%= "Total R$ #{@product.price}" %></div>
     </div>
-
-    <div  id="btn-guest" class="flex-between">
-      <%= f.input :guests, label: 'Guest'%>
-      <%= f.button :button, "+", class: "add-guest" %> 
-      <%= f.button :button do %>
-             <% end %>
+    <div id='guests'>
+    <%= f.simple_fields_for :guests do |guest| %>
+      <%= render 'guest_fields', f: guest %>
+    <%end%>
+    <div class='links'>
+      <%= link_to_add_association 'add guest', f, :guests %>
     </div>
-
-        
-
-
+    </div>
+       
     <%= f.input :participants, :as => :hidden, :input_html => {:value => 1} %>
     <%= f.submit %>
 <% end %>

@@ -79,3 +79,6 @@ gem 'pundit'
 #geocode
 gem 'geocoder'
 
+# cocoon for nested forms
+gem "cocoon"
+
