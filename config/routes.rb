@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :companies
   resources :products do
     resources :bookings, only: %i[create]
+    resources :reviews, only: %i[new create]
   end
   resources :shopping_carts, only: %i[index]
   resources :bookings, only: %i[edit update destroy]
