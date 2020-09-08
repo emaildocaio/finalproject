@@ -7,5 +7,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :company, dependent: :destroy
   has_many :products, through: :companies
-  
+  has_many :guests, through: :bookings
+    
 end
