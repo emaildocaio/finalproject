@@ -3,7 +3,5 @@ class PagesController < ApplicationController
 
   def home
     @products = Product.where(status: true)
-    raise
-
   end
 end

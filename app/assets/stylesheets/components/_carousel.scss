@@ -1,0 +1,49 @@
+.main-carousel {
+  height: 100vh;
+  width: 100%
+}
+
+.carousel {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  margin-top: -16px;
+}
+
+.carousel-inner {
+  height: 100vh;
+   width: 100%
+ }
+
+.item {
+  height: 100%;
+   width: 100%
+ }
+
+.carousel-item img {
+  object-fit: cover;
+}
+
+
+.drk:after {
+    content:"";
+    display:block;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#000;
+    opacity:0.25;
+}
+
+.carousel-control.left {
+    z-index:7;
+}
+.carousel-control.right {
+    z-index:7;
+}
+
+.title h1 {
+}
