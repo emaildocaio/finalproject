@@ -1,6 +1,11 @@
 class ReviewsController < ApplicationController
+  before_action :set_product, only: [:index, :new, :create]
+
+  def index
+    @reviews = @product.reviews
+  end
+
   def new
-    @product = Product.find(params[:product_id])
     @review = Review.new
     @review.product = @product
     authorize @review
@@ -9,7 +14,6 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user = current_user
-    @product = Product.find(params[:product_id])
     @review.product = @product
     authorize @review
     if @review.save
@@ -18,6 +22,12 @@ class ReviewsController < ApplicationController
       flash[:alert] = 'Something went wrong'
       render :new, product: @product
     end
+  end
+
+  private
+
+  def set_product
+    @product = Product.find(params[:product_id])
   end
 
   def review_params

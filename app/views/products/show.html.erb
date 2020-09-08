@@ -19,7 +19,7 @@
       <h1 class="product-title mt-3"><%= @product.name %></h1>
       <p><strong>Description:</strong></p>
       <p><%= @product.description %></p>
-      <p> Rating: <% @product.reviews_average.times do %>
+      <p> <%= link_to 'Rating:', product_reviews_path(@product.id) unless @product.reviews.empty? %> <% @product.reviews_average.times do %>
         <span>🥃</span>
         <% end %>
       </p>
