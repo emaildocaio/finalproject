@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
 
   def show
     authorize @product
+    @review = Review.new
     @booking = Booking.new
   end
 

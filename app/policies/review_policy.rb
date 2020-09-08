@@ -5,11 +5,7 @@ class ReviewPolicy < ApplicationPolicy
     end
   end
 
-  def new?
-    user.company != record.product.company
-  end
-
   def create?
-    new?
+    user.company != record.product.company
   end
 end

@@ -28,7 +28,9 @@
           <i class="far fa-star"></i>
         <% end %>
       </p>
-      <p> <%= link_to 'Leave a review', new_product_review_path(@product.id) %> </p>
+      <br>
+      <h3>Leave a review</h3>
+    <%= render(:partial => "products/review_form") unless @product.is_from_company?(current_user) %>
     </div>
     <%= link_to 'Login or register to book', new_user_session_path, :class => "btn btn-primary align-self-center" unless user_signed_in? %>
     <%= render(:partial => "products/booking_form") unless @product.is_from_company?(current_user) || !user_signed_in? || @product.is_in_shopping_cart?(current_user) %>
