@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
       {
         lat: company.latitude,
         lng: company.longitude,
+        name: company.name,
         infoWindow: render_to_string(partial: "info_window", locals: { company: company })
       }
     end
