@@ -3,4 +3,5 @@ class Booking < ApplicationRecord
   belongs_to :product
   validates :date, presence: true
   validates :participants, numericality: { greater_than_or_equal_to: 1 }
+  has_many :guests, dependent: :destroy
 end

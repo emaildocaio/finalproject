@@ -17,6 +17,17 @@
     <div class="header-row">
       <div class="big-bold" id="price-input"><%= "Total R$ #{@product.price}" %></div>
     </div>
+
+    <div  id="btn-guest" class="flex-between">
+      <%= f.input :guests, label: 'Guest'%>
+      <%= f.button :button, "+", class: "add-guest" %> 
+      <%= f.button :button do %>
+             <% end %>
+    </div>
+
+        
+
+
     <%= f.input :participants, :as => :hidden, :input_html => {:value => 1} %>
     <%= f.submit %>
 <% end %>
