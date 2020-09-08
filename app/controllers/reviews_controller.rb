@@ -11,7 +11,8 @@ class ReviewsController < ApplicationController
     @review.product = @product
     authorize @review
     if @review.save
-      redirect_to product_path(params[:product_id])
+      flash[:alert] = 'Thanks for the review!'
+      redirect_to product_path(params[:product_id], anchor: 'footer')
     else
       flash[:alert] = 'Something went wrong'
       @booking = Booking.new
