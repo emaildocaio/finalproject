@@ -14,7 +14,8 @@ class ReviewsController < ApplicationController
       redirect_to product_path(params[:product_id])
     else
       flash[:alert] = 'Something went wrong'
-      render :new, product: @product
+      @booking = Booking.new
+      render 'products/show', booking: @booking
     end
   end
 
