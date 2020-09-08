@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :company
+  has_many :reviews,  dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :shopping_carts, through: :bookings
   validates :name, :capacity, :price, :activity, :description, presence: true
