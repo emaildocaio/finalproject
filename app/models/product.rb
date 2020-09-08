@@ -25,9 +25,10 @@ class Product < ApplicationRecord
     end
   end
 
-  def reviews_average
+  def review_values
     return 0 if reviews.empty?
-
-    reviews.sum(:rating) / reviews.length
+    values = []
+    values << reviews.sum(:rating) / reviews.length
+    values << 5 - values[0]
   end
 end
