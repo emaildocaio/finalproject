@@ -9,13 +9,14 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user = current_user
-    @review.product = Product.find(params[:product_id])
+    @product = Product.find(params[:product_id])
+    @review.product = @product
     authorize @review
     if @review.save
       redirect_to product_path(params[:product_id])
     else
       flash[:alert] = 'Something went wrong'
-      render :new
+      render :new, product: @product
     end
   end
 
