@@ -2,6 +2,7 @@ const minusBtn = document.querySelector('.minus');
 const plusBtn = document.querySelector('.actions a:last-child');
 const bookingCount = document.getElementById('booking_participants');
 
+
 const updateValues = (counterN) => {
   const span_price_element = document.getElementById('product-price')
   const unit_price = parseInt(span_price_element.innerText, 10)
