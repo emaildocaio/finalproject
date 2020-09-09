@@ -6,7 +6,6 @@ class BookingsController < ApplicationController
     @booking.shopping_cart = @shopping_cart
     @booking.product = Product.find(params[:product_id])
     @booking.save
-    redirect_to product_path(params[:product_id], anchor: "footer")
   end
 
   def edit
