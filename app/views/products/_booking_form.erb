@@ -1,5 +1,5 @@
 <div class="form-container">
-<%= simple_form_for([@product, @booking], remote: true) do |f| %>
+<%= simple_form_for([@product, @booking]) do |f| %>
     <div class="header">
       <div class="header-row">
       <div class="big-bold" id="price">R$ <span id="product-price"> <%= @product.price %></span></div>
