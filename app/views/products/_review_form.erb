@@ -1,0 +1,12 @@
+<div class="container">
+  <h3>Leave a review</h3>
+  <div class="row">
+    <div class="col-6">
+      <%= simple_form_for([@product, @review]) do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating, collection: (1..5) %>
+        <%= f.submit "Submit review" %>
+      <% end %>
+    </div>
+  </div>
+</div>
