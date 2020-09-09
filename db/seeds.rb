@@ -17,8 +17,13 @@ User.destroy_all
 
 puts "Starting creating users..."
 
-50.times do
-  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, document: %w(938.166.070-04 085.377.620-24 204.142.880-50 693.469.990-47 589.247.960-97 179.850.920-21 245.784.060-08 400.757.280-10 146.037.620-03 129.156.930-80).sample, phone: Faker::PhoneNumber.cell_phone, address: Faker::Address.full_address, email: Faker::Internet.email, password: "123456")
+80.times do
+  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+              document: %w(938.166.070-04 085.377.620-24 204.142.880-50 693.469.990-47
+              589.247.960-97 179.850.920-21 245.784.060-08 400.757.280-10 146.037.620-03
+              129.156.930-80).sample, phone: Faker::PhoneNumber.cell_phone,
+              address: Faker::Address.full_address, email: Faker::Internet.email,
+              password: "123456")
 end
 
 puts "#{User.count} users created!"
@@ -26,8 +31,14 @@ puts "#{User.count} users created!"
 puts "Starting creating companies..."
 
 10.times do
-Company.create(cnpj: %w(50.260.485/0001-20 41.017.941/0001-15 15.433.887/0001-89 56.139.931/0001-20 20.809.660/0001-25 42.077.071/0001-32).sample, name: Faker::Cannabis.brand, address: ["Rua Vera Cruz 56, Arraial do Cabo", "Rua Édna Teixeira de Mello Fialho 18, Arraial do Cabo", "Rua Gonçalves Dias 46, Arraial do Cabo", "Rua Cediel Gomes Marinho 49, Arraial do Cabo", "Rua Carlos Aguiar 2, Arraial do Cabo", "Rua Miguel Ângelo 3, Arraial do Cabo", "Rua Epitácio Pessoa 8, Arraial do Cabo",  "Rua Santa Cruz 4, Arraial do Cabo", "Rua Santa Cruz 50, Arraial do Cabo", "Rua Gonçalves Dias 02, Arraial do Cabo"].sample , user: User.all.sample)
-sleep 5
+Company.create(cnpj: %w(50.260.485/0001-20 41.017.941/0001-15 15.433.887/0001-89
+  56.139.931/0001-20 20.809.660/0001-25 42.077.071/0001-32).sample,
+  name: Faker::Cannabis.brand, address: ["Rua Vera Cruz 56, Arraial do Cabo",
+    "Rua Édna Teixeira de Mello Fialho 18, Arraial do Cabo", "Rua Gonçalves Dias 46, Arraial do Cabo",
+    "Rua Cediel Gomes Marinho 49, Arraial do Cabo", "Rua Carlos Aguiar 2, Arraial do Cabo",
+    "Rua Miguel Ângelo 3, Arraial do Cabo", "Rua Epitácio Pessoa 8, Arraial do Cabo",
+    "Rua Santa Cruz 4, Arraial do Cabo", "Rua Santa Cruz 50, Arraial do Cabo",
+    "Rua Gonçalves Dias 02, Arraial do Cabo"].sample , user: User.all.sample)
 end
 
 puts "#{Company.count} companies created!"
@@ -35,7 +46,8 @@ puts "#{Company.count} companies created!"
 puts "Starting creating products..."
 
 
-p1 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p1 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i,
+  activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/10/passeio-de-barco-em-arraial-do-cabo-17.jpg')
 p1.photo.attach(io: file, filename: 'boat1.jpg')
 
