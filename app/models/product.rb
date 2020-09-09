@@ -23,4 +23,14 @@ class Product < ApplicationRecord
       false
     end
   end
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_activity,
+    against: [ :name, :activity ],
+    associated_against: {
+      company: [ :name ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
