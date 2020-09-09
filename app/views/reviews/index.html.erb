@@ -1,0 +1,9 @@
+<h1>Reviews for <%= @product.name %></h1>
+<ul>
+  <% @reviews.each do |review| %>
+    <li> <%= review.user.first_name %>
+        <%= review.content %>
+        <%= review.rating %>
+    </li>
+  <% end %>
+</ul>

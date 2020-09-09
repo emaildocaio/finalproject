@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
+require("@nathanvda/cocoon")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -26,6 +28,7 @@ require("channels")
 import "bootstrap";
 // import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from "../plugins/init_autocomplete";
+import { initStarRating } from '../plugins/init_star_rating';
 
 // import { autocomplete } from "../components/autocomplete"
 
@@ -38,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initAutocomplete();
+  initStarRating();
   // autocomplete();
 
 });
