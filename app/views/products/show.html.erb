@@ -1,3 +1,9 @@
+<%# if @anchor %>
+  <!-- <script> -->
+    <!-- window.location.hash = "<%= @anchor %>"; -->
+  <!-- </script> -->
+<%# end %>
+
 <% review_values = @product.review_values %>
 <div class="container mb-5">
     <div class="row">
@@ -36,3 +42,4 @@
     <%= link_to 'Register or login to book', new_user_session_path, class: "btn btn-primary align-self-center" unless user_signed_in? %>
   </div>
 </div>
+
