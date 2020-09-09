@@ -23,6 +23,6 @@ class CompaniesController < ApplicationController
   private
 
   def strong_params
-    params.require(:company).permit(:name, :cnpj)
+    params.require(:company).permit(:name, :cnpj, :address)
   end
 end
