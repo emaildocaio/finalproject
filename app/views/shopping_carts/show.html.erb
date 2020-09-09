@@ -10,7 +10,7 @@
             <%= image_tag(booking.product.photo) %>
             <div class="ml-3">
               <h4>You selected the <%= booking.product.name %> tour:</h4>
-              <p> R$ <%= "#{booking.product.price * booking.participants} for #{booking.participants} people" %>
+              <p> R$ <%= "#{booking.price} for #{booking.guests.size+1} people" %>
               on <%= booking.date %> </p>
             </div>
           </div>

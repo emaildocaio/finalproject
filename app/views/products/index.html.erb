@@ -19,7 +19,7 @@
               <%= cl_image_tag product.photo.key%>
             <%end%>
               <div class="card-product-infos">
-                <%= link_to product_path(product) do %>
+                <%= link_to product_path(product), data: { turbolinks: false } do %>
                   <h2> <%= product.name %> </h2>
                 <% end %>
                 <p>Come enyor our <strong> <%= product.activity %></strong>.</p>

@@ -1,29 +1,29 @@
-<div class="form-container">
-<%= simple_form_for([@product, @booking], remote: true) do |f| %>
+<div class="form-container" id='form-container'>
+  <%= simple_form_for([@product, @booking], remote: true) do |f| %>
     <div class="header">
       <div class="header-row">
       <div class="big-bold" id="price">R$ <span id="product-price"> <%= @product.price %></span></div>
       <div class="small-light"> / PARTICIPANT</div>
     </div>
     <%= f.input :date, label: "Choose a date to have fun!" %>
-    <div class="flex-between">
+    <%# <div class="flex-between">
       Participants:
       <div class="actions">
         <a class="btn round-bordered incrementer minus" data-offset="-1">-</a>
         <span id="counter" data-count="1">1</span>
         <a class="btn round-bordered incrementer" data-offset="1">+</a>
-      </div>
+      </div> %>
     </div>
     <div class="header-row">
       <div class="big-bold" id="price-input"><%= "Total R$ #{@product.price}" %></div>
     </div>
     <div id='guests'>
-    <%= f.simple_fields_for :guests do |guest| %>
-      <%= render 'guest_fields', f: guest %>
-    <%end%>
-    <div class='links'>
-      <%= link_to_add_association 'add guest', f, :guests %>
-    </div>
+      <%= f.simple_fields_for :guests do |guest| %>
+        <%= render 'guest_fields', f: guest %>
+            <%end%>
+      <div class='links'>
+        <%= link_to_add_association 'add guest', f, :guests, id: 'add-guest-btn' %>
+      </div>
     </div>
        
     <%= f.input :participants, :as => :hidden, :input_html => {:value => 1} %>

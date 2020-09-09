@@ -15,14 +15,15 @@ class ProductsController < ApplicationController
       }
     end
 
-    if params[:search][:name].empty?
-      @products = Product.where(status: true)
-    elsif params[:search].present?
-      @products = @products.search_by_name_and_activity(params[:search][:name])
-    elsif params[:activity].present?
-      @products = @products.where(activity: params[:activity])
+    if params[:search].present?
+      if params[:search][:name].empty?
+        @products = Product.where(status: true)
+      elsif params[:search].present?
+        @products = @products.search_by_name_and_activity(params[:search][:name])
+      elsif params[:activity].present?
+        @products = @products.where(activity: params[:activity])
+      end
     end
-
   end
 
   def show
