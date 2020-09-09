@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   resources :shopping_carts, only: %i[index]
   resources :bookings, only: %i[edit update destroy]
 
+  namespace :company do
+    resources :bookings, only: %i[index show]
+  end
+
   # Shopping cart custom routes
   get 'shopping_carts/current', to: 'shopping_carts#show', as: 'current_shopping_cart'
   patch '/shopping_carts/', to: 'shopping_carts#pay', as: 'pay_shopping_cart'

@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { company: company })
       }
     end
+
     if params[:search].present?
       if params[:search][:name].empty?
         @products = Product.where(status: true)

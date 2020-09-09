@@ -29,6 +29,7 @@ import "bootstrap";
 // import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import { initStarRating } from '../plugins/init_star_rating';
+import { guestDynamicPrice } from '../packs/booking_form';
 
 // import { autocomplete } from "../components/autocomplete"
 
@@ -42,6 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initAutocomplete();
   initStarRating();
+  guestDynamicPrice();
   // autocomplete();
 
 });
