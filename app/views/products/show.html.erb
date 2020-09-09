@@ -1,3 +1,4 @@
+<% review_values = @product.review_values %>
 <div class="container mb-5">
     <div class="row">
       <div class="galeria">
@@ -16,11 +17,20 @@
 
   <div class="d-flex mt-5">
     <div class="col-7">
-      <h1 class="product-title mt-3"><%= @product.name %></h1>
+      <h1 class="product-title mt-3">
+        <%= @product.name %>
+        <% review_values[0].times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% review_values[1].times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+      </h1>
       <p><strong>Description:</strong></p>
       <p><%= @product.description %></p>
+      <br>
+    <%= render(:partial => "products/review_form") unless @product.is_from_company?(current_user) || !user_signed_in? %>
     </div>
-    <%= link_to 'Login or register to book', new_user_session_path, :class => "btn btn-primary align-self-center" unless user_signed_in? %>
     <%= render(:partial => "products/booking_form") unless @product.is_from_company?(current_user) || !user_signed_in? || @product.is_in_shopping_cart?(current_user) %>
     <%= link_to 'See your booking', current_shopping_cart_path, class: "btn btn-primary align-self-center", id: "see-your-booking" if user_signed_in? && @product.is_in_shopping_cart?(current_user) %>
   </div>
