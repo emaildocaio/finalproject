@@ -3,7 +3,6 @@ class GuestsController < ApplicationController
   end
 
   def create
-   
   end
 
   private

@@ -19,17 +19,16 @@
     </div>
     <div id='guests'>
       <%= f.simple_fields_for :guests do |guest| %>
-        <%= render 'guest_fields', f: guest %>
+        <%= render 'products/guest_fields', f: guest %>
             <%end%>
       <div class='links'>
-        <%= link_to_add_association 'add guest', f, :guests, id: 'add-guest-btn' %>
+        <%= link_to_add_association 'add guest', f, :guests, id: 'add-guest-btn', partial: 'products/guest_fields' %>
       </div>
     </div>
-       
+
     <%= f.input :participants, :as => :hidden, :input_html => {:value => 1} %>
     <%= f.submit %>
 <% end %>
 </div>
-
 <%= javascript_pack_tag 'booking_form' %>
 

@@ -8,7 +8,7 @@ require 'open-uri'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Booking.destroy_all
-# ShoppingCart.destroy_all
+ShoppingCart.destroy_all
 Product.destroy_all
 Company.destroy_all
 User.destroy_all
@@ -123,3 +123,75 @@ p15.photo.attach(io: file, filename: 'boat15.jpg')
 
 
 puts "#{Product.count} products created!"
+
+
+puts "Creating Caio, Patrick, Vinicius e Renata"
+
+User.create(first_name: "Caio", last_name: "Farias", document: "938.176.070-04", phone: "21 96521-0442", address: "Rua Cediel Goomes Marinho, 49", email: "emaildocaio@gmail.com", password: "123456")
+
+User.create(first_name: "Patrick", last_name: "AlKhouri",
+              document: "204.142.800-50", phone: "21 96521-0442",
+              address: "Rua Cediel Goomes Marinho, 49", email: "patrick@gmail.com",
+              password: "123456")
+
+User.create(first_name: "Vinicius", last_name: "Carvalho",
+              document: "693.479.990-47", phone: "21 96521-0442",
+              address: "Rua Cediel Goomes Marinho, 49", email: "vinicius@gmail.com",
+              password: "123456")
+
+User.create(first_name: "Renata", last_name: "Grassi",
+              document: "589.247.960-98", phone: "21 96521-0442",
+              address: "Rua Cediel Goomes Marinho, 49", email: "renatagrassi@gmail.com",
+              password: "123456")
+
+puts "Team was created!"
+
+puts "Creating customized Companies"
+
+Company.create(cnpj: "50.260.125/0001-24", name: "BSF - Bigger, Stronger, Faster", address: "Rua Vera Cruz 56, Arraial do Cabo", user: User.all[-1])
+Company.create(cnpj: "50.178.125/0001-23", name: "BSF - Bigger, Stronger, Faster", address: "Cediel Gomes Marinho, 45 Arraial do Cabo", user: User.all[-3])
+Company.create(cnpj: "50.125.987/0001-22", name: "BSF - Bigger, Stronger, Faster", address: "Rua Vera Cruz 111, Arraial do Cabo", user: User.all[-2])
+Company.create(cnpj: "35.876.114/0001-21", name: "BSF - Bigger, Stronger, Faster", address: "Rua Cediel Gomes Marinho 10, Arraial do Cabo", user: User.all[-4])
+
+puts "Customized Companies were created"
+
+puts "Creating customized products"
+
+p16 = Product.create(name: "Lebron Haze", price: 80, activity: "Day Trip", capacity: 100, status: true, company: Company.all[-1], description: "Um passeio muito louco com aventuras incríveis pelo universo canábico uruguaio!")
+file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/10/passeio-de-barco-em-arraial-do-cabo-17.jpg')
+p16.photo.attach(io: file, filename: 'boat16.jpg')
+
+p17 = Product.create(name: "Moby Dick XXl Auto", price: 80, activity: "Dive", capacity: 80, status: true, company: Company.all[-4], description: "Buy your seed em grown your own Barney's Farm bud")
+file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/05/mergulho-em-arraial-do-cabo-26.jpg')
+p17.photo.attach(io: file, filename: 'boat17.jpg')
+
+puts "Customized products were created"
+
+puts "Creating customized shopping carts"
+
+sc1 = ShoppingCart.create(voucher: "0001", status: "pendente", user_id: User.all[-1].id)
+sc2 = ShoppingCart.create(voucher: "0002", status: "pago", user_id: User.all[-2].id)
+sc3 = ShoppingCart.create(voucher: "0003", status: "cancelado", user_id: User.all[-3].id)
+sc4 = ShoppingCart.create(voucher: "0004", status: "pago", user_id: User.all[-4].id)
+
+puts "Customized shopping carts were created"
+
+puts "Creating customized bookings"
+
+
+booking1 = Booking.create(shopping_cart: ShoppingCart.all[-4], product: Product.all[-1],
+date: "2020-10-12", participants: 2)
+booking1.update(price: (booking1.product.price * booking1.participants))
+
+booking2 = Booking.create(shopping_cart: ShoppingCart.all[-3], product: Product.all[-2],
+  date: "2020-10-12", participants: 1)
+booking2.update(price: (booking2.product.price * booking2.participants))
+
+
+booking3 = Booking.create(shopping_cart: ShoppingCart.all[-2], product: Product.all[-1],
+  date: "2020-10-12", participants: 4)
+booking3.update(price: (booking3.product.price * booking3.participants))
+
+
+puts "Customized bookings were created"
+

@@ -14,8 +14,8 @@ class ReviewsController < ApplicationController
       flash[:alert] = 'Thanks for the review!'
       redirect_to product_path(params[:product_id], anchor: 'footer')
     else
-      flash[:alert] = 'Something went wrong'
-      @booking = Booking.new
+      flash[:alert] = 'Something went wrong'          # TODO
+      @booking = Booking.new                          # Make the page not jump
       render 'products/show', booking: @booking
     end
   end
