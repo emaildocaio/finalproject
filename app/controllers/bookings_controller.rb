@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @booking.shopping_cart = @shopping_cart
     @booking.product = Product.find(params[:product_id])
     @booking.save
-    # redirect_to product_path(params[:product_id], anchor: "footer")
+    redirect_to product_path(params[:product_id], anchor: "footer")
   end
 
   def edit
@@ -35,6 +35,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :participants)
+    params.require(:booking).permit(:date, :participants, guests_attributes: [:id, :name, :_destroy])
   end
 end
