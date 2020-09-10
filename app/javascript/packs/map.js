@@ -21,6 +21,7 @@ markers.forEach((marker)=>{
     icon: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
     title: marker.name
   });
+    mapMarker.setMap(map);
   mapMarker.addListener('click', function() {
     infowindow.open(map, mapMarker);
   });
