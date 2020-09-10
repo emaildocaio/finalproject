@@ -1,11 +1,23 @@
-<h1>teste</h1>
+<!-- placehoder_dates_helper is a helper method
+to give the user some feedback on the date range
+that is currently filtering the view -->
+
+<h1>Your bookings</h1>
 
 <div class="row">
   <div class="col-6">
   <%= simple_form_for :search, url: company_bookings_path, method: :get do |f| %>
-    <%= f.input :start_date, as: :date, required: true %>
-    <%= f.input :end_date, as: :date, required: true %>
-    <%= f.submit "Search", class: "btn btn-primary" %>
+    <%= f.input :start_date, as: :string, required: true, placeholder: placeholder_dates_helper(params, 0) %>
+    <%= f.input :end_date, as: :string, required: true, placeholder: placeholder_dates_helper(params, 2) %>
+    <% if params[:search].nil? %>
+      <%= f.submit "Search", class: "btn btn-primary"%>
+    <% else %>
+      <% if params[:search][:start_date].empty? %>
+        <%= f.submit "Search", class: "btn btn-primary"%>
+      <% else %>
+      <%= f.submit "Clear", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
   <% end %>
   </div>
 </div>
@@ -20,6 +32,7 @@
           <%= guest.name %>
         <% end %>
         <%= booking.date %>
+
    </li>
 <% end %>
 <% console %>
