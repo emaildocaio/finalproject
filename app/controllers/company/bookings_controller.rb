@@ -15,4 +15,9 @@ class Company::BookingsController < ApplicationController
     return nil unless params[:search]
     dates = params[:search][:start_date].split(" ")
   end
+
+  def dashboard
+    @bookings = Booking.all
+    authorize @bookings
+  end
 end
