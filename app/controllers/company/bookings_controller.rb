@@ -3,8 +3,8 @@ class Company::BookingsController < ApplicationController
     if params[:search].nil?
       @bookings = Booking.where(product: current_user.company.products).order(date: :asc)
     else
-      dates = build_dates
-      @bookings = Booking.where(product: current_user.company.products, date: dates[0]..dates[2]).order(date: :asc)
+      @dates = build_dates
+      @bookings = Booking.where(product: current_user.company.products, date: @dates[0]..@dates[2]).order(date: :asc)
     end
   end
 

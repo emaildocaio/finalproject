@@ -7,8 +7,8 @@ that is currently filtering the view -->
 <div class="row">
   <div class="col-6">
   <%= simple_form_for :search, url: company_bookings_path, method: :get do |f| %>
-    <%= f.input :start_date, as: :string, required: true, placeholder: placeholder_dates_helper(params, 0) %>
-    <%= f.input :end_date, as: :string, required: true, placeholder: placeholder_dates_helper(params, 2) %>
+    <%= f.input :start_date, as: :string, required: true, placeholder:  (@dates[0] if @dates) %>
+    <%= f.input :end_date, as: :string, required: true, placeholder: (@dates[2] if @dates) %>
     <% if params[:search].nil? %>
       <%= f.submit "Search", class: "btn btn-primary"%>
     <% else %>
