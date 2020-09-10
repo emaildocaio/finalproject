@@ -4,7 +4,12 @@ class Company::BookingsController < ApplicationController
       @bookings = Booking.where(product: current_user.company.products).order(date: :asc)
     else
       @dates = build_dates
-      @bookings = Booking.where(product: current_user.company.products, date: @dates[0]..@dates[2]).order(date: :asc)
+      case @dates.size
+      when 1
+        @bookings = Booking.where(product: current_user.company.products, date: @dates[0]).order(date: :asc)
+      else
+        @bookings = Booking.where(product: current_user.company.products, date: @dates[0]..@dates[2]).order(date: :asc)
+      end
     end
   end
 

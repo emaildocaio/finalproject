@@ -2,7 +2,7 @@
   <div class="col-6">
   <%= simple_form_for :search, url: company_bookings_path, method: :get do |f| %>
     <%= f.input :start_date, as: :string, required: true, placeholder:  (beautiful_date_helper(@dates[0]) if @dates) %>
-    <%= f.input :end_date, as: :string, required: true, placeholder: (beautiful_date_helper(@dates[2]) if @dates) %>
+    <%= f.input :end_date, as: :string, required: true, placeholder: (params[:search][:end_date] if @dates) %>
     <% if params[:search].nil? %>
       <%= f.submit "Search", class: "btn btn-primary"%>
     <% else %>
@@ -17,8 +17,8 @@
 </div>
 
 
-<div class='container'> 
-  
+<div class='container'>
+
   <h1><%= current_user.company.name %></h1>
   <div class='flexbox'>
    <button type="button" class="btn btn-primary">Print</button>
@@ -54,9 +54,9 @@
           <td><%= booking.canceled ? "Canceled" : "Active" %></td>
           </tr>
           <% end %>
-                  
+
       </tbody>
-      
-  
+
+
 </div>
 
