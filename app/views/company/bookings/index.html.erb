@@ -1,14 +1,10 @@
-<!-- placehoder_dates_helper is a helper method
-to give the user some feedback on the date range
-that is currently filtering the view -->
-
 <h1>Your bookings</h1>
 
 <div class="row">
   <div class="col-6">
   <%= simple_form_for :search, url: company_bookings_path, method: :get do |f| %>
-    <%= f.input :start_date, as: :string, required: true, placeholder:  (@dates[0] if @dates) %>
-    <%= f.input :end_date, as: :string, required: true, placeholder: (@dates[2] if @dates) %>
+    <%= f.input :start_date, as: :string, required: true, placeholder:  (beautiful_date_helper(@dates[0]) if @dates) %>
+    <%= f.input :end_date, as: :string, required: true, placeholder: (beautiful_date_helper(@dates[2]) if @dates) %>
     <% if params[:search].nil? %>
       <%= f.submit "Search", class: "btn btn-primary"%>
     <% else %>
