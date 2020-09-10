@@ -5,13 +5,16 @@ class BookingsController < ApplicationController
     @shopping_cart = ShoppingCart.select(current_user)
     @booking.shopping_cart = @shopping_cart
     @booking.product = Product.find(params[:product_id])
+    @product = @booking.product
+    @review = Review.new
     @bookings_by_date = Booking.where(product_id: @booking.product, date: @booking.date)
     @participants_array = @bookings_by_date.map do |booking|
-      booking.guests + 1
+      booking.participants
     end
     @participants_array.empty? ? @total_participants = 0 : @total_participants = @participants_array.reduce(:+) 
-    if (@booking.guests + 1 + @total_participants) > @booking.product.capacity
-      redirect_to root_path
+    if (@booking.participants + @total_participants) > @booking.product.capacity
+      flash[:alert] = "You are trying to book more participants than the capacity left: #{@booking.product.capacity - @total_participants}"
+      render "products/show"
     else
       @booking.save
       redirect_to product_path(params[:product_id], anchor: "footer")
