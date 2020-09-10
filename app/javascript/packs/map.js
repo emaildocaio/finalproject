@@ -18,6 +18,7 @@ markers.forEach((marker)=>{
   var mapMarker = new google.maps.Marker({
     position: { lat: marker.lat, lng: marker.lng },
     map: map,
+    icon: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
     title: marker.name
   });
   mapMarker.addListener('click', function() {
