@@ -8,6 +8,11 @@ class Company::BookingsController < ApplicationController
     end
   end
 
+  def dashboard
+    @bookings = Booking.all
+    authorize @bookings
+  end
+
   private
 
   def build_dates
@@ -16,8 +21,4 @@ class Company::BookingsController < ApplicationController
     dates = params[:search][:start_date].split(" ")
   end
 
-  def dashboard
-    @bookings = Booking.all
-    authorize @bookings
-  end
 end
