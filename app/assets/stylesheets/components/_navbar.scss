@@ -1,13 +1,19 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: rgba(255,255,255,0);
-  position: relative;
+  position: absolute;
   top: -16px;
   z-index: 10;
   opacity: 1;
   width: 100%;
-  font-size: 20px;
+  font-size: 15px;
+  font-family: Roboto;
   color: white;
+  padding-top: 30px;
+}
+
+.navbar-brand {
+  height: 50px;
 }
 
 .navbar-lewagon .navbar-collapse {
