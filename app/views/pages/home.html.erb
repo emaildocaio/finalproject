@@ -1,36 +1,56 @@
-<div>
-  <div class="carouselh1">
-    <div class="main-carousel">
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div>
-            <div class="carousel-item drk active">
-              <img class="d-block w-100" src="<%= image_url('background-1v.jpg') %>" alt="First slide">
-            </div>
-            <div class="carousel-item drk">
-              <img class="d-block w-100" src="<%= image_url('background-2v.jpg') %>" alt="Second slide">
-            </div>
-            <div class="carousel-item drk">
-              <img class="d-block w-100" src="<%= image_url('background-3v.jpg') %>" alt="Third slide">
-            </div>
+
+
+
+    <div class="carousel-hero">
+      <div class="main-carousel">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+              <div>
+                <div class="carousel-item drk active">
+                  <img class="d-block w-100" src="<%= image_url('background-1v.jpg') %>" alt="First slide">
+                </div>
+                <div class="carousel-item drk">
+                  <img class="d-block w-100" src="<%= image_url('background-2v.jpg') %>" alt="Second slide">
+                </div>
+                <div class="carousel-item drk">
+                  <img class="d-block w-100" src="<%= image_url('background-3v.jpg') %>" alt="Third slide">
+                </div>
+              </div>
           </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
-    </div>
-  </div>
-    <div class="title">
-      <h1>Arraial do Cabo é <strong>PRAIA</strong></h1>
+      <div class="title">
+        <h1 class="hero-title"><span class="title-first">Arraial</span><span class="title-second"> is </span> <span class="title-third" id="change"> PRAIA</span></h1>
+        <h4 class="hero-title-h4" >Explore this paradise!</h4>
+      </div>
+
+      <script>
+        var text = ["BEACH", "SUN", "SEA", "DIVE", "PARADISE"];
+        var counter = 0;
+        var elem = document.getElementById("change");
+        var inst = setInterval(change, 2500);
+
+        function change() {
+          elem.innerHTML = text[counter];
+          counter++;
+          if (counter >= text.length) {
+          counter = 0;
+    // clearInterval(inst); // uncomment this if you want to stop refreshing after one cycle
+          }
+        }
+      </script>
     </div>
 
-  <div class="row">
+
+
     <div class="container">
 
 
@@ -94,7 +114,7 @@
             </div>
           <% end %>
         </div>
-      </div>
+
 
 
     </div>
@@ -111,4 +131,4 @@
     </div>
   <% end %>
 
-</div>
+

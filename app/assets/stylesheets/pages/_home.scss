@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 
 h2 {
-  font-family: 'Satisfy', cursive;
+  font-family: 'Roboto';
   color: #004461ff;
   font-size: 50px;
   text-align: center;
@@ -23,3 +23,43 @@ h2 {
   position: absolute;
 
 }
+
+.carousel-hero {
+  position: relative;
+  top: 0;
+  h1 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 40%;
+    color: white;
+    font-family: Roboto;
+    font-size: 60px;
+  }
+}
+
+.hero-title-h4 {
+  position: absolute;
+    width: 100%;
+    text-align: center;
+    font-family: Roboto;
+    color: white;
+    top: 54%;
+    font-weight: 200;
+}
+
+  .title-first{
+    font-family: Roboto;
+    font-weight:  500;
+  }
+  .title-second {
+    font-family: Roboto;
+    font-weight: 100;
+  }
+
+
+.title-third {
+  background-image: linear-gradient(45deg, #0091b7ff, #004461ff);
+  padding: 13px;
+}
+
