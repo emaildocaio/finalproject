@@ -9,6 +9,7 @@
 @import "font-awesome";
 @import 'mapbox-gl/dist/mapbox-gl';
 @import "jquery-bar-rating/dist/themes/css-stars";
+@import "flatpickr/dist/flatpickr";
 
 // Your CSS partials
 @import "components/index";
@@ -21,6 +22,8 @@
 @import "components/headers";
 @import "components/booking_form";
 @import "components/top_products";
+@import "components/btnflexbox";
+
 
 // Geocode and Mapbox
 @import 'mapbox-gl/dist/mapbox-gl';

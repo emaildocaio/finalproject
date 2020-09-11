@@ -20,4 +20,8 @@ class BookingPolicy < ApplicationPolicy
   def update?
     edit?
   end
+
+  def dashboard?
+    true
+  end
 end

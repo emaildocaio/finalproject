@@ -30,6 +30,7 @@ import "bootstrap";
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import { initStarRating } from '../plugins/init_star_rating';
 import { guestDynamicPrice } from '../packs/booking_form';
+import '../plugins/flatpickr';
 
 // import { autocomplete } from "../components/autocomplete"
 
