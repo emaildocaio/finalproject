@@ -1,0 +1,72 @@
+<div class="container">
+  <H1>TESTE</H1>
+
+  <% product_names = [] %>
+  <% current_user.company.products.each do |product| %>
+    <% product_names << product.name %>
+  <% end %>
+
+  <%= simple_form_for :search, url: company_products_path, method: :get do |f| %>
+  <%= f.input :date, required: true %>
+  <%= f.input :product, as: :select, collection: product_names %>
+
+  <%= f.submit "Search", class: "btn btn-primary"%>
+  <% end %>
+
+
+
+  <% @bookings.each do |booking| %>
+  <h3>  <%= booking.product.name %>
+
+
+  <h4><%= current_user.company.name %></h4>
+  <div class='flexbox'>
+   <button type="button" class="btn btn-primary">Print</button>
+   <button type="button" class="btn btn-primary export-btn">Export</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Guest</th>
+          <th scope="col">Date</th>
+          <th scope="col">Document</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Status</th>
+       </tr>
+      </thead>
+      <tbody .table-hover>
+        <tr>
+          <% @bookings.each do |booking| %>
+          <td><%= booking.shopping_cart.user.first_name %></td>
+          <td><%= booking.shopping_cart.user.first_name %></td>
+          <td><%= booking.date %></td>
+          <td><%= booking.shopping_cart.user.document %></td>
+          <td><%= booking.shopping_cart.user.email %></td>
+          <td><%= booking.shopping_cart.user.phone %></td>
+          <td><%= booking.canceled ? "Canceled" : "Active" %></td>
+          </tr>
+            <% booking.guests.each do |guest| %>
+          <tr>
+            <td><%= booking.shopping_cart.user.first_name %></td>
+            <td><%= guest.name %></td>
+            <td><%= booking.date %></td>
+            <td><%= booking.shopping_cart.user.document %></td>
+            <td><%= booking.shopping_cart.user.email %></td>
+            <td><%= booking.shopping_cart.user.phone %></td>
+            <td><%= booking.canceled ? "Canceled" : "Active" %></td>
+          </tr>
+            <% end %>
+            </td>
+
+          <% end %>
+
+      </tbody>
+
+
+  <% end %>
+
+
+</div>
