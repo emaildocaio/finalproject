@@ -1,5 +1,7 @@
 class Company::BookingsController < ApplicationController
+  
   def index
+    
     if params[:search].nil?
       @bookings = Booking.where(product: current_user.company.products).order(date: :asc)
     else
@@ -8,6 +10,10 @@ class Company::BookingsController < ApplicationController
     end
   end
 
+  def dashboard
+    @bookings = Booking.all
+    authorize @bookings
+  end
   private
 
   def build_dates
@@ -16,8 +22,4 @@ class Company::BookingsController < ApplicationController
     dates = params[:search][:start_date].split(" ")
   end
 
-  def dashboard
-    @bookings = Booking.all
-    authorize @bookings
-  end
 end
