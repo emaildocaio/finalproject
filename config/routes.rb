@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: 'pages#home'
   resources :companies
@@ -20,4 +21,13 @@ Rails.application.routes.draw do
   patch '/shopping_carts/', to: 'shopping_carts#pay', as: 'pay_shopping_cart'
 
   get '/myproducts', to: 'products#my_index'
+  
+  # Blazer
+  authenticate :user, ->(user) { user.admin? } do
+    mount Blazer::Engine, at: "blazer"
+  end
 end
+
+
+
+
