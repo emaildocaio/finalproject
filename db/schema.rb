@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_144905) do
+ActiveRecord::Schema.define(version: 2020_09_12_232539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_144905) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "participants", default: 1
     t.string "name"
-    t.integer "price"
+    t.integer "price_cents", default: 0, null: false
     t.index ["product_id"], name: "index_bookings_on_product_id"
     t.index ["shopping_cart_id"], name: "index_bookings_on_shopping_cart_id"
   end
@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 2020_09_08_144905) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.integer "price"
     t.string "activity"
     t.integer "capacity"
     t.boolean "status", default: true
@@ -80,6 +79,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_144905) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "description"
+    t.integer "price_cents", default: 0, null: false
     t.index ["company_id"], name: "index_products_on_company_id"
   end
 
@@ -97,10 +97,10 @@ ActiveRecord::Schema.define(version: 2020_09_08_144905) do
   create_table "shopping_carts", force: :cascade do |t|
     t.string "voucher"
     t.string "status"
-    t.integer "total_price"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "total_price"
     t.index ["user_id"], name: "index_shopping_carts_on_user_id"
   end
 

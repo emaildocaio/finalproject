@@ -38,6 +38,9 @@ gem 'simple_form'
 # Faker ge for seed file
 gem 'faker'
 
+# Gemfile
+gem 'money-rails'
+
 # Cloudinary
 gem 'cloudinary', '~> 1.16.0'
 
