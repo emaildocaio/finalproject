@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_12_232539) do
+ActiveRecord::Schema.define(version: 2020_09_13_013813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,18 @@ ActiveRecord::Schema.define(version: 2020_09_12_232539) do
     t.index ["booking_id"], name: "index_guests_on_booking_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "teddy_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "BRL", null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "activity"
@@ -101,6 +113,7 @@ ActiveRecord::Schema.define(version: 2020_09_12_232539) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "total_price"
+    t.integer "amount_cents", default: 0, null: false
     t.index ["user_id"], name: "index_shopping_carts_on_user_id"
   end
 
@@ -126,6 +139,7 @@ ActiveRecord::Schema.define(version: 2020_09_12_232539) do
   add_foreign_key "bookings", "shopping_carts"
   add_foreign_key "companies", "users"
   add_foreign_key "guests", "bookings"
+  add_foreign_key "orders", "users"
   add_foreign_key "products", "companies"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"

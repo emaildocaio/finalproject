@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[create]
     resources :reviews, only: %i[index create]
   end
-  resources :shopping_carts, only: %i[index]
+
+  resources :shopping_carts, only: %i[index create] do
+    resources :payments, only: :new
+  end
+
   resources :bookings, only: %i[edit update destroy]
 
   # Company Routes
