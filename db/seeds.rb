@@ -174,7 +174,7 @@ file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/upload
 p17.photo.attach(io: file, filename: 'boat17.jpg')
 
 p18 = Product.create(name: "Orange Blossom", price: 120, activity: "Dive", capacity: 80, status: true, company: Company.all[-4], description: "Nas BSF SEEDS, apresentamos uma travessia única e especial, um FEM da Orange Blossom. Depois de muitos anos cruzando esforços para testar a laranja-tangerina, e como resultado de nossas colaborações com bancos e bancos de todo o mundo, pudemos selecionar e estabilizar os mais frutíferos, com uma genética única, o Orange Blossom Fem.")
-file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/05/mergulho-em-arraial-do-cabo-26.jpg')
+file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/05/mergulho-em-arraial-do-cabo-3.jpg')
 p18.photo.attach(io: file, filename: 'boat18.jpg')
 
 puts "Customized products were created"

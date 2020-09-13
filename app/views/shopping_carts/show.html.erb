@@ -17,7 +17,7 @@
           <div class="row d-flex">
             <div class="ml-5">
               <p><%= link_to "Reschedule", edit_booking_path(booking.id) %> <i class="fas fa-calendar"></i> </p>
-              <p> <%= link_to "Remove from cart", booking_path(booking.id), method: :delete, remote: true %> <i class="fas fa-trash-alt"></i> </p>
+              <p> <%= link_to "Remove from your cart", booking_path(booking.id), method: :delete, remote: true %> <i class="fas fa-trash-alt"></i> </p>
             </div>
             <div class="ml-5 justify-content-left">
             </div>
@@ -32,4 +32,4 @@
 
   <%= link_to "Pay", pay_shopping_cart_path, class: "btn btn-primary", method: :patch unless @shopping_cart.bookings.empty?%>
   <%= link_to "Booking history", shopping_carts_path, class: "btn btn-primary" %>
-</div>
+

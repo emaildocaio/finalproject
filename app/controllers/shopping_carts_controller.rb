@@ -8,6 +8,7 @@ class ShoppingCartsController < ApplicationController
 
   def show
     authorize @shopping_cart
+
   end
 
   def create

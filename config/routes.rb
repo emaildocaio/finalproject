@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :shopping_carts, only: %i[index create] do
-    resources :payments, only: :new
+    resources :payments, only: %i[new create]
   end
 
   resources :bookings, only: %i[edit update destroy]
