@@ -24,5 +24,7 @@ Rails.application.routes.draw do
   get 'shopping_carts/current', to: 'shopping_carts#show', as: 'current_shopping_cart'
   patch '/shopping_carts/', to: 'shopping_carts#pay', as: 'pay_shopping_cart'
 
+
+
   get '/myproducts', to: 'products#my_index'
 end

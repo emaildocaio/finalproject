@@ -47,77 +47,77 @@ puts "Starting creating products..."
 
 
 p1 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i,
-  activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+  activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/10/passeio-de-barco-em-arraial-do-cabo-17.jpg')
 p1.photo.attach(io: file, filename: 'boat1.jpg')
 
 
-p2 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p2 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/10/passeio-de-barco-em-arraial-do-cabo-15.jpeg')
 p2.photo.attach(io: file, filename: 'boat2.jpg')
 
 
-p3 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p3 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/10/passeio-de-barco-em-arraial-do-cabo-praia-do-farol.jpg')
 p3.photo.attach(io: file, filename: 'boat3.jpg')
 
 
-p4 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p4 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/10/passeio-de-barco-em-arraial-do-cabo-fenda-nossa-senhora.jpg')
 p4.photo.attach(io: file, filename: 'boat4.jpg')
 
 
-p5 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p5 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/10/passeio-de-barco-em-arraial-do-cabo-pedra-do-macaco.jpg')
 p5.photo.attach(io: file, filename: 'boat5.jpg')
 
 
-p6 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p6 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/10/passeio-de-barco-em-arraial-do-cabo-gruta-azul.jpg')
 p6.photo.attach(io: file, filename: 'boat6.jpg')
 
 
-p7 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p7 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/10/passeio-de-barco-em-arraial-do-cabo-7.jpg')
 p7.photo.attach(io: file, filename: 'boat7.jpg')
 
 
-p8 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p8 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/10/passeio-de-barco-em-arraial-do-cabo-praia-do-farol-2.jpg')
 p8.photo.attach(io: file, filename: 'boat8.jpg')
 
 
-p9 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p9 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/10/passeio-de-barco-em-arraial-do-cabo-16.jpeg')
 p9.photo.attach(io: file, filename: 'boat9.jpg')
 
 
-p10 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p10 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/05/mergulho-em-arraial-do-cabo-27.jpg')
 p10.photo.attach(io: file, filename: 'boat10.jpg')
 
 
-p11 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p11 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/05/mergulho-em-arraial-do-cabo-22.jpg')
 p11.photo.attach(io: file, filename: 'boat11.jpg')
 
 
-p12 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p12 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/05/mergulho-em-arraial-do-cabo-2.jpg')
 p12.photo.attach(io: file, filename: 'boat12.jpg')
 
 
-p13 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p13 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/05/mergulho-em-arraial-do-cabo-26.jpg')
 p13.photo.attach(io: file, filename: 'boat13.jpg')
 
 
-p14 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p14 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/05/mergulho-em-arraial-do-cabo-19.jpg')
 p14.photo.attach(io: file, filename: 'boat14.jpg')
 
 
-p15 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.sentence)
+p15 = Product.create(name: Faker::Cannabis.strain, price: %w(60 65 70 80 95 100 110 240 250).sample.to_i, activity: ["Day Trip", "Dive"].sample, capacity: (60..110).to_a.sample, status: [true, false].sample, company: Company.all.sample, description: Faker::Lorem.paragraph(sentence_count: 20))
 file = open('https://cdnstatic8.com/emalgumlugardomundo.com.br/wp-content/uploads/2019/05/mergulho-em-arraial-do-cabo-32.jpg')
 p15.photo.attach(io: file, filename: 'boat15.jpg')
 
