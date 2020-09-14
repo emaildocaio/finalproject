@@ -1,0 +1,66 @@
+
+<div class='container'>
+  <div class="row">
+    <div class="col-6">
+    <%= simple_form_for :search, url: company_bookings_path, method: :get do |f| %>
+      <%= f.input :start_date, as: :string, required: true,
+      placeholder:  (beautiful_date_helper(@dates[0]) if @dates) %>
+      <%= f.input :end_date, as: :string, required: true,
+      placeholder: (params[:search][:end_date] if @dates) %>
+      <% if params[:search].nil? %>
+        <%= f.submit "Search", class: "btn btn-primary"%>
+      <% else %>
+        <% if params[:search][:start_date].empty? %>
+          <%= f.submit "Search", class: "btn btn-primary"%>
+        <% else %>
+        <%= f.submit "Clear", class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+
+
+
+
+  <h1><%= current_user.company.name %></h1>
+  <div class='flexbox'>
+   <button type="button" class="btn btn-primary">Print</button>
+   <button type="button" class="btn btn-primary export-btn">Export</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Guests</th>
+          <th scope="col">Trip</th>
+          <th scope="col">Date</th>
+          <th scope="col">Document</th>
+          <th scope="col">Email</th>
+          <th scope="col">Status</th>
+          <th scope="col">Price</th>
+       </tr>
+      </thead>
+      <tbody .table-hover>
+        <tr>
+          <% counter = 0 %>
+          <% @bookings.each do |booking| %>
+          <th scope="row"> <%= counter +=1 %> </th>
+          <td><%= booking.shopping_cart.user.first_name %></td>
+          <td class="align-middle"><%= booking.guests.count + 1 %></td>
+          <td><%= booking.product.name %></td>
+          <td><%= booking.date %></td>
+          <td><%= booking.shopping_cart.user.document %></td>
+          <td><%= booking.shopping_cart.user.email %></td>
+          <td><%= booking.canceled ? "Canceled" : "Active" %></td>
+          <td><%= booking.shopping_cart.total_price %></td>
+          </tr>
+          <% end %>
+
+      </tbody>
+
+
+</div>
+
