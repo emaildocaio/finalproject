@@ -38,6 +38,10 @@ gem 'simple_form'
 # Faker ge for seed file
 gem 'faker'
 
+# Blazer, Chartkick, Groupbyday
+gem 'blazer'
+gem "chartkick"
+gem 'groupdate'
 # Deals with money in cents
 gem 'money-rails'
 
@@ -46,6 +50,13 @@ gem 'stripe'
 
 # Cloudinary
 gem 'cloudinary', '~> 1.16.0'
+
+
+# Admin
+gem 'rails_admin', '~> 2.0'
+# PDF Generation
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'pry-byebug'

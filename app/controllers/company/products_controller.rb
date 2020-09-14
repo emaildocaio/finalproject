@@ -15,6 +15,18 @@ class Company::ProductsController < ApplicationController
         @bookings = Booking.where(product: @product).order(date: :asc)
       end
     end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Bookings",
+                page_size: 'A4',
+                template: "pdf/manifest.html.erb",
+                orientation: "Landscape",
+                lowquality: true,
+                zoom: 1,
+                dpi: 75
+      end
+    end
   end
 
   private
