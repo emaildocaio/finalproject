@@ -11,19 +11,6 @@ class Company::BookingsController < ApplicationController
         @bookings = Booking.where(product: current_user.company.products, date: @dates[0]..@dates[2]).order(date: :asc)
       end
     end
-
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: "Bookings",
-                page_size: 'A4',
-                template: "pdf/bookings.html.erb",
-                orientation: "Landscape",
-                lowquality: true,
-                zoom: 1,
-                dpi: 75
-      end
-    end
   end
 
   def dashboard
