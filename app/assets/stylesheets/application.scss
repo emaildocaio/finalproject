@@ -14,6 +14,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/_product_show";
 @import "components/footer";
 @import "components/navbar";
 @import "components/cards";
@@ -27,3 +28,11 @@
 
 // Geocode and Mapbox
 @import 'mapbox-gl/dist/mapbox-gl';
+
+
+.graphic {
+  width: 700px;
+  margin-bottom: 50px;
+}
+
+

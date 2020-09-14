@@ -1,19 +1,24 @@
-<div class="container mt-3">
+<div class="product-index mt-3">
 
-  <div class="row">
+<div class="container">
+ <!--  <div class="row">
       <div class="col-6">
       <%= simple_form_for :search, url: products_path, method: :get do |f| %>
         <%= f.input :name, required: false %>
         <%= f.submit "Search", class: "btn btn-primary" %>
       <% end %>
       </div>
-  </div>
+  </div> -->
   <h1 class="mt-5"><strong>Boat trips</strong> and <strong>scuba dive</strong> in Arraial do Cabo</h1>
+</div>
+
   <div class="row">
     <div class="col-7">
+
       <% @products.each do |product| %>
         <ul>
           <li>
+
             <div class="card-product mt-3">
             <% if product.photo.attached?%>
               <%= cl_image_tag product.photo.key%>
@@ -21,13 +26,23 @@
               <div class="card-product-infos">
                 <%= link_to product_path(product), data: { turbolinks: false } do %>
                   <h2> <%= product.name %> </h2>
-                <% end %>
+                  <p class="index-desc"> <%= product.description.first(100) %>... </p>
                 <p>Come enyor our <strong> <%= product.activity %></strong>.</p>
                 <p>Offered by <strong> <%= product.company.name %> </strong> </p>
                 <p>R$ <%= product.price %></p>
+                <% end %>
+
+                <% product.review_values[0].times do %>
+                  <i class="fas fa-star rating-index"></i>
+                <% end %>
+                <% product.review_values[1].times do %>
+                  <i class="far fa-star rating-index"></i>
+                <% end %>
+
               </div>
             </div>
            </li>
+              <hr/>
         </ul>
       <% end %>
     </div>

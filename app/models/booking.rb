@@ -9,4 +9,7 @@ class Booking < ApplicationRecord
   def participants
     self.guests.size + 1
   end
+
+  monetize :price_cents
+
 end

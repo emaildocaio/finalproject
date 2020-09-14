@@ -8,6 +8,7 @@ class Product < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 0}
   validates :capacity, numericality: { greater_than: 0}
   has_one_attached :photo
+  monetize :price_cents
 
   def is_from_company?(user)
     return false if user.nil?
@@ -24,7 +25,7 @@ class Product < ApplicationRecord
       false
     end
   end
-  
+
   include PgSearch::Model
   pg_search_scope :search_by_name_and_activity,
     against: [ :name, :activity ],

@@ -42,6 +42,11 @@ gem 'faker'
 gem 'blazer'
 gem "chartkick"
 gem 'groupdate'
+# Deals with money in cents
+gem 'money-rails'
+
+# deals with payment
+gem 'stripe'
 
 # Cloudinary
 gem 'cloudinary', '~> 1.16.0'
