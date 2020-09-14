@@ -1,5 +1,6 @@
 <h1>Dashboard Home</h1>
 
+<%= line_chart User.group_by_day(:created_at).count %>
 
 <div class="container">
   <%= image_tag("g1.png", class: "graphic") %>

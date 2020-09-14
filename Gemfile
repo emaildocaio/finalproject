@@ -47,6 +47,9 @@ gem 'stripe'
 # Cloudinary
 gem 'cloudinary', '~> 1.16.0'
 
+# Chartkick
+gem "chartkick"
+
 # PDF Generation
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
