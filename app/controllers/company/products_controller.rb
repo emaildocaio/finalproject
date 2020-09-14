@@ -1,10 +1,19 @@
 class Company::ProductsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   def index
+    @products = current_user.company.products
+    @product = @products.first
     if params[:search].nil?
-      @bookings = Booking.where(product: current_user.company.products).order(date: :asc)
+      @bookings = Booking.where(product: @product).order(date: :asc)
     else
-     product = Product.find_by(name: params[:search][:product])
-     @bookings = Booking.where(product: product).order(date: :asc)
+      @product = @products.find(params[:search][:product])
+      if params[:search][:date].present?
+        @date = params[:search][:date]
+        @bookings = Booking.where(product: @product, date: @date).order(date: :asc)
+      else
+        @bookings = Booking.where(product: @product).order(date: :asc)
+      end
     end
 
     respond_to do |format|
@@ -19,5 +28,11 @@ class Company::ProductsController < ApplicationController
                 dpi: 75
       end
     end
+  end
+
+  private
+
+  def record_not_found
+    redirect_to action: 'index'
   end
 end
