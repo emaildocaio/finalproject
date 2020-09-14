@@ -1,0 +1,32 @@
+<div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Guests</th>
+          <th scope="col">Trip</th>
+          <th scope="col">Date</th>
+          <th scope="col">Document</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Status</th>
+       </tr>
+      </thead>
+      <tbody .table-hover>
+        <tr>
+          <% counter = 0 %>
+          <% @bookings.each do |booking| %>
+          <th scope="row"> <%= counter +=1 %> </th>
+          <td><%= booking.shopping_cart.user.first_name %></td>
+          <td class="align-middle"><%= booking.guests.count + 1 %></td>
+          <td><%= booking.product.name %></td>
+          <td><%= booking.date %></td>
+          <td><%= booking.shopping_cart.user.document %></td>
+          <td><%= booking.shopping_cart.user.email %></td>
+          <td><%= booking.shopping_cart.user.phone %></td>
+          <td><%= booking.canceled ? "Canceled" : "Active" %></td>
+          </tr>
+          <% end %>
+      </tbody>
+</div>

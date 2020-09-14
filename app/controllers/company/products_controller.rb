@@ -12,7 +12,7 @@ class Company::ProductsController < ApplicationController
       format.pdf do
         render pdf: "Bookings",
                 page_size: 'A4',
-                template: "company/products/index.html.erb",
+                template: "pdf/product.html.erb",
                 orientation: "Landscape",
                 lowquality: true,
                 zoom: 1,
@@ -20,6 +20,4 @@ class Company::ProductsController < ApplicationController
       end
     end
   end
-
-
 end
