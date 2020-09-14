@@ -1,12 +1,12 @@
 class Company::ProductsController < ApplicationController
   def index
-    @products = current_user.company.products
+    if params[:search].nil?
+      @bookings = Booking.where(product: current_user.company.products).order(date: :asc)
+    else
+     product = Product.find_by(name: params[:search][:product])
+     @bookings = Booking.where(product: product).order(date: :asc)
+    end
   end
 
-  def show
-    @product = current_user.company.products.find(params[:id])
-    authorize @product
-        @bookings = Booking.where(product: current_user.company.products)
 
-  end
 end

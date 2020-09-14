@@ -19,10 +19,10 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%unless controller_name == "bookings"%>
+    <%unless controller_path == "company/bookings" || controller_path == "company/products" %>
       <%= render :partial => "layouts/navbar_marketplace" %>
     <%else%>
-      <%= render :partial => "navbar_dashboard" %>
+      <%= render :partial => "company/bookings/navbar_dashboard" %>
     <%end%>
       <%= yield %>
     <%= render :partial => "layouts/footer" %>

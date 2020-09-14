@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   # Company Routes
   namespace :company do
-    resources :bookings, only: %i[index show]
+    resources :bookings, only: %i[index]
+    resources :products, only: %i[index]
     get '/', to: 'bookings#dashboard', as: 'dashboard'
   end
   # Shopping cart custom routes
