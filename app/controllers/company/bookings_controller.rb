@@ -14,22 +14,8 @@ class Company::BookingsController < ApplicationController
   end
 
   def dashboard
-    @bookings = Booking.where(product: current_user.company.products)
-    # @participants = @bookings.participants
-    # render json: @bookings.group_by_day(:date).count
+    @bookings = Booking.all
     authorize @bookings
-  end
-
-  def bookings_chart
-    @bookings = Booking.where(product: current_user.company.products)
-    render json: @bookings.group_by_day(:date).count
-    authorize @bookings 
-  end
-
-  def products_chart
-    @bookings = Booking.where(product: current_user.company.products)
-    render json: @bookings.group(:product_id).count
-    authorize @bookings 
   end
 
   private
