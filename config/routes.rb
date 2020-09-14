@@ -14,8 +14,11 @@ Rails.application.routes.draw do
   # Company Routes
   namespace :company do
     resources :bookings, only: %i[index show]
+    get '/charts/bookings', to: 'bookings#bookings_chart', as: 'bookings_chart'
+    get '/charts/products', to: 'bookings#products_chart', as: 'products_chart'
     get '/', to: 'bookings#dashboard', as: 'dashboard'
   end
+
   # Shopping cart custom routes
   get 'shopping_carts/current', to: 'shopping_carts#show', as: 'current_shopping_cart'
   patch '/shopping_carts/', to: 'shopping_carts#pay', as: 'pay_shopping_cart'

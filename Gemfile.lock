@@ -116,6 +116,8 @@ GEM
     geocoder (1.6.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (5.2.1)
+      activesupport (>= 5)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
@@ -322,6 +324,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  chartkick
   cloudinary (~> 1.16.0)
   cocoon
   devise
@@ -329,6 +332,7 @@ DEPENDENCIES
   faker
   font-awesome-sass
   geocoder
+  groupdate
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)

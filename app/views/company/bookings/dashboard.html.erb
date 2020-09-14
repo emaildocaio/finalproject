@@ -1,1 +1,16 @@
 <h1>Dashboard Home</h1>
+
+<%# company = current_user.company %>
+<%# products = company.products %>
+<%#bookings = [] %>
+<%# products.each do |product| %>
+  <%#product.bookings.each do |p| %>
+    <%# bookings << p %>
+  <%# end %>
+<%#end%>
+<%#= bookings %>
+<%#binding.pry%>
+
+<%= line_chart company_bookings_chart_path %>
+
+<%= pie_chart company_products_chart_path %>

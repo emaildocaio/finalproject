@@ -38,8 +38,10 @@ gem 'simple_form'
 # Faker ge for seed file
 gem 'faker'
 
-# Blazer
+# Blazer, Chartkick, Groupbyday
 gem 'blazer'
+gem "chartkick"
+gem 'groupdate'
 
 # Cloudinary
 gem 'cloudinary', '~> 1.16.0'
