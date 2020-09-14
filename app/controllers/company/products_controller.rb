@@ -6,6 +6,19 @@ class Company::ProductsController < ApplicationController
      product = Product.find_by(name: params[:search][:product])
      @bookings = Booking.where(product: product).order(date: :asc)
     end
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Bookings",
+                page_size: 'A4',
+                template: "company/products/index.html.erb",
+                orientation: "Landscape",
+                lowquality: true,
+                zoom: 1,
+                dpi: 75
+      end
+    end
   end
 
 
