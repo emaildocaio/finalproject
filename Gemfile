@@ -47,6 +47,10 @@ gem 'stripe'
 # Cloudinary
 gem 'cloudinary', '~> 1.16.0'
 
+# PDF Generation
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
