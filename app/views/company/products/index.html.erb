@@ -3,7 +3,7 @@
 
   <%= simple_form_for :search, url: company_products_path, method: :get do |f| %>
   <%= f.input :product, collection: @products.map { |product| product }, selected: (params[:search][:product] if params[:search]) %>
-  <%= f.input :date, as: :string, required: true, input_html: { class: 'datepicker' } %>
+  <%= f.input :date, as: :string, required: false, input_html: { class: 'datepicker' } %>
 
   <%= f.submit "Search", class: "btn btn-primary"%>
   <% end %>
