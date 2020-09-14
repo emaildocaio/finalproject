@@ -24,12 +24,4 @@ class BookingPolicy < ApplicationPolicy
   def dashboard?
     true
   end
-
-  def bookings_chart?
-    true
-  end
-
-  def products_chart?
-    true
-  end
 end
