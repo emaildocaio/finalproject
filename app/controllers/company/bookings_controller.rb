@@ -19,10 +19,6 @@ class Company::BookingsController < ApplicationController
     @bookings = Booking.all
     authorize @bookings
   end
-<<<<<<< HEAD
-=======
-
->>>>>>> master
   private
 
   def build_dates
