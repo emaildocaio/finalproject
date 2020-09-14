@@ -7,6 +7,4 @@ class Company::ProductsController < ApplicationController
      @bookings = Booking.where(product: product).order(date: :asc)
     end
   end
-
-
 end

@@ -6,6 +6,9 @@ const initFlatpickr = () => {
     altInput: true,
     plugins: [new rangePlugin({ input: "#search_end_date" })]
   });
+  flatpickr(".datepicker", {
+    altInput: true
+  });
 }
 
 export { initFlatpickr };

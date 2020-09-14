@@ -7,7 +7,7 @@
   <% end %>
 
   <%= simple_form_for :search, url: company_products_path, method: :get do |f| %>
-  <%= f.input :date, required: true %>
+  <%= f.input :date, as: :string, required: true, input_html: { class: 'datepicker' } %>
   <%= f.input :product, as: :select, collection: product_names %>
 
   <%= f.submit "Search", class: "btn btn-primary"%>
