@@ -1,0 +1,10 @@
+<div class='container'>
+<h1>Are you sure you want to cancel this booking?</h1>
+
+  <div>
+    <p></p>
+    <%= link_to 'Yes', company_booking_path(@booking.id), method: :patch, class: "btn btn-primary"  %>
+    <%= link_to 'No', company_booking_path(@booking.id), class: "btn btn-danger"  %>
+
+  </div>
+</div>

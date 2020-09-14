@@ -15,6 +15,24 @@ class Company::BookingsController < ApplicationController
     end
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+    authorize @booking, policy_class: CompanyBookingPolicy
+  end
+  
+  def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking, policy_class: CompanyBookingPolicy
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking, policy_class: CompanyBookingPolicy
+    @booking.canceled = true
+    @booking.save
+    redirect_to company_booking_path(@booking.id)
+  end
+
   def dashboard
     @bookings = Booking.all
     authorize @bookings
