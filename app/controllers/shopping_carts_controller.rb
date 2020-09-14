@@ -12,21 +12,23 @@ class ShoppingCartsController < ApplicationController
   end
 
   def create
-  product = Product.find(params[:product_id])
-  shopping_cart = Order.create!(product: product, product_name: product.name, amount: product.price, state: 'pending', user: current_user)
+
+  shopping_cart = ShoppingCart.select(current_user)
+  booking = shopping_cart.bookings.last
 
   session = Stripe::Checkout::Session.create(
     payment_method_types: ['card'],
-    line_items: [{
-      name: product.name,
-      images: [product.photo_url],
-      amount: product.price_cents,
-      currency: 'brl',
-      quantity: 1
-    }],
-    success_url: shopping_cart_url(shopping_cart),
-    cancel_url: shopping_cart_url(shopping_cart)
+    # line_items: [{
+    #   name: booking.product.name,
+    #   images: [booking.product.photo.key],
+    #   amount: booking.price_cents,
+    #   currency: 'brl',
+    #   quantity: 1
+    # }],
+    success_url: shopping_carts_path(current_user),
+    cancel_url: shopping_carts_path(current_user)
   )
+
 
   shopping_cart.update(checkout_session_id: session.id)
   redirect_to new_shopping_cart_payment_path(shopping_cart)

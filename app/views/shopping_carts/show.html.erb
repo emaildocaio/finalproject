@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Your shopping cart</h1>
+  <h1>Your shopping cart is <%= @shopping_cart.status %> </h1>
 
 <div>
   <ul>
@@ -30,6 +30,7 @@
 
   </div>
 
-  <%= link_to "Pay", pay_shopping_cart_path, class: "btn btn-primary", method: :patch unless @shopping_cart.bookings.empty?%>
+  <%= link_to "Pay", shopping_carts_path, method: :post, class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
+
   <%= link_to "Booking history", shopping_carts_path, class: "btn btn-primary" %>
 
