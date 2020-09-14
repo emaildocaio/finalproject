@@ -2,6 +2,7 @@ class ShoppingCart < ApplicationRecord
   belongs_to :user
   has_many :bookings
   has_many :products, through: :bookings
+  monetize :amount_cents
 
   validates :status, :user_id, presence: true
   # validates :voucher, uniqueness: true # => Don't uncomment till voucher generator or will break

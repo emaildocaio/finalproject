@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[create]
     resources :reviews, only: %i[index create]
   end
-  resources :shopping_carts, only: %i[index]
+
+  resources :shopping_carts, only: %i[index create] do
+    resources :payments, only: %i[new create]
+  end
+
   resources :bookings, only: %i[edit update destroy]
 
   # Company Routes
@@ -19,6 +23,8 @@ Rails.application.routes.draw do
   # Shopping cart custom routes
   get 'shopping_carts/current', to: 'shopping_carts#show', as: 'current_shopping_cart'
   patch '/shopping_carts/', to: 'shopping_carts#pay', as: 'pay_shopping_cart'
+
+
 
   get '/myproducts', to: 'products#my_index'
 end

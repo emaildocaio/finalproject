@@ -19,11 +19,21 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%unless controller_path == "company/bookings" || controller_path == "company/products" %>
-      <%= render :partial => "layouts/navbar_marketplace" %>
-    <%else%>
+
+    <% if controller_path == "products" || controller_path == "user" || controller_path == "companies" || controller_path == "shopping_carts" || controller_path == "bookings" %>
+        <%= render :partial => "layouts/navbar_marketplace" %>
+    <% elsif controller_path == "company/bookings" || controller_path == "company/products" %>
       <%= render :partial => "company/bookings/navbar_dashboard" %>
-    <%end%>
+    <% else %>
+      <%= render :partial => "layouts/navbar_home" %>
+    <% end %>
+
+    <%# unless controller_path == "company/bookings" || controller_path == "company/products" %>
+      <%#= render :partial => "layouts/navbar_marketplace" %>
+    <%# else %>
+      <%#= render :partial => "company/bookings/navbar_dashboard" %>
+    <%# end %>
+
       <%= yield %>
     <%= render :partial => "layouts/footer" %>
   </body>
