@@ -7,8 +7,15 @@
   <div class="row-calendar">
     <div class="col-6">
     <%= simple_form_for :search, url: company_bookings_path, method: :get do |f| %>
+
       <%= f.input :start_date, as: :string, required: true, placeholder:  (beautiful_date_helper(@dates[0]) if @dates) %>
       <%= f.input :end_date, as: :string, required: true, placeholder: (beautiful_date_helper(@dates[2]) if @dates) %>
+
+      <%= f.input :start_date, as: :string, required: true,
+      placeholder:  (beautiful_date_helper(@dates[0]) if @dates) %>
+      <%= f.input :end_date, as: :string, required: true,
+      placeholder: (params[:search][:end_date] if @dates) %>
+
       <% if params[:search].nil? %>
         <%= f.submit "Search", class: "btn btn-primary"%>
       <% else %>

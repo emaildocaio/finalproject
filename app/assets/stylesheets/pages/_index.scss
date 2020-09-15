@@ -1,2 +1,11 @@
 // Import page-specific CSS files here.
 @import "home";
+
+body {
+  background-color: white;
+}
+
+#map {
+  margin-right: 0;
+  padding-right: 0;
+}
