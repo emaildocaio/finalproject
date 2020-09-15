@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   # Company Routes
   namespace :company do
-    resources :bookings, only: %i[index]
+    resources :bookings, only: %i[index show edit update]
     resources :products, only: %i[index]
     get '/', to: 'bookings#dashboard', as: 'dashboard'
   end

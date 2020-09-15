@@ -15,6 +15,7 @@ class BookingPolicy < ApplicationPolicy
 
   def edit?
     destroy?
+    
   end
 
   def update?
@@ -24,4 +25,6 @@ class BookingPolicy < ApplicationPolicy
   def dashboard?
     true
   end
+
+ 
 end
