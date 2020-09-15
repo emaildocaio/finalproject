@@ -1,4 +1,8 @@
-<div class="container"> 
+<% content_for :head do %>
+  <meta name="turbolinks-cache-control" content="no-cache">
+<% end %>
+
+<div class="container">
   <h1><%= current_user.company.name %></h1>
   <div class='flexbox'>
    <a href="bookings.csv" button type="button" class="btn btn-primary export-btn">Export</a>
@@ -25,7 +29,7 @@
     <% end %>
     </div>
   </div>
-  
+
   <div class="table-responsive">
     <table class="table table-hover">
       <thead>
@@ -46,8 +50,8 @@
 
         <%# <tr data-href= "<%= company_booking_path(@booking) %>
         <% counter = 0 %>
-        <% @bookings.each do |booking| %>    
-          <tr> 
+        <% @bookings.each do |booking| %>
+          <tr>
             <th scope="row"> <%= counter +=1 %> </th>
             <td><%= booking.shopping_cart.user.first_name %></td>
             <td><%= booking.guests.count + 1 %></td>
