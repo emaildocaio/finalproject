@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :shopping_carts, only: %i[index create] do
     resources :payments, only: %i[new]
   end
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   resources :bookings, only: %i[edit update destroy]
 
@@ -30,5 +31,4 @@ Rails.application.routes.draw do
   get 'shopping_carts/current', to: 'shopping_carts#show', as: 'current_shopping_cart'
   get '/myproducts', to: 'products#my_index'
 
-  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end

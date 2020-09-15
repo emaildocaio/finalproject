@@ -3,11 +3,26 @@
     <div class="col-md-3">
 
     </div>
-    <div class="col">
+    <div class="container">
       <h1>Checkout summary</h1>
-      <p>Purchase of </p>
+      <p>Your booking status is <strong> <%= @shopping_cart.status.upcase %> </p> </strong>
 
+      <ul>
+        <% @shopping_cart.bookings.each do |booking| %>
+          <li>
+            <%= cl_image_tag booking.product.photo.key, width: '10%' %><strong> <%= booking.product.name %></strong> for <strong><%= humanized_money_with_symbol booking.product.price %></strong>
+            <hr>
+          </li>
+        <% end %>
 
+        <% @total = 0 %>
+        <% @shopping_cart.bookings.each do |booking| %>
+          <% @total = @total + booking.price %>
+        <% end %>
+        <li>
+          <p> Total Price <%= humanized_money_with_symbol @total %> </p>
+        </li>
+      </ul>
 
       <button id="pay" class="btn btn-primary">Pay</button>
 

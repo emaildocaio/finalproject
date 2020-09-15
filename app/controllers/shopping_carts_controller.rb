@@ -32,20 +32,13 @@ class ShoppingCartsController < ApplicationController
     session = Stripe::Checkout::Session.create(
     payment_method_types: ['card'],
     line_items: line_items,
-    success_url: shopping_carts_url(@shopping_cart),
-    cancel_url: shopping_carts_url(@shopping_cart)
+    success_url: shopping_carts_url,
+    cancel_url: current_shopping_cart_url
   )
   @shopping_cart.update(checkout_session_id: session.id)
   redirect_to new_shopping_cart_payment_path(@shopping_cart)
   end
 
-  # def pay
-  #   authorize @shopping_cart
-  #   @shopping_cart.total_price = @shopping_cart.calc_total_price
-  #   @shopping_cart.status = 'pago'
-  #   @shopping_cart.save
-  #   redirect_to root_path # For Frontend: display a nice payment confirmation
-  # end
 
   private
 
