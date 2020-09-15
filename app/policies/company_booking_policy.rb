@@ -16,5 +16,9 @@ class CompanyBookingPolicy < ApplicationPolicy
   def update?
     true
   end
+
+  def reactivate?
+    true
+  end
 end
   
