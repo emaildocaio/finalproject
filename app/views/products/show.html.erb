@@ -1,4 +1,8 @@
 <% review_values = @product.review_values %>
+<% content_for :head do %>
+  <meta name="turbolinks-cache-control" content="no-cache">
+<% end %>
+
 <div class="container mb-5">
     <div class="row">
       <div class="galeria">

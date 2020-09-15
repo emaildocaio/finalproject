@@ -5,7 +5,7 @@ const initFlatpickr = () => {
   const startDate = document.getElementById('search_start_date')
   if (startDate) {
     flatpickr("#search_start_date", {
-      // altInput: true,
+      altInput: true,
       plugins: [new rangePlugin({ input: "#search_end_date" })]
     });
     flatpickr(".datepicker", {
