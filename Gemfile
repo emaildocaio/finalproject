@@ -43,6 +43,7 @@ gem 'money-rails'
 
 # deals with payment
 gem 'stripe'
+gem 'stripe_event'
 
 # Cloudinary
 gem 'cloudinary', '~> 1.16.0'
