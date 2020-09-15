@@ -13,34 +13,39 @@ class ShoppingCartsController < ApplicationController
 
   def create
 
-  #   @shopping_cart = ShoppingCart.select(current_user)
-  #   @booking = @shopping_cart.bookings.last
-
-  #   session = Stripe::Checkout::Session.create!(
-  #   payment_method_types: ['card'],
-  #   line_items: [{
-  #     name: @shopping_cart.bookings.last.product.name,
-  #     images: [@shopping_cart.bookings.last.product.photo.key],
-  #     amount: @shopping_cart.bookings.last.product.price_cents,
-  #     currency: 'brl',
-  #     quantity: 1
-  #   }],
-  #   success_url: shopping_carts_path(current_user),
-  #   cancel_url: shopping_carts_path(current_user)
-  # )
-
-
-  # @shopping_cart.update(checkout_session_id: session.id)
-  # redirect_to new_shopping_cart_payment_path(shopping_cart)
-  end
-
-  def pay
+    @shopping_cart = ShoppingCart.select(current_user)
+    @booking = @shopping_cart.bookings.last
     authorize @shopping_cart
-    @shopping_cart.total_price = @shopping_cart.calc_total_price
-    @shopping_cart.status = 'pago'
-    @shopping_cart.save
-    redirect_to root_path # For Frontend: display a nice payment confirmation
+    line_items = []
+
+    @shopping_cart.bookings.each do |booking|
+      hash = { name: booking.product.name,
+      amount: booking.price_cents,
+      currency: 'brl',
+      quantity: 1
+      }
+
+      line_items << hash
+
+    end
+
+    session = Stripe::Checkout::Session.create(
+    payment_method_types: ['card'],
+    line_items: line_items,
+    success_url: shopping_carts_url(@shopping_cart),
+    cancel_url: shopping_carts_url(@shopping_cart)
+  )
+  @shopping_cart.update(checkout_session_id: session.id)
+  redirect_to new_shopping_cart_payment_path(@shopping_cart)
   end
+
+  # def pay
+  #   authorize @shopping_cart
+  #   @shopping_cart.total_price = @shopping_cart.calc_total_price
+  #   @shopping_cart.status = 'pago'
+  #   @shopping_cart.save
+  #   redirect_to root_path # For Frontend: display a nice payment confirmation
+  # end
 
   private
 
