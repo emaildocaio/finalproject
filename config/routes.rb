@@ -24,10 +24,11 @@ Rails.application.routes.draw do
     get '/charts/booking_chart', to: 'bookings#bookings_chart'
     get '/charts/product_chart', to: 'bookings#products_chart'
     patch 'bookings/:id/reactivate', to:'bookings#reactivate', as: 'booking_reactivate'
-
   end
+
   # Shopping cart custom routes
   get 'shopping_carts/current', to: 'shopping_carts#show', as: 'current_shopping_cart'
-
   get '/myproducts', to: 'products#my_index'
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end
