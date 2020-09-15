@@ -32,6 +32,7 @@ import { initAutocomplete } from "../plugins/init_autocomplete";
 import { initStarRating } from '../plugins/init_star_rating';
 import { guestDynamicPrice } from '../packs/booking_form';
 import { initFlatpickr } from '../plugins/init_flatpickr';
+import { initBookingCable } from '../channels/booking_notification_channel';
 
 // import { autocomplete } from "../components/autocomplete"
 
@@ -46,6 +47,7 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initStarRating();
   initFlatpickr();
+  initBookingCable();
   guestDynamicPrice();
   // autocomplete();
 

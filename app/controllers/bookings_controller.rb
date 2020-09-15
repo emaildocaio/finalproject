@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     else
       @booking.price = (@booking.guests.size + 1)*@booking.product.price
       @booking.save
-      #redirect_to product_path(params[:product_id], anchor: "footer")
+      notify_booking(@booking)
     end
   end
 
@@ -52,4 +52,11 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:date, :participants, :canceled?, guests_attributes: [:id, :name, :_destroy])
   end
 
+  def notify_booking(booking)
+    BookingNotificationChannel.broadcast_to(
+      current_user,
+      title: booking.product.name,
+      body: booking.price
+    )
+  end
 end
