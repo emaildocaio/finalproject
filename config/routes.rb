@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     get '/', to: 'bookings#dashboard', as: 'dashboard'
     get '/charts/booking_chart', to: 'bookings#bookings_chart'
     get '/charts/product_chart', to: 'bookings#products_chart'
+    patch 'bookings/:id/reactivate', to:'bookings#reactivate', as: 'booking_reactivate'
 
   end
   # Shopping cart custom routes
