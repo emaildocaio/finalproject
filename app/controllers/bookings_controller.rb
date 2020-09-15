@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     else
       @booking.price = (@booking.guests.size + 1)*@booking.product.price
       @booking.save
-      notify_booking(@booking)
+      notify_booking(@booking) # Send a notification after creating a booking
     end
   end
 
@@ -54,7 +54,7 @@ class BookingsController < ApplicationController
 
   def notify_booking(booking)
     BookingNotificationChannel.broadcast_to(
-      current_user,
+      booking.product.company.user, # Send the notification to the owner of the product
       title: booking.product.name,
       body: booking.price
     )
