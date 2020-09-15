@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[index create]
   end
 
-  resources :shopping_carts, only: %i[index create] do
+  post '/shopping_carts', to: "shopping_carts#create", as: "create_shopping_cart"
+  resources :shopping_carts, only: %i[index] do
     resources :payments, only: %i[new create]
   end
 

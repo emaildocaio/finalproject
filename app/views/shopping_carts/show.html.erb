@@ -30,7 +30,20 @@
 
   </div>
 
-  <%= link_to "Pay", shopping_carts_path, method: :post, class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
+  <%= link_to "Pay", pay_shopping_cart_path, method: :patch, class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
+
+<!-- <button id="pay" class="btn btn-primary">Pay</button>
+ <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @shopping_cart.checkout_session_id %>'
+          });
+        });
+      </script>
+ -->
 
   <%= link_to "Booking history", shopping_carts_path, class: "btn btn-primary" %>
 
