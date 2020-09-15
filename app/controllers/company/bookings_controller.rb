@@ -48,6 +48,7 @@ class Company::BookingsController < ApplicationController
 
   def dashboard
     @products = Product.where(company: current_user.company)
+    @date = Date.today
     authorize @products
   end
 
