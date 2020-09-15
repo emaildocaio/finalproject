@@ -13,6 +13,11 @@ class Company::BookingsController < ApplicationController
         @bookings = Booking.where(product: current_user.company.products, date: @dates[0]..@dates[2]).order(date: :asc)
       end
     end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data  @bookings.to_csv }
+    end
   end
 
   def show

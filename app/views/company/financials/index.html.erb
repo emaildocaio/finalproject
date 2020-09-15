@@ -34,11 +34,10 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Name</th>
-          <th scope="col">Guests</th>
-          <th scope="col">Trip</th>
+          <th scope="col">Passengers</th>
+          <th scope="col">Product</th>
           <th scope="col">Date</th>
           <th scope="col">Document</th>
-          <th scope="col">Email</th>
           <th scope="col">Status</th>
           <th scope="col">Price</th>
        </tr>
@@ -53,13 +52,12 @@
           <td><%= booking.product.name %></td>
           <td><%= booking.date %></td>
           <td><%= booking.shopping_cart.user.document %></td>
-          <td><%= booking.shopping_cart.user.email %></td>
           <td><%= booking.canceled ? "Canceled" : "Active" %></td>
-          <td><%= humanized_money_with_symbol booking.shopping_cart.total_price * (booking.guests.count + 1)  %></td>
+          <td><%= humanized_money_with_symbol booking.price  %></td>
+
            </tr>
           <% end %>
           <tr>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -70,7 +68,7 @@
              <td>
               <% @total = 0 %>
               <% @bookings.each do |booking| %>
-              <% @total = @total + booking.shopping_cart.total_price * (booking.guests.count + 1)  %>
+              <% @total = @total + booking.price %>
               <% end %>
                   <strong> <%= humanized_money_with_symbol @total %> </strong>
              </td>

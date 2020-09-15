@@ -10,7 +10,7 @@
             <%= image_tag(booking.product.photo) if booking.product.photo.present? %>
             <div class="ml-3">
               <h4>You selected the <%= booking.product.name %> tour:</h4>
-              <p> R$ <%= "#{booking.price} for #{booking.guests.size+1} people" %>
+              <p> R$ <%= "#{booking.product.price} for #{booking.guests.size+1} people" %>
               on <%= booking.date %> </p>
             </div>
           </div>
@@ -30,7 +30,7 @@
 
   </div>
 
-  <%= link_to "Pay", pay_shopping_cart_path, method: :patch, class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
+  <%= link_to "Pay", pay_shopping_cart_path, method: :post, class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
 
 <!-- <button id="pay" class="btn btn-primary">Pay</button>
  <script src="https://js.stripe.com/v3/"></script>
