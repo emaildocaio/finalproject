@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   end
 
   post '/shopping_carts', to: "shopping_carts#create", as: "create_shopping_cart"
-  resources :shopping_carts, only: %i[index] do
-    resources :payments, only: %i[new create]
+  resources :shopping_carts, only: %i[index create] do
+    resources :payments, only: %i[new]
   end
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   resources :bookings, only: %i[edit update destroy]
 
@@ -24,13 +25,10 @@ Rails.application.routes.draw do
     get '/charts/booking_chart', to: 'bookings#bookings_chart'
     get '/charts/product_chart', to: 'bookings#products_chart'
     patch 'bookings/:id/reactivate', to:'bookings#reactivate', as: 'booking_reactivate'
-
   end
+
   # Shopping cart custom routes
   get 'shopping_carts/current', to: 'shopping_carts#show', as: 'current_shopping_cart'
-  patch '/shopping_carts/', to: 'shopping_carts#pay', as: 'pay_shopping_cart'
-
-
-
   get '/myproducts', to: 'products#my_index'
+
 end
