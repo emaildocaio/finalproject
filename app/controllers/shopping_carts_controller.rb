@@ -16,6 +16,7 @@ class ShoppingCartsController < ApplicationController
     @shopping_cart = ShoppingCart.select(current_user)
     @booking = @shopping_cart.bookings.last
     authorize @shopping_cart
+
     line_items = []
 
     @shopping_cart.bookings.each do |booking|
@@ -37,6 +38,7 @@ class ShoppingCartsController < ApplicationController
   )
   @shopping_cart.update(checkout_session_id: session.id)
   redirect_to new_shopping_cart_payment_path(@shopping_cart)
+
   end
 
 

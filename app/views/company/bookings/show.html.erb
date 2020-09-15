@@ -19,6 +19,6 @@
     <%else%>
     <%= link_to 'Reactivate', company_booking_reactivate_path(@booking.id), method: :patch,  class: "btn btn-primary"  %>
   <%end%>
-  <%= link_to 'Back', company_bookings_path(@booking), class: "btn btn-primary"  %>
+  <%= link_to 'Back', company_bookings_path, class: "btn btn-primary"  %>
   
 </div>

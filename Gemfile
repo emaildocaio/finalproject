@@ -54,9 +54,14 @@ gem 'groupdate'
 
 # PDF Generation
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
+
+group :production do
+  gem 'wkhtmltopdf-heroku'
+end
 
 group :development, :test do
+
+  gem 'wkhtmltopdf-binary'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

@@ -2,9 +2,12 @@
 <html>
   <head>
     <title>Visit Arraial do Cabo</title>
+    
+    <%# This might prevent turbolinks cache %>
+    <meta name="turbolinks-cache-control" content="<%= yield(:turbolinks_cache) %>">
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_JS_KEY']}" %>

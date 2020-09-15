@@ -1,4 +1,13 @@
+<%# This prevents turbolinks cache %>
+<%= provide(:turbolinks_cache, 'no-cache') %>
+
+<%# This solution was implemented from this thread https://stackoverflow.com/questions/39627881/jquery-plugin-initialization-on-browser-back-button-for-turbolinks-rails-5/39801052#39801052 %>
+
 <% review_values = @product.review_values %>
+<% content_for :head do %>
+  <meta name="turbolinks-cache-control" content="no-cache">
+<% end %>
+
 <div class="container mb-5">
     <div class="row">
       <div class="galeria">
