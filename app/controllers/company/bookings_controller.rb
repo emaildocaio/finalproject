@@ -33,6 +33,14 @@ class Company::BookingsController < ApplicationController
     redirect_to company_booking_path(@booking.id)
   end
 
+  def reactivate
+    @booking = Booking.find(params[:id])
+    authorize @booking, policy_class: CompanyBookingPolicy
+    @booking.canceled = false
+    @booking.save
+    redirect_to company_booking_path(@booking.id)
+  end
+
   def dashboard
     @bookings = Booking.all
     authorize @bookings
