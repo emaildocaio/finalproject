@@ -1,6 +1,8 @@
-<%= simple_form_for @booking do |f| %>
-  <%= f.input :date %>
-  <%= f.input :participants %>
-  <%= f.input :guest%>
-  <%= f.submit %>
-<% end %>
+<div class='container'>
+  <%= simple_form_for @booking do |f| %>
+    <%= f.input :date %>
+    <%= f.input :participants %>
+    <%= f.input :guests %>
+    <%= f.submit %>
+  <% end %>
+</div>
