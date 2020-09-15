@@ -1,5 +1,8 @@
-<h1>Dashboard Home</h1>
+<div class='container'>
+  <h1>Dashboard Home</h1>
 
+
+  <%= line_chart company_charts_booking_chart_path %>
 
 <div class="trip-cards">
   <h2> Your Trips Today!</h1>
@@ -45,16 +48,9 @@
 
 <%= line_chart company_charts_booking_chart_path %>
 
-<%= pie_chart company_charts_product_chart_path %>
 
-<%#= pie_chart @booking.group(:date).count %>
+  <%= pie_chart company_charts_product_chart_path %>
 
-<div class="container">
-  <%= image_tag("g1.png", class: "graphic") %>
-
-  <%= image_tag("g2.png", class: "graphic") %>
-
-  <%= image_tag("g3.png", class: "graphic") %>
-
-  <%= image_tag("g4.png", class: "graphic") %>
+  <%#= pie_chart @booking.group(:date).count %>
+ 
 </div>
