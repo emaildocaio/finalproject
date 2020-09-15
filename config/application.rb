@@ -1,5 +1,6 @@
 require_relative 'boot'
 
+require 'date'
 require 'csv'
 require 'rails/all'
 
