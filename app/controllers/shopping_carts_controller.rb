@@ -11,7 +11,7 @@ class ShoppingCartsController < ApplicationController
 
   end
 
-  # def create
+  def create
 
   #   @shopping_cart = ShoppingCart.select(current_user)
   #   @booking = @shopping_cart.bookings.last
@@ -32,7 +32,7 @@ class ShoppingCartsController < ApplicationController
 
   # @shopping_cart.update(checkout_session_id: session.id)
   # redirect_to new_shopping_cart_payment_path(shopping_cart)
-  # end
+  end
 
   def pay
     authorize @shopping_cart
