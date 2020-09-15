@@ -13,6 +13,11 @@ class Company::BookingsController < ApplicationController
         @bookings = Booking.where(product: current_user.company.products, date: @dates[0]..@dates[2]).order(date: :asc)
       end
     end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data  @bookings.to_csv }
+    end
   end
 
   def show
@@ -33,9 +38,18 @@ class Company::BookingsController < ApplicationController
     redirect_to company_booking_path(@booking.id)
   end
 
+  def reactivate
+    @booking = Booking.find(params[:id])
+    authorize @booking, policy_class: CompanyBookingPolicy
+    @booking.canceled = false
+    @booking.save
+    redirect_to company_booking_path(@booking.id)
+  end
+
   def dashboard
-    @bookings = Booking.all
-    authorize @bookings
+    @products = Product.where(company: current_user.company)
+    @date = Date.today
+    authorize @products
   end
 
 
