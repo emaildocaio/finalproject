@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[index]
     resources :products, only: %i[index]
     get '/', to: 'bookings#dashboard', as: 'dashboard'
+    get '/charts/booking_chart', to: 'bookings#bookings_chart'
+    get '/charts/product_chart', to: 'bookings#products_chart'
+
   end
   # Shopping cart custom routes
   get 'shopping_carts/current', to: 'shopping_carts#show', as: 'current_shopping_cart'

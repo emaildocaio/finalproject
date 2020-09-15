@@ -49,6 +49,7 @@ gem 'cloudinary', '~> 1.16.0'
 
 # Chartkick
 gem "chartkick"
+gem 'groupdate'
 
 # PDF Generation
 gem 'wicked_pdf'

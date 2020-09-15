@@ -1,6 +1,10 @@
 <h1>Dashboard Home</h1>
 
-<%= line_chart User.group_by_day(:created_at).count %>
+<%= line_chart company_charts_booking_chart_path %>
+
+<%= pie_chart company_charts_product_chart_path %>
+
+<%#= pie_chart @booking.group(:date).count %>
 
 <div class="container">
   <%= image_tag("g1.png", class: "graphic") %>
