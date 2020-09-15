@@ -47,8 +47,8 @@ class Company::BookingsController < ApplicationController
   end
 
   def dashboard
-    @bookings = Booking.all
-    authorize @bookings
+    @products = Product.where(company: current_user.company)
+    authorize @products
   end
 
 

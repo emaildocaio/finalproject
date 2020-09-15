@@ -157,3 +157,37 @@ font-size:120px;
   padding: 16px;
 }
 
+// Dashboard Cards
+
+.trip-card {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.trip-card img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.trip-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.trip-card p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.trip-card .trip-card -infos {
+  padding: 16px;
+}

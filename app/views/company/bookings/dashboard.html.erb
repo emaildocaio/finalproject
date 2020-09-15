@@ -1,5 +1,22 @@
 <h1>Dashboard Home</h1>
 
+<div class="trip-cards">
+  <h2> Your Trips Today!</h1>
+  <% @products.each do |product| %>
+    <% if product.status%>
+      <%= link_to company_products_path do%>
+        <div class="trip-card">
+          <%= cl_image_tag product.photo.key %>
+          <div class="trip-card-infos">
+            <h2><%= "#{product.name} (#{product.activity})"%></h2>
+            <p><%= "There are X spots left on the boat, total capacity of #{product.capacity}"%></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
 <%= line_chart company_charts_booking_chart_path %>
 
 <%= pie_chart company_charts_product_chart_path %>
