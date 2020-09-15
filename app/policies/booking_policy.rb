@@ -15,6 +15,7 @@ class BookingPolicy < ApplicationPolicy
 
   def edit?
     destroy?
+    
   end
 
   def update?
@@ -24,7 +25,7 @@ class BookingPolicy < ApplicationPolicy
   def dashboard?
     true
   end
-
+  
   def bookings_chart? 
     true
   end
@@ -32,4 +33,5 @@ class BookingPolicy < ApplicationPolicy
   def products_chart? 
     true
   end
+
 end

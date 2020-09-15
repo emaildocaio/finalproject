@@ -1,11 +1,21 @@
-<div class='container'>
-  <div class="row">
+<div class='container'> 
+  <h1><%= current_user.company.name %></h1>
+  <div class='flexbox'>
+   <button type="button" class="btn btn-primary">Print</button>
+   <button type="button" class="btn btn-primary export-btn">Export</button>
+  </div>
+  <div class="row-calendar">
     <div class="col-6">
     <%= simple_form_for :search, url: company_bookings_path, method: :get do |f| %>
+
+      <%= f.input :start_date, as: :string, required: true, placeholder:  (beautiful_date_helper(@dates[0]) if @dates) %>
+      <%= f.input :end_date, as: :string, required: true, placeholder: (beautiful_date_helper(@dates[2]) if @dates) %>
+
       <%= f.input :start_date, as: :string, required: true,
       placeholder:  (beautiful_date_helper(@dates[0]) if @dates) %>
       <%= f.input :end_date, as: :string, required: true,
       placeholder: (params[:search][:end_date] if @dates) %>
+
       <% if params[:search].nil? %>
         <%= f.submit "Search", class: "btn btn-primary"%>
       <% else %>
@@ -18,17 +28,9 @@
     <% end %>
     </div>
   </div>
-
-
-
-
-  <h1><%= current_user.company.name %></h1>
-  <div class='flexbox'>
-   <button type="button" class="btn btn-primary">Print</button>
-   <button type="button" class="btn btn-primary export-btn">Export</button>
-  </div>
+  
   <div class="table-responsive">
-    <table class="table table-striped">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -40,26 +42,28 @@
           <th scope="col">Email</th>
           <th scope="col">Phone Number</th>
           <th scope="col">Status</th>
+          <th scope='col'></th>
        </tr>
       </thead>
-      <tbody .table-hover>
-        <tr>
-          <% counter = 0 %>
-          <% @bookings.each do |booking| %>
-          <th scope="row"> <%= counter +=1 %> </th>
-          <td><%= booking.shopping_cart.user.first_name %></td>
-          <td class="align-middle"><%= booking.guests.count + 1 %></td>
-          <td><%= booking.product.name %></td>
-          <td><%= booking.date %></td>
-          <td><%= booking.shopping_cart.user.document %></td>
-          <td><%= booking.shopping_cart.user.email %></td>
-          <td><%= booking.shopping_cart.user.phone %></td>
-          <td><%= booking.canceled ? "Canceled" : "Active" %></td>
+      <tbody>
+
+        <%# <tr data-href= "<%= company_booking_path(@booking) %>
+        <% counter = 0 %>
+        <% @bookings.each do |booking| %>    
+          <tr> 
+            <th scope="row"> <%= counter +=1 %> </th>
+            <td><%= booking.shopping_cart.user.first_name %></td>
+            <td><%= booking.guests.count + 1 %></td>
+            <td><%= booking.product.name %></td>
+            <td><%= booking.date %></td>
+            <td><%= booking.shopping_cart.user.document %></td>
+            <td><%= booking.shopping_cart.user.email %></td>
+            <td><%= booking.shopping_cart.user.phone %></td>
+            <td><%= booking.canceled ? "Canceled" : "Confirmed" %></td>
+            <td><%= link_to 'Details', company_booking_path(booking) %>  </td>
           </tr>
-          <% end %>
-
-      </tbody>
-
-
+        <% end %>
+        
+    </tbody>
 </div>
 
