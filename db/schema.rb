@@ -98,9 +98,9 @@ ActiveRecord::Schema.define(version: 2020_09_14_132619) do
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "participants", default: 1
     t.string "name"
     t.integer "price_cents", default: 0, null: false
+    t.integer "participants"
     t.index ["product_id"], name: "index_bookings_on_product_id"
     t.index ["shopping_cart_id"], name: "index_bookings_on_shopping_cart_id"
   end
