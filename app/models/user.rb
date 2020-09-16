@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_one :company, dependent: :destroy
   has_many :products, through: :companies
   has_many :guests, through: :bookings
+  has_many :notifications, dependent: :destroy
 end

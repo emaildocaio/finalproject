@@ -5,10 +5,11 @@ class Booking < ApplicationRecord
   validates :participants, numericality: { greater_than_or_equal_to: 1 }
   has_many :guests, inverse_of: :booking, dependent: :destroy
   accepts_nested_attributes_for :guests, reject_if: :all_blank, allow_destroy: true
+  has_one :notification, dependent: :destroy
   monetize :price_cents
 
   def self.to_csv
-    headers = ["first name", "last name", "guests", "email", "phone", "document", "trip", "date", "price_cents", "status"] 
+    headers = ["first name", "last name", "guests", "email", "phone", "document", "trip", "date", "price_cents", "status"]
   #  attributes = ["date", "price_cents", "status"]
     CSV.generate(headers: true) do |csv|
       csv << headers
