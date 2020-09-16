@@ -28,12 +28,12 @@
         </div>
       </div>
       <div class="title">
-        <h1 class="hero-title"><span class="title-first">Arraial</span><span class="title-second"> is </span> <span class="title-third" id="change"> PRAIA</span></h1>
+        <h1 class="hero-title"><span class="title-first">Arraial</span><span class="title-second"> is </span> <span class="title-third" id="change"> BEACH</span></h1>
         <h4 class="hero-title-h4" >Explore this paradise!</h4>
       </div>
 
       <script>
-        var text = ["BEACH", "SUN", "SEA", "DIVE", "PARADISE"];
+        var text = ["SUN", "SEA", "DIVE", "PARADISE"];
         var counter = 0;
         var elem = document.getElementById("change");
         var inst = setInterval(change, 2500);
@@ -48,6 +48,43 @@
         }
       </script>
     </div>
+
+   <!--  <div class="container">
+      <h2 class="mt-5">Choose your Paradise</h2>
+      <div class="cards">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../../assets/images/melhor.jpg)">
+          Breakfast
+        </div>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          Breakfast
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+          Lunch
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+          Dinner
+        </div>
+      </div>
+
+      <div class="cards mt-3">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          Breakfast
+        </div>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          Breakfast
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+          Lunch
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+          Dinner
+        </div>
+      </div>
+    </div> -->
 
 
 
@@ -102,12 +139,12 @@
       <div class="gridblock">
         <h2 class="whattodo">How do you want to enjoy the paradise?</h2>
         <div class="cards justify-content-center">
-          <%= link_to products_path(activity: 'Day Trip') do %>
+          <%= link_to day_trip_products_path do %>
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_url("barco-novo.jpg") %>) ">
               Day Trip
             </div>
           <% end %>
-          <%= link_to products_path(activity: 'Dive') do %>
+          <%= link_to dive_products_path do %>
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_url("acqua-world.jpg") %>)">
               Dive
             </div>

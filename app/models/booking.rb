@@ -36,10 +36,12 @@ class Booking < ApplicationRecord
     canceled ? "Canceled" : "Confirmed"
   end
 
+
   def create_notification
     notification = Notification.new
     notification.booking = self
     notification.user = product.company.user
     notification.save
   end
+
 end

@@ -39,6 +39,7 @@
                 <% if user_signed_in? %>
                   <%= render(partial: 'notifications/notifications_link', locals: { count: current_user.unread_notifications_count }) if current_user.has_unread_notifications? %>
                   <%= link_to "Check your shopping cart", current_shopping_cart_path, class: "dropdown-item" %>
+                  <%= link_to "Check your purchases", shopping_carts_path, class: "dropdown-item" %>
                   <%= link_to "Update your profile", edit_user_registration_path, class: "dropdown-item"%>
                     <% if current_user.company.present? %>
                       <%= link_to "Manage your company", company_path(current_user.company.id), class: "dropdown-item" %>

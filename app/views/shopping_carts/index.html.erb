@@ -1,19 +1,30 @@
 <div class='container'>
 <h1>You order history</h2>
-<h3><strong>Completed</strong></h3>
- <div class="card-product-index">
+<h3><strong>Confirmed</strong></h3>
+ <div class="d-flex" >
   <i class="far fa-check-circle"></i>
   <%# <img src="https://i.pinimg.com/originals/f2/c4/c7/f2c4c70c31d250f920f3c9f0f6804a5a.jpg" /> %>
-    <div class='card-product-infos-index'>
+    <div >
       <ul>
+         <% @pay_shopping_carts = @pay_shopping_carts.order(updated_at: :desc) %>
         <% @pay_shopping_carts.each do |shopping_cart| %>
-          <p> Order number <%= shopping_cart.id %> </p>
-            <% shopping_cart.bookings.each do |booking| %>
-            <li> 1x <%= booking.product.name %>,
-              R$ <%= booking.price %> for <%= "#{booking.guests.size+1} people" %>,
-              made on <%= booking.updated_at %></li>
-            <% end %>
-          <br>
+          <h4> <strong> Order number <%= shopping_cart.id %></strong> </h4>
+          <% shopping_cart.bookings.each do |booking| %>
+            <div class="card-product card-cart-index p-4 m-4">
+              <li>
+                <div class="d-flex">
+                  <%= image_tag(booking.product.photo) if booking.product.photo.present? %>
+                  <div class="m-4">
+                    <h4>Your <%= booking.product.name %> tour will be on <%= booking.date %>  </h4>
+                     Paid  R$ <%= booking.price %> for <%= "#{booking.guests.size+1} people" %>,
+                    <p> bought on <%= booking.updated_at %> </p>
+                    <p> Offered by <%= booking.product.company.name %> </p>
+                  </div>
+                </div>
+              </li>
+            </div>
+          <% end %>
+          <hr>
         <% end %>
       </ul>
     </div>
@@ -21,10 +32,10 @@
 <p></p>
 <p></p>
 <h3><strong> Cancelled </strong></h3>
-<div class="card-product-index">
+<div >
   <i class="far fa-window-close" ></i>
   <%# <img src="https://i.pinimg.com/originals/72/1f/e5/721fe5125e96eac682be7facba57a5ec.png" /> %>
-    <div class='card-product-infos-index'>
+    <div>
       <% @cancel_shopping_carts.each do |shopping_cart| %>
       <p> Order number <%= shopping_cart.id %> </p>
       <% shopping_cart.bookings.each do |booking| %>
@@ -33,7 +44,6 @@
       R$ <%= booking.product.price * booking.participants %>,
       made on <%= booking.updated_at %></li>
     <% end %>
-     <br>
   <% end %>
     </div>
   </div>

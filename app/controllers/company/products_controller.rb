@@ -27,6 +27,13 @@ class Company::ProductsController < ApplicationController
                 dpi: 75
       end
     end
+
+    @bookings_by_date = Booking.where(product_id: @product.id, date: @date)
+    @participants_array = @bookings_by_date.map do |booking|
+      booking.guests.size + 1
+    end
+    @participants_array.empty? ? @total_participants = 0 : @total_participants = @participants_array.reduce(:+)
+
   end
 
   private
