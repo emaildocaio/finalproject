@@ -9,6 +9,7 @@ module ApplicationCable
     private
 
     def find_verified_user
+    # Don't let users peep in other users channels
       if verified_user = env['warden'].user
         verified_user
       else

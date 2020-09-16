@@ -60,7 +60,7 @@ class BookingsController < ApplicationController
     htmls << render_to_string(partial: 'notifications/notifications_link', locals: { count: unread_count })
     BookingNotificationChannel.broadcast_to(
       user, # Send the notification to the owner of the product
-      html: htmls
+      html: htmls # Send the partials for dynamic HTML generation
     )
   end
 end
