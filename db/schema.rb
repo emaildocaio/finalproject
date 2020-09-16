@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_132619) do
+ActiveRecord::Schema.define(version: 2020_09_16_135636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,17 @@ ActiveRecord::Schema.define(version: 2020_09_14_132619) do
     t.index ["booking_id"], name: "index_guests_on_booking_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.text "content"
+    t.boolean "read", default: false, null: false
+    t.bigint "user_id", null: false
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_notifications_on_booking_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "activity"
@@ -184,6 +195,8 @@ ActiveRecord::Schema.define(version: 2020_09_14_132619) do
   add_foreign_key "bookings", "shopping_carts"
   add_foreign_key "companies", "users"
   add_foreign_key "guests", "bookings"
+  add_foreign_key "notifications", "bookings"
+  add_foreign_key "notifications", "users"
   add_foreign_key "products", "companies"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
