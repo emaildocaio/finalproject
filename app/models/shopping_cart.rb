@@ -23,7 +23,7 @@ class ShoppingCart < ApplicationRecord
   def calc_total_price
     sum = 0
     bookings.each do |booking|
-      sum += booking.product.price * booking.participants
+      sum += booking.price
     end
     sum
   end
