@@ -28,11 +28,8 @@
       </li>
       <% end %>
     </ul>
-      <% total = 0 %>
-      <% @shopping_cart.bookings.each do |booking| %>
-        <% total += booking.price %>
-      <% end %>
-    <h2> Total: R$ <%= total %> </h2>
+
+    <h2> Total: R$ <%= @shopping_cart.calc_total_price %> </h2>
 
   </div>
 
