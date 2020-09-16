@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     else
       @booking.price = (@booking.guests.size + 1)*@booking.product.price
       @booking.save
-      #redirect_to product_path(params[:product_id], anchor: "footer")
+      notify_booking(@booking) # Send a notification after creating a booking
     end
   end
 
@@ -52,4 +52,15 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:date, :participants, :canceled?, guests_attributes: [:id, :name, :_destroy])
   end
 
+  def notify_booking(booking)
+    user = booking.notification.user
+    unread_count = user.unread_notifications_count # Count unread notifications
+    htmls = []
+    htmls << render_to_string(partial: 'layouts/notification_badge', locals: { count: unread_count })
+    htmls << render_to_string(partial: 'notifications/notifications_link', locals: { count: unread_count })
+    BookingNotificationChannel.broadcast_to(
+      user, # Send the notification to the owner of the product
+      html: htmls # Send the partials for dynamic HTML generation
+    )
+  end
 end

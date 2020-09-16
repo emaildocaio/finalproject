@@ -33,6 +33,9 @@ Rails.application.routes.draw do
 
   # Shopping cart custom routes
   get 'shopping_carts/current', to: 'shopping_carts#show', as: 'current_shopping_cart'
+  
+  resources :notifications, only: %i[index]
+
   get '/myproducts', to: 'products#my_index'
 
 end
