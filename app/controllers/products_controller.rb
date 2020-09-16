@@ -24,6 +24,8 @@ class ProductsController < ApplicationController
         @products = @products.where(activity: params[:activity])
       end
     end
+
+    @products = Product.all.paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
