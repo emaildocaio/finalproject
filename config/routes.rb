@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   patch '/shopping_carts/', to: 'shopping_carts#pay', as: 'pay_shopping_cart'
 
 
+  resources :notifications, only: %i[index]
 
   get '/myproducts', to: 'products#my_index'
 end

@@ -10,4 +10,12 @@ class User < ApplicationRecord
   has_many :products, through: :companies
   has_many :guests, through: :bookings
   has_many :notifications, dependent: :destroy
+
+  def has_unread_notifications?
+    notifications.where(read: false).count > 0
+  end
+
+  def unread_notifications_count
+    notifications.where(read: false).count
+  end
 end

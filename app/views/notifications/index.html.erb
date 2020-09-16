@@ -1,0 +1,7 @@
+<div class="notifications-container">
+  <% @notifications.each do |notification| %>
+    <li>
+      <%= "#{notification.booking.shopping_cart.user.first_name} booked #{notification.booking.product.name}" %>
+    </li>
+  <% end %>
+</div>
