@@ -5,7 +5,12 @@ const initBookingCable = () => {
     consumer.subscriptions.create({ channel: "BookingNotificationChannel" }, {
         received(data) {
           const avatarNavbar = document.querySelector('.dropdown');
-          avatarNavbar.insertAdjacentHTML('beforebegin', data);
+          const dropdownMenu = document.querySelector('.dropdown-menu');
+          const notificationsLink = document.getElementById('notifications-link');
+          avatarNavbar.insertAdjacentHTML('beforebegin', data.html[0]);
+          if (!notificationsLink) {
+            dropdownMenu.insertAdjacentHTML('afterbegin', data.html[1]);
+          }
         }
       });
   };
