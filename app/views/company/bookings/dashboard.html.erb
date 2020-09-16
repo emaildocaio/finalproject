@@ -1,56 +1,51 @@
 <div class='container'>
-  <h1>Dashboard Home</h1>
+  <div class="trip-cards">
+    <h2> Your Trips Today!</h2>
+    <% @products.each do |product| %>
+      <% if product.status%>
+        <%= link_to company_products_path do%>
+          <div class="trip-card mb-2 d-flex">
+            <%= cl_image_tag product.photo.key %>
+            <div class="trip-card-infos">
+              <h2><%= "#{product.name} (#{product.activity})"%></h2>
+              <% @bookings_by_date = Booking.where(product_id: product.id, date: @date)%>
+              <% @participants_array = @bookings_by_date.map do |booking| %>
+                <% booking.guests.size + 1 %>
+              <% end %>
+              <% @participants_array.empty? ? @total_participants = 0 : @total_participants = @participants_array.reduce(:+) %>
+              <p><%= "There are #{product.capacity - @total_participants} spots left on the boat, total capacity of #{product.capacity}"%></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
 
+    <h2> Your Trips Tomorrow!!</h2>
+      <% @products.each do |product| %>
+      <% if product.status%>
+        <%= link_to company_products_path do%>
+          <div class="trip-card mb-2 d-flex">
+            <%= cl_image_tag product.photo.key %>
+            <div class="trip-card-infos">
+              <h2><%= "#{product.name} (#{product.activity})"%></h2>
+              <% @bookings_by_date = Booking.where(product_id: product.id, date: @date + 1)%>
+              <% @participants_array = @bookings_by_date.map do |booking| %>
+                <% booking.guests.size + 1 %>
+              <% end %>
+              <% @participants_array.empty? ? @total_participants = 0 : @total_participants = @participants_array.reduce(:+) %>
+              <p><%= "There are #{product.capacity - @total_participants} spots left on the boat, total capacity of #{product.capacity}"%></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 
   <%= line_chart company_charts_booking_chart_path %>
-
-<div class="trip-cards">
-  <h2> Your Trips Today!</h1>
-  <% @products.each do |product| %>
-    <% if product.status%>
-      <%= link_to company_products_path do%>
-        <div class="trip-card mb-2 d-flex">
-          <%= cl_image_tag product.photo.key %>
-          <div class="trip-card-infos">
-            <h2><%= "#{product.name} (#{product.activity})"%></h2>
-            <% @bookings_by_date = Booking.where(product_id: product.id, date: @date)%>
-            <% @participants_array = @bookings_by_date.map do |booking| %>
-              <% booking.guests.size + 1 %>
-            <% end %>
-            <% @participants_array.empty? ? @total_participants = 0 : @total_participants = @participants_array.reduce(:+) %>
-            <p><%= "There are #{product.capacity - @total_participants} spots left on the boat, total capacity of #{product.capacity}"%></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <h2> Your Trips Tomorrow!!</h1>
-    <% @products.each do |product| %>
-    <% if product.status%>
-      <%= link_to company_products_path do%>
-        <div class="trip-card mb-2 d-flex">
-          <%= cl_image_tag product.photo.key %>
-          <div class="trip-card-infos">
-            <h2><%= "#{product.name} (#{product.activity})"%></h2>
-            <% @bookings_by_date = Booking.where(product_id: product.id, date: @date + 1)%>
-            <% @participants_array = @bookings_by_date.map do |booking| %>
-              <% booking.guests.size + 1 %>
-            <% end %>
-            <% @participants_array.empty? ? @total_participants = 0 : @total_participants = @participants_array.reduce(:+) %>
-            <p><%= "There are #{product.capacity - @total_participants} spots left on the boat, total capacity of #{product.capacity}"%></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
-
-<%= line_chart company_charts_booking_chart_path %>
 
 
   <%= pie_chart company_charts_product_chart_path %>
 
   <%#= pie_chart @booking.group(:date).count %>
  
-</div>
+  </div>

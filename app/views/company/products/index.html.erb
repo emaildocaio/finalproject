@@ -19,9 +19,17 @@
     <% end %>
   <% end %>
 
+<div class="d-flex justify-content-between">
   <%= link_to 'Export to PDF',
   company_products_path(params: params.permit(search: {}), format: :pdf),
   class: "btn btn-primary" %>
+
+  <div class="capacity">
+    <p><%=" Total participants: #{@total_participants}, Spots left: #{@product.capacity - @total_participants}"%></p>
+    <p></p>
+  </div>
+</div>
+
 
   <h2> <%= @product.name %> </h2>
   <div class="table-responsive">
