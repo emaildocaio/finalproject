@@ -64,13 +64,39 @@ class Company::BookingsController < ApplicationController
     render json: @bookings.joins(:product).group('products.name').count
     authorize @bookings
   end
-
+  
   # def participants_chart
   #   @bookings = Booking.where(product: current_user.company.products)
-  #   render json: @bookings.group(:product_id).count
   #   authorize @bookings
+  #   @totalpart = {}
+  #   @bookings.each do |booking|
+  #     if totalpart.key?("#{booking.product.name} #{booking.date.strftime('%d/%m')}")
+  #      totalpart["#{booking.product.name} #{booking.date.strftime('%d/%m')}"] += booking.guests.size + 1
+  #      else
+  #      totalpart["#{booking.product.name} #{booking.date.strftime('%d/%m')}"] = booking.guests.size + 1
+  #      end
+  #     end 
+  #   render json: @totalpart
   # end
 
+  def participants_chart
+    @products = current_user.company.products
+    @data = @products.map do |product|
+      @totalpart = {}
+      product.bookings.each do |booking|
+        if @totalpart.key?("#{booking.product.name} #{booking.date.strftime('%d/%m')}")
+          @totalpart["#{booking.date.strftime('%d/%m')}"] += booking.guests.size + 1
+          else
+          @totalpart[" #{booking.date.strftime('%d/%m')}"] = booking.guests.size + 1
+          end
+      end
+      {name: product.name, data: @totalpart}
+    end
+    authorize Booking
+    render json: @data
+      
+  end
+ 
   private
 
   def build_dates

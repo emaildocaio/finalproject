@@ -42,9 +42,11 @@
     <% end %>
   </div>
 
+
+
   <%= column_chart company_charts_booking_chart_path, ytitle: "nº of bookings" %>
-  <%= line_chart company_charts_booking_chart_path, ytitle: "nº of participants" %>
   <%= pie_chart company_charts_product_chart_path %>
+  <%= line_chart company_charts_participants_chart_path, ytitle: "nº of participants" %>
 
   <%#= pie_chart @booking.group(:date).count %>
  
