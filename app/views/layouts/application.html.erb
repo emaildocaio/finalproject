@@ -2,10 +2,10 @@
 <html>
   <head>
     <title>Visit Arraial do Cabo</title>
-    
+
     <%# This might prevent turbolinks cache %>
     <meta name="turbolinks-cache-control" content="<%= yield(:turbolinks_cache) %>">
-    
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,7 +25,7 @@
 
     <% if controller_path == "products" || controller_path == "user" || controller_path == "companies" || controller_path == "shopping_carts" || controller_path == "bookings" %>
         <%= render :partial => "layouts/navbar_marketplace" %>
-    <% elsif controller_path == "company/bookings" || controller_path == "company/products" %>
+    <% elsif controller_path == "company/bookings" || controller_path == "company/products" || controller_path == "notifications" %>
       <%= render :partial => "company/bookings/navbar_dashboard" %>
     <% else %>
       <%= render :partial => "layouts/navbar_home" %>

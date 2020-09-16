@@ -1,7 +1,18 @@
+<h2> Recent bookings </h2>
 <div class="notifications-container">
   <% @notifications.each do |notification| %>
-    <li>
-      <%= "#{notification.booking.shopping_cart.user.first_name} booked #{notification.booking.product.name}" %>
-    </li>
+    <div class="notification">
+      <div class="notification-content">
+        <p><small><%= notification.created_at %></small></p>
+        <p>
+          <%= "#{notification.booking.shopping_cart.user.first_name} booked #{notification.booking.product.name}" %>
+        </p>
+      </div>
+      <div class="notification-actions">
+        <a href="#">Go to product <i class="fas fa-ship"></i></a>
+      </div>
+    </div>
+      <% notification.read = true %>
+      <% notification.save %>
   <% end %>
 </div>

@@ -11,11 +11,17 @@ class User < ApplicationRecord
   has_many :guests, through: :bookings
   has_many :notifications, dependent: :destroy
 
+  # Notifications methods
+
   def has_unread_notifications?
     notifications.where(read: false).count > 0
   end
 
   def unread_notifications_count
     notifications.where(read: false).count
+  end
+
+  def unread_notifications_list
+    notifications.where(read: false)
   end
 end
