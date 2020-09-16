@@ -55,8 +55,7 @@ class BookingsController < ApplicationController
   def notify_booking(booking)
     BookingNotificationChannel.broadcast_to(
       booking.product.company.user, # Send the notification to the owner of the product
-      title: booking.product.name,
-      body: booking.price
+      render_to_string(partial: 'layouts/notification_badge')
     )
   end
 end
