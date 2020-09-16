@@ -52,6 +52,9 @@ gem 'cloudinary', '~> 1.16.0'
 gem "chartkick"
 gem 'groupdate'
 
+## Gemfile for Rails 3+, Sinatra, and Merb
+gem 'will_paginate', '~> 3.1.0'
+
 # PDF Generation
 gem 'wicked_pdf'
 

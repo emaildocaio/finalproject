@@ -21,7 +21,7 @@
 
   <%= link_to 'Export to PDF',
   company_products_path(params: params.permit(search: {}), format: :pdf),
-  class: "btn btn-primary" %>
+  class: "mt-4 btn btn-secondary" %>
 
   <h2> <%= @product.name %> </h2>
   <div class="table-responsive">

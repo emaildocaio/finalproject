@@ -1,16 +1,18 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col-md-3">
-
-    </div>
     <div class="container">
       <h1>Checkout summary</h1>
       <p>Your booking status is <strong> <%= @shopping_cart.status.upcase %> </p> </strong>
-
+      <div roe>
+      <div class="col-12">
       <ul>
         <% @shopping_cart.bookings.each do |booking| %>
           <li>
-            <%= cl_image_tag booking.product.photo.key, width: '10%' %><strong> <%= booking.product.name %></strong> for <strong><%= humanized_money_with_symbol booking.product.price %></strong>
+            <div class="d-flex">
+            <%= cl_image_tag booking.product.photo.key, width: '20%' %>
+            <div class="m-4">
+            Your tour is <strong> <%= booking.product.name %></strong>
+            <p> Price <strong><%= humanized_money_with_symbol booking.product.price %></strong> </p>
+            </div>
+            </div>
             <hr>
           </li>
         <% end %>
@@ -20,12 +22,12 @@
           <% @total = @total + booking.price %>
         <% end %>
         <li>
-          <p> Total Price <%= humanized_money_with_symbol @total %> </p>
+          <h4> Total Price <strong> <%= humanized_money_with_symbol @total %> </strong></h4>
         </li>
       </ul>
-
+      </div>
+      </div>
       <button id="pay" class="btn btn-primary">Pay</button>
-
 
       <script src="https://js.stripe.com/v3/"></script>
       <script>
@@ -38,5 +40,4 @@
         });
       </script>
     </div>
-  </div>
-</div>
+
