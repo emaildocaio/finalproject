@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :products do
     resources :bookings, only: %i[create]
     resources :reviews, only: %i[index create]
+    collection do
+      get "day_trip"
+      get "dive"
+    end
   end
 
   post '/shopping_carts', to: "shopping_carts#create", as: "create_shopping_cart"

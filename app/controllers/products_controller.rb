@@ -4,16 +4,9 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @products = Product.where(status: true)
+    @products = Product.where(status: true).paginate(:page => params[:page], :per_page => 5)
     @companies = Company.all
-    @markers = @companies.geocoded.map do |company|
-      {
-        lat: company.latitude,
-        lng: company.longitude,
-        name: company.name,
-        infoWindow: render_to_string(partial: "info_window", locals: { company: company })
-      }
-    end
+    @markers = company_markers
 
     if params[:search].present?
       if params[:search][:name].empty?
@@ -25,7 +18,22 @@ class ProductsController < ApplicationController
       end
     end
 
-    @products = Product.all.paginate(:page => params[:page], :per_page => 5)
+  end
+
+  def day_trip
+    skip_authorization
+    @products = Product.where(status: true, activity: "Day Trip").paginate(:page => params[:page], :per_page => 5)
+    @companies = Company.all
+    @markers = company_markers
+    render :index
+  end
+
+    def dive
+    skip_authorization
+    @products = Product.where(status: true, activity: "Dive").paginate(:page => params[:page], :per_page => 5)
+    @companies = Company.all
+    @markers = company_markers
+    render :index
   end
 
   def show
@@ -84,5 +92,17 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :price, :activity, :capacity, :status, :photo, :description)
+  end
+
+  def company_markers
+    @companies.geocoded.map do |company|
+      {
+        lat: company.latitude,
+        lng: company.longitude,
+        name: company.name,
+        infoWindow: render_to_string(partial: "info_window", locals: { company: company })
+      }
+    end
+
   end
 end
