@@ -53,9 +53,11 @@ class BookingsController < ApplicationController
   end
 
   def notify_booking(booking)
+    user = booking.notification.user
+    unread_count = user.notifications.where(read: false).count # Count unread notifications
     BookingNotificationChannel.broadcast_to(
-      booking.product.company.user, # Send the notification to the owner of the product
-      render_to_string(partial: 'layouts/notification_badge')
+      user, # Send the notification to the owner of the product
+      render_to_string(partial: 'layouts/notification_badge', locals: { count: unread_count })
     )
   end
 end
