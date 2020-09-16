@@ -59,11 +59,17 @@ class Company::BookingsController < ApplicationController
     authorize @bookings
   end
 
-  def products_chart
+  def products_chart  
     @bookings = Booking.where(product: current_user.company.products)
-    render json: @bookings.group(:product_id).count
+    render json: @bookings.joins(:product).group('products.name').count
     authorize @bookings
   end
+
+  # def participants_chart
+  #   @bookings = Booking.where(product: current_user.company.products)
+  #   render json: @bookings.group(:product_id).count
+  #   authorize @bookings
+  # end
 
   private
 
