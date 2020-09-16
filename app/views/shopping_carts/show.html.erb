@@ -10,7 +10,9 @@
             <%= image_tag(booking.product.photo) if booking.product.photo.present? %>
             <div class="ml-3">
               <h4>You selected the <%= booking.product.name %> tour:</h4>
-              <p> R$ <%= "#{booking.product.price} for #{booking.guests.size+1} people" %>
+              <% booking_price = booking.product.price %>
+              <% participants = booking.guests.size+1 %>
+              <p> R$ <%= booking_price * participants %> for <%= participants %> people
               on <%= booking.date %> </p>
             </div>
           </div>
@@ -26,7 +28,11 @@
       </li>
       <% end %>
     </ul>
-    <h2> Total: R$ <%= @shopping_cart.calc_total_price %> </h2>
+      <% total = 0 %>
+      <% @shopping_cart.bookings.each do |booking| %>
+        <% total += booking.price %>
+      <% end %>
+    <h2> Total: R$ <%= total %> </h2>
 
   </div>
 
