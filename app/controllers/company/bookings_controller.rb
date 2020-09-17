@@ -1,7 +1,7 @@
 class Company::BookingsController < ApplicationController
-  
+
   def index
-    
+
     if params[:search].nil?
       @bookings = Booking.where(product: current_user.company.products).order(date: :asc)
     else
@@ -24,13 +24,8 @@ class Company::BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking, policy_class: CompanyBookingPolicy
   end
-  
-  def edit
-    @booking = Booking.find(params[:id])
-    authorize @booking, policy_class: CompanyBookingPolicy
-  end
 
-  def update
+  def destroy
     @booking = Booking.find(params[:id])
     authorize @booking, policy_class: CompanyBookingPolicy
     @booking.canceled = true
@@ -59,12 +54,12 @@ class Company::BookingsController < ApplicationController
     authorize @bookings
   end
 
-  def products_chart  
+  def products_chart
     @bookings = Booking.where(product: current_user.company.products)
     render json: @bookings.joins(:product).group('products.name').count
     authorize @bookings
   end
-  
+
   # def participants_chart
   #   @bookings = Booking.where(product: current_user.company.products)
   #   authorize @bookings
@@ -75,7 +70,7 @@ class Company::BookingsController < ApplicationController
   #      else
   #      totalpart["#{booking.product.name} #{booking.date.strftime('%d/%m')}"] = booking.guests.size + 1
   #      end
-  #     end 
+  #     end
   #   render json: @totalpart
   # end
 
@@ -97,7 +92,7 @@ class Company::BookingsController < ApplicationController
   end
 
   def financials_chart
-    @bookings = Booking.where(product: current_user.company.products) #pego meus bookings q vai ser um array 
+    @bookings = Booking.where(product: current_user.company.products) #pego meus bookings q vai ser um array
     @booking_hash = {}
     @bookings_price = @bookings.map do |booking|
       @price =  booking.price_cents/100 # this is the value of my hash
@@ -109,9 +104,9 @@ class Company::BookingsController < ApplicationController
       end
     end
     authorize @bookings
-    render json: @booking_hash    
+    render json: @booking_hash
   end
-  
+
   private
 
   def build_dates
