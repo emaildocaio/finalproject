@@ -39,7 +39,7 @@
               <% @participants_array.empty? ? @total_participants = 0 : @total_participants = @participants_array.reduce(:+) %>
               <p><%= "There are #{product.capacity - @total_participants} spots left on the boat, total capacity of #{product.capacity}"%></p>
     </div>
-    
+
     <div class="trip-cards flex-card">
       <h3> Booked trips for tomorrow </h3>
         <% @products.each do |product| %>
@@ -63,7 +63,7 @@
     </div>
   </div>
 
-  
+
   <div class='flex-graph'>
     <%= column_chart company_charts_booking_chart_path, ytitle: "nº of bookings" , colors: ["#68b0ab", "#28df99"], title:"Daily bookings" %>
     <%= line_chart company_charts_financials_chart_path, ytitle: "R$", colors: ["#68b0ab", "#28df99"], title:"Daily income" %>
@@ -72,6 +72,5 @@
     <%= line_chart company_charts_participants_chart_path, ytitle: "nº of participants", colors: ["#68b0ab", "#28df99"], title:"Participants"%>
     <%= pie_chart company_charts_product_chart_path, colors: ["#68b0ab", "#28df99"], title:"My products' bookings" %>
   </div>
-  </div>  
+  </div>
 </div>
-
