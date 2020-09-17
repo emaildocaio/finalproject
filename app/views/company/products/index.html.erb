@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Trips</h1>
-  
+
     <%= simple_form_for :search, url: company_products_path, method: :get do |f| %>
       <%= f.input :product,
                   collection: @products.map { |product| product },
@@ -20,7 +20,6 @@
       <% end %>
     <% end %>
 
-  <% end %>
 
 <div class="d-flex justify-content-between">
   <% unless @products.empty? %>
