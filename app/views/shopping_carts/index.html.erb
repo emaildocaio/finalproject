@@ -1,9 +1,8 @@
 <div class='container'>
-<h1>You order history</h2>
-<h3><strong>Confirmed</strong></h3>
+<h1 style="margin:40px">You order history</h2>
+<h3 style="color:#28df99;font-size:30px"><b>Confirmed</b></h3>  
  <div class="d-flex" >
-  <i class="far fa-check-circle"></i>
-  <%# <img src="https://i.pinimg.com/originals/f2/c4/c7/f2c4c70c31d250f920f3c9f0f6804a5a.jpg" /> %>
+  <!-- > <i class="far fa-check-circle"></i> <-->
     <div >
       <ul>
          <% @pay_shopping_carts = @pay_shopping_carts.order(updated_at: :desc) %>
@@ -31,10 +30,13 @@
 </div>
 <p></p>
 <p></p>
-<h3><strong> Cancelled </strong></h3>
-<div >
-  <i class="far fa-window-close" ></i>
-  <%# <img src="https://i.pinimg.com/originals/72/1f/e5/721fe5125e96eac682be7facba57a5ec.png" /> %>
+
+<% if @cancel_shopping_carts.empty? %>
+<p style="color:#0f3460;font-size:30px;font-family: Nunito, Helvetica, sans-serif;line-height: 1.2;"><b><%= 'Have a nice trip!' %></b></p>
+    <% else %>
+ <p style="color:#ec0101;font-size:30px;font-family: Nunito, Helvetica, sans-serif;line-height: 1.2;"><b><%= 'Cancelled' %></b><p>
+<div>
+  <!-- > <i class="far fa-window-close" ></i> <--> 
     <div>
       <% @cancel_shopping_carts.each do |shopping_cart| %>
       <p> Order number <%= shopping_cart.id %> </p>
@@ -45,7 +47,7 @@
       made on <%= booking.updated_at %></li>
     <% end %>
   <% end %>
+  <% end %>
     </div>
   </div>
 </div>
-
