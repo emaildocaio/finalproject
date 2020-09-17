@@ -20,9 +20,11 @@
   <% end %>
 
 <div class="d-flex justify-content-between">
-  <%= link_to 'Export to PDF',
-  company_products_path(params: params.permit(search: {}), format: :pdf),
-  class: "mt-4 btn btn-secondary" %>
+  <% unless @products.empty? %>
+    <%= link_to 'Export to PDF',
+    company_products_path(params: params.permit(search: {}), format: :pdf),
+    class: "mt-4 btn btn-secondary" %>
+  <% end %>
 
   <div class="capacity">
     <% unless @products.empty? %>
