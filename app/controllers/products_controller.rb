@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @products = Product.where(status: true).paginate(:page => params[:page], :per_page => 5)
+    @products = Product.where(status: true).paginate(:page => params[:page], :per_page => 10)
     @companies = Company.all
     @markers = company_markers
 
