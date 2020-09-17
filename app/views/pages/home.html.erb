@@ -34,8 +34,9 @@
         var text = ["SUN", "SEA", "DIVE", "PARADISE"];
         var counter = 0;
         var elem = document.getElementById("change");
-        var inst = setInterval(change, 2500);
-
+        if (!inst) {
+          var inst = setInterval(change, 2500);
+        }
         function change() {
           elem.innerHTML = text[counter];
           counter++;
