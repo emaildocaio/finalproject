@@ -16,18 +16,20 @@ class Booking < ApplicationRecord
       csv << headers
 
       all.each do |booking|
-        csv << [
-          booking.shopping_cart.user.first_name,
-          booking.shopping_cart.user.last_name,
-          booking.guests.size,
-          booking.shopping_cart.user.email,
-          booking.shopping_cart.user.phone,
-          booking.shopping_cart.user.document,
-          booking.product.name,
-          booking.date,
-          booking.price_cents,
-          booking.status
-        ]
+        if booking.status == 'Confirmed'
+          csv << [
+            booking.shopping_cart.user.first_name,
+            booking.shopping_cart.user.last_name,
+            booking.guests.size,
+            booking.shopping_cart.user.email,
+            booking.shopping_cart.user.phone,
+            booking.shopping_cart.user.document,
+            booking.product.name,
+            booking.date,
+            booking.price_cents,
+            booking.status
+          ]
+        end
       end
     end
   end
