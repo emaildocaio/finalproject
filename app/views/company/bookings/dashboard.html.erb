@@ -5,7 +5,7 @@
       <% if product.status%>
         <%= link_to company_products_path do%>
           <div class="trip-card mb-2 d-flex">
-            <%= cl_image_tag product.photo.key %>
+            <%= cl_image_tag product.photo.key if product.photo.attached? %>
             <div class="trip-card-infos">
               <h2><%= "#{product.name} (#{product.activity})"%></h2>
               <% @bookings_by_date = Booking.where(product_id: product.id, date: @date)%>
@@ -25,7 +25,7 @@
       <% if product.status%>
         <%= link_to company_products_path do%>
           <div class="trip-card mb-2 d-flex">
-            <%= cl_image_tag product.photo.key %>
+            <%= cl_image_tag product.photo.key if product.photo.attached? %>
             <div class="trip-card-infos">
               <h2><%= "#{product.name} (#{product.activity})"%></h2>
               <% @bookings_by_date = Booking.where(product_id: product.id, date: @date + 1)%>
@@ -47,5 +47,5 @@
   <%= pie_chart company_charts_product_chart_path %>
 
   <%#= pie_chart @booking.group(:date).count %>
- 
+
   </div>
