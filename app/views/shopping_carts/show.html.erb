@@ -10,7 +10,9 @@
             <%= image_tag(booking.product.photo) if booking.product.photo.present? %>
             <div class="ml-3">
               <h4>You selected the <%= booking.product.name %> tour:</h4>
-              <p> R$ <%= "#{booking.product.price} for #{booking.guests.size+1} people" %>
+              <% booking_price = booking.product.price %>
+              <% participants = booking.guests.size+1 %>
+              <p> R$ <%= booking_price * participants %> for <%= participants %> people
               on <%= booking.date %> </p>
             </div>
           </div>
@@ -26,11 +28,12 @@
       </li>
       <% end %>
     </ul>
+
     <h2> Total: R$ <%= @shopping_cart.calc_total_price %> </h2>
 
   </div>
 
-  <%= link_to "Pay", pay_shopping_cart_path, method: :post, class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
+  <%= link_to "Checkout", shopping_carts_path, method: :post, class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
 
 <!-- <button id="pay" class="btn btn-primary">Pay</button>
  <script src="https://js.stripe.com/v3/"></script>

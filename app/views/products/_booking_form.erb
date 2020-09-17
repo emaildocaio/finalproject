@@ -28,7 +28,7 @@
     </div>
 
     <%= f.input :participants, :as => :hidden, :input_html => {:value => 1} %>
-    <%= f.submit %>
+    <%= f.submit "Create booking", class: "btn btn-primary" %>
 <% end %>
 </div>
 <%= javascript_pack_tag 'booking_form' %>

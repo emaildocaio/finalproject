@@ -1,24 +1,34 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col-md-3">
 
-    </div>
-    <div class="col">
+    <div class="container">
       <h1>Checkout summary</h1>
-      <p>Purchase of </p>
+      <p>Your booking status is <strong> <%= @shopping_cart.status.upcase %>  </strong> </p>
+      <div roe>
+      <div class="col-12">
       <ul>
-      <% @shopping_cart.products.each do |product| %>
-      <li>
-       <%= cl_image_tag product.photo.key, width: '10%' %><strong> <%= product.name %></strong> for <strong><%= humanized_money_with_symbol product.price %></strong>
-      <hr>
-      </li>
-      <% end %>
-      <li>Total Price <%= humanized_money_with_symbol @shopping_cart.calc_total_price %> </li>
+        <% @shopping_cart.bookings.each do |booking| %>
+          <li>
+            <div class="d-flex">
+            <%= cl_image_tag booking.product.photo.key, width: '20%' %>
+            <div class="m-4">
+            Your tour is <strong> <%= booking.product.name %></strong>
+            <p> Price <strong><%= humanized_money_with_symbol booking.product.price %></strong> </p>
+            </div>
+            </div>
+            <hr>
+          </li>
+        <% end %>
+
+        <% @total = 0 %>
+        <% @shopping_cart.bookings.each do |booking| %>
+          <% @total = @total + booking.price %>
+        <% end %>
+        <li>
+          <h4> Total Price <strong> <%= humanized_money_with_symbol @total %> </strong></h4>
+        </li>
       </ul>
-
-
+      </div>
+      </div>
       <button id="pay" class="btn btn-primary">Pay</button>
-      <%= link_to "Teste", shopping_carts_path, method: :post %>
 
       <script src="https://js.stripe.com/v3/"></script>
       <script>
@@ -30,6 +40,6 @@
           });
         });
       </script>
-    </div>
-  </div>
+</p>
 </div>
+

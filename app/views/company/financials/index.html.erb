@@ -45,6 +45,7 @@
       <tbody .table-hover>
         <tr>
           <% counter = 0 %>
+
           <% @bookings.each do |booking| %>
           <th scope="row"> <%= counter +=1 %> </th>
           <td><%= booking.shopping_cart.user.first_name %></td>
@@ -73,8 +74,8 @@
                   <strong> <%= humanized_money_with_symbol @total %> </strong>
              </td>
            </tr>
-
       </tbody>
+
 
 
 </div>

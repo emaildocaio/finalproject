@@ -1,5 +1,5 @@
 <div class='container'>
-  <div>
+
   <div class="trip-cards">
     <h2> Your Trips Today!</h2>
     <% @products.each do |product| %>
@@ -43,7 +43,6 @@
   </div>
 
 
-
   <%= column_chart company_charts_booking_chart_path, ytitle: "nº of bookings" %>
   <%= pie_chart company_charts_product_chart_path %>
   <%= line_chart company_charts_participants_chart_path, ytitle: "nº of participants" %>
@@ -52,4 +51,4 @@
 
   <%#= pie_chart @booking.group(:date).count %>
  
-</div>
+  </div>

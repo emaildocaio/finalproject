@@ -206,6 +206,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.2.2)
     regexp_parser (1.7.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -247,6 +248,9 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     stripe (5.25.0)
+    stripe_event (2.3.1)
+      activesupport (>= 3.1)
+      stripe (>= 2.8, < 6)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -281,6 +285,7 @@ GEM
     websocket-extensions (0.1.5)
     wicked_pdf (2.1.0)
       activesupport
+    will_paginate (3.1.8)
     wkhtmltopdf-binary (0.12.6.3)
     wkhtmltopdf-heroku (2.12.6.0)
     xpath (3.2.0)
@@ -315,12 +320,14 @@ DEPENDENCIES
   pundit
   rails (~> 6.0.3, >= 6.0.3.2)
   rails-erd
+  redis (~> 4.0)
   sass-rails (>= 6)
   selenium-webdriver
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
   stripe
+  stripe_event
   turbolinks (~> 5)
   turbolinks_render
   tzinfo-data
@@ -328,6 +335,7 @@ DEPENDENCIES
   webdrivers
   webpacker (~> 4.0)
   wicked_pdf
+  will_paginate (~> 3.1.0)
   wkhtmltopdf-binary
   wkhtmltopdf-heroku
 

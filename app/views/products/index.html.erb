@@ -12,6 +12,7 @@
   <h1 class="mt-5"><strong>Boat trips</strong> and <strong>scuba dive</strong> in Arraial do Cabo</h1>
 </div>
 
+
   <div class="row">
     <div class="col-7">
 
@@ -50,7 +51,11 @@
       data-markers="<%= @markers.to_json %>">
     </div>
   </div>
+  <div class="m-5 digg_pagination">
+    <%= will_paginate @products %>
+  </div>
 </div>
+
 
 
 <%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload', defer: true %>

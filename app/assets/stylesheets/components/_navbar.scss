@@ -10,6 +10,12 @@
   font-family: Roboto;
   color: black;
   padding-top: 30px;
+  display: flex;
+}
+
+.shadow {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
 }
 
 .navbar-home {
