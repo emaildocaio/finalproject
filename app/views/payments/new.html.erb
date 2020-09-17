@@ -1,7 +1,10 @@
-
+<br>
+<br>
+<br>
+<br>
+<br>
     <div class="container">
       <h1>Checkout summary</h1>
-      <p>Your booking status is <strong> <%= @shopping_cart.status.upcase %>  </strong> </p>
       <div roe>
       <div class="col-12">
       <ul>
@@ -11,7 +14,7 @@
             <%= cl_image_tag booking.product.photo.key, width: '20%' %>
             <div class="m-4">
             Your tour is <strong> <%= booking.product.name %></strong>
-            <p> Price <strong><%= humanized_money_with_symbol booking.product.price %></strong> </p>
+            <p> Price <strong><%= humanized_money_with_symbol booking.price %></strong> </p>
             </div>
             </div>
             <hr>
