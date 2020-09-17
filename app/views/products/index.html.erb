@@ -11,9 +11,7 @@
   </div> -->
   <h1 class="mt-5"><strong>Boat trips</strong> and <strong>scuba dive</strong> in Arraial do Cabo</h1>
 </div>
-  <div class="m-5 digg_pagination">
-  <%= will_paginate @products, :page_links => false %>
-  </div>
+
 
   <div class="row">
     <div class="col-7">
@@ -52,6 +50,9 @@
       <div id='map' class="sticky mt-3"
       data-markers="<%= @markers.to_json %>">
     </div>
+  </div>
+  <div class="m-5 digg_pagination">
+    <%= will_paginate @products %>
   </div>
 </div>
 
