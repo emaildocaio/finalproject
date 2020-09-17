@@ -29,9 +29,10 @@
 @import "components/pagination";
 @import "components/grid";
 @import "pages/dashboard";
+@import "pages/company_show";
 
 // Geocode and Mapbox
-@import 'mapbox-gl/dist/mapbox-gl';
+@import "mapbox-gl/dist/mapbox-gl";
 
 
 .graphic {
