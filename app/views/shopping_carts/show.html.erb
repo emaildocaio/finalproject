@@ -10,9 +10,9 @@
             <%= image_tag(booking.product.photo) if booking.product.photo.present? %>
             <div class="ml-3">
               <h4>You selected the <%= booking.product.name %> tour:</h4>
-              <% booking_price = booking.product.price %>
-              <% participants = booking.guests.size+1 %>
-              <p> R$ <%= booking_price * participants %> for <%= participants %> people
+              <%# booking_price = booking.product.price %>
+              <% participants = booking.guests.size + 1 %>
+              <p> R$ <%= booking.price %> for <%= participants %> people
               on <%= booking.date %> </p>
             </div>
           </div>

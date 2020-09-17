@@ -11,7 +11,9 @@ class Company::FinancialsController < ApplicationController
         @bookings = Booking.where(product: current_user.company.products, date: @dates[0]..@dates[2]).order(date: :asc)
       end
     end
-    @bookings = Booking.all.paginate(:page => params[:page], :per_page => 3)
+
+    ### This line is overwriting the queries above and returning ALL bookings
+    # @bookings = Booking.all.paginate(:page => params[:page], :per_page => 3)
 
   end
 

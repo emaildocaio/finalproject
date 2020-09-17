@@ -23,17 +23,21 @@
   <% end %>
 
 <div class="d-flex justify-content-between">
-  <%= link_to 'Export to PDF',
-  company_products_path(params: params.permit(search: {}), format: :pdf),
-  class: "mt-4 btn btn-secondary" %>
+  <% unless @products.empty? %>
+    <%= link_to 'Export to PDF',
+    company_products_path(params: params.permit(search: {}), format: :pdf),
+    class: "mt-4 btn btn-secondary" %>
+  <% end %>
 
   <div class="capacity">
-    <p><%=" Total participants: #{@total_participants}, Spots left: #{@product.capacity - @total_participants}"%></p>
-    <p></p>
+    <% unless @products.empty? %>
+      <p><%="Total participants: #{@total_participants}, Spots left: #{@product.capacity - @total_participants}"%></p>
+      <p></p>
+    <% end %>
   </div>
 </div>
 
-  <h2> <%= @product.name %> </h2>
+  <h2> <%= @product.name if @product %> </h2>
   <div class="table-responsive">
     <table class="table table-striped">
       <thead>
@@ -48,6 +52,7 @@
         </tr>
       </thead>
       <tbody class="table-hover">
+        <% if @bookings %>
         <% @bookings.each do |booking| %>
           <tr>
           <td><%= booking.shopping_cart.user.first_name %></td>
@@ -69,6 +74,7 @@
             <td></td>
           </tr>
           <% end %>
+        <% end %>
         <% end %>
       </tbody>
     </table>

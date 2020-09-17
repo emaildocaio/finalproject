@@ -1,8 +1,15 @@
 <div class="container">
 <%= simple_form_for @booking do |f| %>
   <%= f.input :date %>
-  <%= f.input :participants %>
-  <%#= f.input :guest%>
-  <%= f.submit %>
+  <%# f.input :participants %> <!-- We dont use this field anymore -->
+  <div id='guests'>
+      <%= f.simple_fields_for :guests do |guest| %>
+        <%= render 'products/guest_fields', f: guest %>
+            <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add guest', f, :guests, id: 'add-guest-btn', partial: 'products/guest_fields' %>
+      </div>
+  </div>
+  <%= f.submit "Reschedule", class: 'btn btn-primary' %>
 <% end %>
 </div>
