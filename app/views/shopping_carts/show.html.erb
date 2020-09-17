@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Your shopping cart is <%= @shopping_cart.status %> </h1>
+  <h1 style="text-align:center; margin-top:30px">Your shopping cart </h1>
 
 <div>
   <ul>
@@ -33,7 +33,10 @@
 
   </div>
 
-  <%= link_to "Checkout", shopping_carts_path, method: :post, class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
+  <div style="text-align:center">
+    <%= link_to "Checkout", shopping_carts_path, method: :post, class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
+    <%= link_to "Booking history", shopping_carts_path, class: "btn btn-primary" %>
+  </div>
 
 <!-- <button id="pay" class="btn btn-primary">Pay</button>
  <script src="https://js.stripe.com/v3/"></script>
@@ -47,6 +50,3 @@
         });
       </script>
  -->
-
-  <%= link_to "Booking history", shopping_carts_path, class: "btn btn-primary" %>
-
