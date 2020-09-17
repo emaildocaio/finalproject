@@ -2,18 +2,18 @@ class CompanyBookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
-    end 
-  end  
+    end
+  end
 
   def show?
     true
   end
-  
+
   def edit?
     true
   end
 
-  def update?
+  def destroy?
     true
   end
 
@@ -21,4 +21,3 @@ class CompanyBookingPolicy < ApplicationPolicy
     true
   end
 end
-  

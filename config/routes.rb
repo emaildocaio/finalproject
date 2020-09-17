@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   # Company Routes
   namespace :company do
-    resources :bookings, only: %i[index show edit update]
+    resources :bookings, only: %i[index show destroy]
     resources :products, only: %i[index]
     resources :financials, only: %i[index]
     get '/', to: 'bookings#dashboard', as: 'dashboard'
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
 
   # Shopping cart custom routes
   get 'shopping_carts/current', to: 'shopping_carts#show', as: 'current_shopping_cart'
-  
+
   resources :notifications, only: %i[index]
 
   get '/myproducts', to: 'products#my_index'

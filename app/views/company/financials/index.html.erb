@@ -56,8 +56,9 @@
           <td><%= booking.canceled ? "Canceled" : "Active" %></td>
           <td><%= humanized_money_with_symbol booking.price  %></td>
 
-           </tr>
+          </tr>
           <% end %>
+
           <tr>
             <td></td>
             <td></td>
@@ -69,14 +70,11 @@
              <td>
               <% @total = 0 %>
               <% @bookings.each do |booking| %>
-              <% @total = @total + booking.price %>
+                <% @total = @total + booking.price %>
               <% end %>
-                  <strong> <%= humanized_money_with_symbol @total %> </strong>
-             </td>
+              <strong> <%= humanized_money_with_symbol @total %> </strong>
+            </td>
            </tr>
       </tbody>
-
-
-
 </div>
 
