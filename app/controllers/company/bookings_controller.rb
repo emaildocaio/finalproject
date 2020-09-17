@@ -94,9 +94,19 @@ class Company::BookingsController < ApplicationController
     end
     authorize Booking
     render json: @data
-      
   end
- 
+
+  def financials_chart
+    @booking_hash = {}
+    @bookings = Booking.where(product: current_user.company.products) #pego meus bookings q vai ser um array 
+    @bookings_price = @bookings.map do |booking|
+      @price =  @bookings.price_cents/100 #to be continued
+    end
+      
+      render json: @bookings.group_by_day(:date)
+      authorize @bookings
+  end
+  
   private
 
   def build_dates

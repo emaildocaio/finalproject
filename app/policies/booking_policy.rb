@@ -38,4 +38,8 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def financials_chart?
+    true
+  end
+
 end
