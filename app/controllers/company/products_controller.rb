@@ -3,6 +3,8 @@ class Company::ProductsController < ApplicationController
 
   def index
     @products = current_user.company.products
+    return nil if @products.empty?
+
     @product = @products.first
     if params[:search].nil?
       @bookings = Booking.where(product: @product).order(date: :asc)
