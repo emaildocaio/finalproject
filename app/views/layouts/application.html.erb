@@ -2,7 +2,16 @@
 <html>
   <head>
     <title>Visit Arraial do Cabo</title>
+    <title><%= meta_title %></title>
+<meta name="description" content="<%= meta_description %>">
 
+<!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
     <%# This might prevent turbolinks cache %>
     <meta name="turbolinks-cache-control" content="<%= yield(:turbolinks_cache) %>">
 
@@ -12,10 +21,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_JS_KEY']}" %>
 
+    <%= favicon_link_tag %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Satisfy&display=swap" rel="stylesheet">
-<!--     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' /> -->
+
+
   </head>
 
   <body>
