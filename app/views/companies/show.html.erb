@@ -6,16 +6,23 @@
     <p><%="This company belongs to #{@company.user.first_name}"%></p>
     <p><%= "My tours:" %> </p>
     <p><% companies = @company.products %></p>
-    <ul>
-    <% companies.each do |product|  %>
-        <li>
-            <%= link_to product.name, product_path(product.id) %>
-            <%= link_to 'Edit', edit_product_path(product.id), :class => "btn btn-primary" %>
-            <%= link_to 'Delete', product_path(product.id), method: :delete, data: {confirm: "Are you sure you want to delete #{product.name}?"}, :class => "btn btn-primary" %>
-        </li>
-    <% end %>
-    </ul>
-    <%= link_to 'Register a new activity', new_product_path, :class => "btn btn-primary mb-5" %>
-    <%= link_to 'Go to Dashboard', company_dashboard_path, :class => "btn btn-primary mb-5" %>
+    <!-- <ul> -->
+      <% companies.each do |product|  %>
+        <div class='flex-container-products mb-2'>
+         <!-- <li> -->
+         
+            <div>  <%= link_to product.name, product_path(product.id), :class => "product-name" %> </div>
+            <div class='btn-spacing'>
+              <%= link_to 'Edit', edit_product_path(product.id), :class => "btn btn-primary btn-sm" %>
+              <%= link_to 'Delete', product_path(product.id), method: :delete, data: {confirm: "Are you sure you want to delete #{product.name}?"}, :class => "btn btn-primary btn-sm" %>
+            </div>
+        <!-- </li> --> 
+        </div>
+      <% end %>
+    <!--</ul>-->
+    <div class='btn-shw-company'>
+      <%= link_to 'Register a new activity', new_product_path, :class => "btn btn-primary mb-5 mr-3" %>
+      <%= link_to 'Go to Dashboard', company_dashboard_path, :class => "btn btn-primary mb-5 ml-3" %>
+    </div>
   </div>
 </div>
