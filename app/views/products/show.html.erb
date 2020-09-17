@@ -35,7 +35,7 @@
           <i class="far fa-star rating-show"></i>
         <% end %>
       </h1>
-      <p><strong>Description:</strong></p>
+
       <p><%= @product.description %></p>
       <br>
     <%= render(:partial => "products/review_form") unless @product.is_from_company?(current_user) || !user_signed_in? %>
