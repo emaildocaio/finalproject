@@ -22,7 +22,11 @@
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_JS_KEY']}" %>
 
     <%= favicon_link_tag %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <% if content_for?(:deferfalse) %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: false %>
+    <% else %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <% end %>
     <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Satisfy&display=swap" rel="stylesheet">
 
 
