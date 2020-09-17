@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
       flash[:alert] = "You are trying to book more participants than the capacity left: #{@booking.product.capacity - @total_participants}"
       render "products/show"
     else
-      @booking.price = (@booking.guests.size + 1)*@booking.product.price
+      @booking.price = (@booking.guests.size + 1) * @booking.product.price
       @booking.save
       notify_booking(@booking) # Send a notification after creating a booking
     end
@@ -32,6 +32,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.update(booking_params)
+    @booking.price = (@booking.guests.size + 1) * @booking.price
     if @booking.save
       redirect_to current_shopping_cart_path
     else
