@@ -89,7 +89,7 @@ class Company::BookingsController < ApplicationController
           else
           @totalpart[" #{booking.date.strftime('%d/%m')}"] = booking.guests.size + 1
           end
-      end
+        end
       {name: product.name, data: @totalpart}
     end
     authorize Booking
@@ -97,14 +97,19 @@ class Company::BookingsController < ApplicationController
   end
 
   def financials_chart
-    @booking_hash = {}
     @bookings = Booking.where(product: current_user.company.products) #pego meus bookings q vai ser um array 
+    @booking_hash = {}
     @bookings_price = @bookings.map do |booking|
-      @price =  @bookings.price_cents/100 #to be continued
+      @price =  booking.price_cents/100 # this is the value of my hash
+      @date = booking.date.strftime('%d/%m') #this is my key
+      if @booking_hash.key?(@date)
+        @booking_hash[@date] += @price
+      else
+       @booking_hash[@date] = @price
+      end
     end
-      
-      render json: @bookings.group_by_day(:date)
-      authorize @bookings
+    authorize @bookings
+    render json: @booking_hash    
   end
   
   private
