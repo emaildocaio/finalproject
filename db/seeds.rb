@@ -213,91 +213,91 @@ booking1 = Booking.create(shopping_cart: ShoppingCart.all[-15], product: Product
 date: "2020-09-18", participants: 4)
 booking1.update(price: (booking1.product.price * booking1.participants)) # ok
 
-booking4 = Booking.create(shopping_cart: ShoppingCart.all[-14], product: Product.first,
+booking2 = Booking.create(shopping_cart: ShoppingCart.all[-14], product: Product.first,
   date: "2020-09-18", participants: 12)
-booking4.update(price: (booking4.product.price * booking4.participants)) # ok
+booking2.update(price: (booking2.product.price * booking2.participants)) # ok
 
 # 18/09 - Second tour
 
-booking8 = Booking.create(shopping_cart: ShoppingCart.all[-13], product: Product.second,
+booking3 = Booking.create(shopping_cart: ShoppingCart.all[-13], product: Product.second,
   date: "2020-09-18", participants: 5)
-booking8.update(price: (booking8.product.price * booking8.participants)) # ok
+booking3.update(price: (booking3.product.price * booking3.participants)) # ok
 
-booking38 = Booking.create(shopping_cart: ShoppingCart.all[-12], product: Product.second,
-  date: "2020-09-18", participants: 23)
-booking38.update(price: (booking38.product.price * booking38.participants)) # ok
+booking4 = Booking.create(shopping_cart: ShoppingCart.all[-12], product: Product.second,
+  date: "2020-09-18", participants: 11)
+booking4.update(price: (booking4.product.price * booking4.participants)) # ok
 
 # 18/09 - Third tour
 
-booking9 = Booking.create(shopping_cart: ShoppingCart.all[-11], product: Product.third,
+booking5 = Booking.create(shopping_cart: ShoppingCart.all[-11], product: Product.third,
   date: "2020-09-18", participants: 4)
-booking9.update(price: (booking9.product.price * booking9.participants)) # ok
+booking5.update(price: (booking5.product.price * booking5.participants)) # ok
 
 # 19/09 - First tour - ok
 
-booking10 = Booking.create(shopping_cart: ShoppingCart.all[-12], product: Product.first,
-  date: "2020-09-19", participants: 23)
-booking10.update(price: (booking10.product.price * booking10.participants))
+booking6 = Booking.create(shopping_cart: ShoppingCart.all[-12], product: Product.first,
+  date: "2020-09-19", participants: 11)
+booking6.update(price: (booking6.product.price * booking6.participants))
 
-booking11 = Booking.create(shopping_cart: ShoppingCart.all[-11], product: Product.first,
+booking7 = Booking.create(shopping_cart: ShoppingCart.all[-11], product: Product.first,
   date: "2020-09-19", participants: 4)
-booking11.update(price: (booking11.product.price * booking11.participants))
+booking7.update(price: (booking7.product.price * booking7.participants))
 
-booking12 = Booking.create(shopping_cart: ShoppingCart.all[-10], product: Product.first,
+booking8 = Booking.create(shopping_cart: ShoppingCart.all[-10], product: Product.first,
   date: "2020-09-19", participants: 14)
-booking12.update(price: (booking12.product.price * booking12.participants))
+booking8.update(price: (booking8.product.price * booking8.participants))
 
 # 19/09 - Second tour - ok
 
-booking13 = Booking.create(shopping_cart: ShoppingCart.all[-15], product: Product.second,
+booking9 = Booking.create(shopping_cart: ShoppingCart.all[-15], product: Product.second,
   date: "2020-09-19", participants: 4)
-booking13.update(price: (booking13.product.price * booking13.participants))
+booking9.update(price: (booking9.product.price * booking9.participants))
 
-booking14 = Booking.create(shopping_cart: ShoppingCart.all[-10], product: Product.second,
+booking10 = Booking.create(shopping_cart: ShoppingCart.all[-10], product: Product.second,
   date: "2020-09-19", participants: 14)
-booking14.update(price: (booking14.product.price * booking14.participants))
+booking10.update(price: (booking10.product.price * booking10.participants))
 
-booking15 = Booking.create(shopping_cart: ShoppingCart.all[-9], product: Product.second,
+booking11 = Booking.create(shopping_cart: ShoppingCart.all[-9], product: Product.second,
   date: "2020-09-19", participants: 20)
-booking15.update(price: (booking15.product.price * booking15.participants))
+booking11.update(price: (booking11.product.price * booking11.participants))
 
 # 19/09 - Third  - ok
 
-booking16 = Booking.create(shopping_cart: ShoppingCart.all[-10], product: Product.third,
+booking12 = Booking.create(shopping_cart: ShoppingCart.all[-10], product: Product.third,
   date: "2020-09-19", participants: 5)
-booking16.update(price: (booking16.product.price * booking16.participants))
+booking12.update(price: (booking12.product.price * booking12.participants))
 
-booking17 = Booking.create(shopping_cart: ShoppingCart.all[-9], product: Product.third,
+booking13 = Booking.create(shopping_cart: ShoppingCart.all[-9], product: Product.third,
   date: "2020-09-19", participants: 9)
-booking17.update(price: (booking17.product.price * booking17.participants))
+booking13.update(price: (booking13.product.price * booking13.participants))
 
 # 20/09 - First tour - ok
 
-booking7 = Booking.create(shopping_cart: ShoppingCart.all[-13], product: Product.first,
+booking14 = Booking.create(shopping_cart: ShoppingCart.all[-13], product: Product.first,
   date: "2020-09-20", participants: 10)
-booking7.update(price: (booking7.product.price * booking7.participants))
+booking14.update(price: (booking14.product.price * booking14.participants))
 
-booking18 = Booking.create(shopping_cart: ShoppingCart.all[-9], product: Product.first,
+booking15 = Booking.create(shopping_cart: ShoppingCart.all[-9], product: Product.first,
   date: "2020-09-20", participants: 21)
-booking18.update(price: (booking18.product.price * booking18.participants))
+booking15.update(price: (booking15.product.price * booking15.participants))
 
 # 20/09 - Second tour - ok
 
-booking5 = Booking.create(shopping_cart: ShoppingCart.all[-14], product: Product.second,
+booking16 = Booking.create(shopping_cart: ShoppingCart.all[-14], product: Product.second,
   date: "2020-09-20", participants: 12)
-booking5.update(price: (booking5.product.price * booking5.participants))
+booking16.update(price: (booking16.product.price * booking16.participants))
 
 # 20/09 - Third tour - ok
 
-booking3 = Booking.create(shopping_cart: ShoppingCart.all[-15], product: Product.third,
+booking17 = Booking.create(shopping_cart: ShoppingCart.all[-15], product: Product.third,
   date: "2020-09-20", participants: 4)
-booking3.update(price: (booking3.product.price * booking3.participants))
+booking17.update(price: (booking17.product.price * booking17.participants))
 
 # 21/09 - First tour
 
-booking6 = Booking.create(shopping_cart: ShoppingCart.all[-14], product: Product.first,
+booking18 = Booking.create(shopping_cart: ShoppingCart.all[-14], product: Product.first,
   date: "2020-09-21", participants: 12)
-booking6.update(price: (booking6.product.price * booking6.participants))
+booking18.update(price: (booking18.product.price * booking18.participants))
 
 # 21/09 - Second tour
 # 21/09 - Third tour
@@ -367,7 +367,7 @@ booking28 = Booking.create(shopping_cart: ShoppingCart.all[-11], product: Produc
 booking28.update(price: (booking28.product.price * booking28.participants))
 
 booking29 = Booking.create(shopping_cart: ShoppingCart.all[-12], product: Product.second,
-  date: "2020-09-26", participants: 23)
+  date: "2020-09-26", participants: 11)
 booking29.update(price: (booking29.product.price * booking29.participants))
 
 # 26/09 - Third tour - ok
@@ -415,24 +415,53 @@ puts "Customized bookings were created"
 puts "Creating Guests"
 
 
-# booking1
-guest1 = Guest.new(name: 'Rodrigo', booking: Booking.all[0])
-guest2 = Guest.new(name: 'André', booking: Booking.all[0])
-guest3 = Guest.new(name: 'Ana Cecília', booking: Booking.all[0])
-guest4 = Guest.new(name: 'Heloísa', booking: Booking.all[0])
+# # booking1 -[-15]
+# guest1 = Guest.create(name: 'Rodrigo', booking: Booking.all[0])
+# guest2 = Guest.create(name: 'André', booking: Booking.all[0])
+# guest3 = Guest.create(name: 'Ana Cecília', booking: Booking.all[0])
 
-#booking2
-guest1 = Guest.new(name: 'Rodrigo', booking: Booking.all[0])
-guest1 = Guest.new(name: 'Rodrigo', booking: Booking.all[0])
-guest1 = Guest.new(name: 'Rodrigo', booking: Booking.all[0])
-guest1 = Guest.new(name: 'Rodrigo', booking: Booking.all[0])
-guest1 = Guest.new(name: 'Rodrigo', booking: Booking.all[0])
-guest1 = Guest.new(name: 'Rodrigo', booking: Booking.all[0])
-guest1 = Guest.new(name: 'Rodrigo', booking: Booking.all[0])
-guest1 = Guest.new(name: 'Rodrigo', booking: Booking.all[0])
-guest1 = Guest.new(name: 'Rodrigo', booking: Booking.all[0])
-guest1 = Guest.new(name: 'Rodrigo', booking: Booking.all[0])
-guest1 = Guest.new(name: 'Rodrigo', booking: Booking.all[0])
+# #booking2 [-14]
+# guest5 = Guest.new(name: 'Rodrigo', booking: Booking.all[1])
+# guest6 = Guest.new(name: 'Rodrigo', booking: Booking.all[1])
+# guest7 = Guest.new(name: 'Rodrigo', booking: Booking.all[1])
+# guest8 = Guest.new(name: 'Rodrigo', booking: Booking.all[1])
+# guest9 = Guest.new(name: 'Rodrigo', booking: Booking.all[1])
+# guest10 = Guest.new(name: 'Rodrigo', booking: Booking.all[1])
+# guest11 = Guest.new(name: 'Rodrigo', booking: Booking.all[1])
+# guest12 = Guest.new(name: 'Rodrigo', booking: Booking.all[1])
+# guest13 = Guest.new(name: 'Rodrigo', booking: Booking.all[1])
+# guest14 = Guest.new(name: 'Rodrigo', booking: Booking.all[1])
+# guest15 = Guest.new(name: 'Rodrigo', booking: Booking.all[1])
 
+
+# # booking3 - [-13]
+
+# guest17 = Guest.new(name: 'Rodrigo', booking: Booking.all[2])
+# guest18 = Guest.new(name: 'Rodrigo', booking: Booking.all[2])
+# guest19 = Guest.new(name: 'Rodrigo', booking: Booking.all[2])
+# guest20 = Guest.new(name: 'Rodrigo', booking: Booking.all[2])
+# guest21 = Guest.new(name: 'Rodrigo', booking: Booking.all[2])
+
+# #booking4 - [-12]
+
+# gues22 = Guest.new(name: 'Rodrigo', booking: Booking.all[3])
+# guest23 = Guest.new(name: 'Rodrigo', booking: Booking.all[3])
+# guest24 = Guest.new(name: 'Rodrigo', booking: Booking.all[3])
+# guest25 = Guest.new(name: 'Rodrigo', booking: Booking.all[3])
+# guest26 = Guest.new(name: 'Rodrigo', booking: Booking.all[3])
+# guest27 = Guest.new(name: 'Rodrigo', booking: Booking.all[3])
+# guest28 = Guest.new(name: 'Rodrigo', booking: Booking.all[3])
+# guest29 = Guest.new(name: 'Rodrigo', booking: Booking.all[3])
+# guest30 = Guest.new(name: 'Rodrigo', booking: Booking.all[3])
+# guest31 = Guest.new(name: 'Rodrigo', booking: Booking.all[3])
+# guest32 = Guest.new(name: 'Rodrigo', booking: Booking.all[3])
+# guest33 = Guest.new(name: 'Rodrigo', booking: Booking.all[3])
+# guest34 = Guest.new(name: 'Rodrigo', booking: Booking.all[3])
+
+Booking.all.each do |booking|
+  (booking.participants - 1).times do 
+    Guest.create(name: Faker::Name.name, booking: booking)
+  end
+end
 
 puts "Creating Guests were created!"
