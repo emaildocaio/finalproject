@@ -15,7 +15,7 @@
   <p><strong>Price: </strong><%= 'R$' + @booking.price.to_s%></p>
 
   <%if @booking.canceled == false %>
-    <%= link_to 'Cancel', edit_company_booking_path(@booking.id), class: "btn btn-primary"  %>
+    <%= link_to 'Cancel', company_booking_path(@booking.id), class: "btn btn-danger", data: { confirm: "Are you sure you want to cancel this booking?" }, method: :delete %>
     <%else%>
     <%= link_to 'Reactivate', company_booking_reactivate_path(@booking.id), method: :patch,  class: "btn btn-primary"  %>
   <% end %>
