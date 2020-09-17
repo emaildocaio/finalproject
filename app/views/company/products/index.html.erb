@@ -1,22 +1,25 @@
 <div class="container">
   <h1>Trips</h1>
-
-  <%= simple_form_for :search, url: company_products_path, method: :get do |f| %>
-    <%= f.input :product,
-                collection: @products.map { |product| product },
-                selected: (params[:search][:product] if params[:search]) %>
-    <%= f.input :date, as: :string, required: false,
-                input_html: { class: 'datepicker' },
-                placeholder: (beautiful_date_helper(@date) if @date) %>
-    <% if params[:search].nil? %>
-      <%= f.submit "Search", class: "btn btn-primary"%>
-    <% else %>
-      <% if params[:search][:date].empty? %>
+  
+    <%= simple_form_for :search, url: company_products_path, method: :get do |f| %>
+      <%= f.input :product,
+                  collection: @products.map { |product| product },
+                  selected: (params[:search][:product] if params[:search]) %>
+      <%= f.input :date, as: :string, required: false,
+                  input_html: { class: 'datepicker' },
+                  placeholder: (beautiful_date_helper(@date) if @date) %>
+    <div>
+      <% if params[:search].nil? %>
         <%= f.submit "Search", class: "btn btn-primary"%>
       <% else %>
-      <%= f.submit "Clear date", class: "btn btn-primary" %>
+        <% if params[:search][:date].empty? %>
+          <%= f.submit "Search", class: "btn btn-primary"%>
+        <% else %>
+        <%= f.submit "Clear date", class: "btn btn-primary" %>
+        <% end %>
       <% end %>
     <% end %>
+
   <% end %>
 
 <div class="d-flex justify-content-between">
@@ -29,7 +32,6 @@
     <p></p>
   </div>
 </div>
-
 
   <h2> <%= @product.name %> </h2>
   <div class="table-responsive">

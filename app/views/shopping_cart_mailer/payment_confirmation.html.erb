@@ -4,7 +4,7 @@
 <p>Your trip:</p>
 <ul>  
   <% @shopping_cart.bookings.each do |booking| %>  
-  <p>  <%= booking.product.name %> </p>
+  <p> <%= booking.product.name %> </p>
   <p> <%= booking.product.price %> </p>
   <% end %>
   <p>Thank you for visiting Arraial do Cabo!</p>
