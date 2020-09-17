@@ -63,11 +63,11 @@
 
 
   <div>
-    <div class='flex-graph' data-turbolinks='false'>
+    <div class='flex-graph p-5' data-turbolinks='false'>
       <%= column_chart company_charts_booking_chart_path, ytitle: "nº of bookings" , colors: ["#004461ff", "#0091b7ff"], title:"Daily bookings" %>
       <%= line_chart company_charts_financials_chart_path, ytitle: "R$", colors: ["#004461ff", "#0091b7ff"], title:"Daily income" %>
     </div>
-    <div class='flex-graph' data-turbolinks='false'>
+    <div class='flex-graph p-5' data-turbolinks='false'>
       <%= line_chart company_charts_participants_chart_path, ytitle: "nº of participants", colors: ["#004461ff", "#0091b7ff"], title:"Participants" %>
       <%= pie_chart company_charts_product_chart_path, colors: ["#004461ff", "#0091b7ff"], title:"My products' bookings" %>
     </div>
