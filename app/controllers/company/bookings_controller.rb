@@ -45,6 +45,19 @@ class Company::BookingsController < ApplicationController
     @products = Product.where(company: current_user.company)
     @date = Date.today
     authorize @products
+    #  @products = current_user.company.products
+    # @data = @products.map do |product|
+    #   @totalpart = {}
+    #   product.bookings.order(date: :asc).each do |booking|
+    #     if @totalpart.key?("#{booking.product.name} #{booking.date.strftime('%d/%m')}")
+    #       @totalpart["#{booking.date.strftime('%d/%m')}"] += booking.guests.size + 1
+    #     else
+    #       @totalpart["#{booking.date.strftime('%d/%m')}"] = booking.guests.size + 1
+    #     end
+    #   end
+    #   {name: product.name, data: @totalpart}
+    # end
+    # raise
   end
 
 
@@ -82,7 +95,7 @@ class Company::BookingsController < ApplicationController
         if @totalpart.key?("#{booking.product.name} #{booking.date.strftime('%d/%m')}")
           @totalpart["#{booking.date.strftime('%d/%m')}"] += booking.guests.size + 1
         else
-          @totalpart[" #{booking.date.strftime('%d/%m')}"] = booking.guests.size + 1
+          @totalpart["#{booking.date.strftime('%d/%m')}"] = booking.guests.size + 1
         end
       end
       {name: product.name, data: @totalpart}
