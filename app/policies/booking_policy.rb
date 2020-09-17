@@ -34,4 +34,12 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def participants_chart?
+    true
+  end
+
+  def financials_chart?
+    true
+  end
+
 end

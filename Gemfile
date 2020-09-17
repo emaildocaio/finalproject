@@ -108,3 +108,5 @@ gem 'geocoder'
 # cocoon for nested forms
 gem "cocoon"
 
+# para visualizar banco de dados
+gem 'rails-erd', group: :development

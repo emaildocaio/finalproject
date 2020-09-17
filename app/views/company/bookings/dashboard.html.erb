@@ -1,21 +1,25 @@
 <div class='container'>
-  <div class="trip-cards">
-    <h2> Your Trips Today!</h2>
-    <% @products.each do |product| %>
-      <% if product.status%>
-        <%= link_to company_products_path do%>
-          <div class="trip-card mb-2 d-flex">
+  <div class='dash-title'><h1>My Dashboard</h1></div>
+  <div class= 'flex-card-dashboard'>
+
+    <div class="trip-cards flex-card">
+      <h3> Booked trips of the day </h3>
+      <% @products.each do |product| %>
+        <% if product.status%>
+          <%= link_to company_products_path do%>
+            <div class="trip-card mb-2 d-flex">
             <%= cl_image_tag product.photo.key if product.photo.attached? %>
-            <div class="trip-card-infos">
-              <h2><%= "#{product.name} (#{product.activity})"%></h2>
-              <% @bookings_by_date = Booking.where(product_id: product.id, date: @date)%>
-              <% @participants_array = @bookings_by_date.map do |booking| %>
-                <% booking.guests.size + 1 %>
-              <% end %>
-              <% @participants_array.empty? ? @total_participants = 0 : @total_participants = @participants_array.reduce(:+) %>
-              <p><%= "There are #{product.capacity - @total_participants} spots left on the boat, total capacity of #{product.capacity}"%></p>
+              <div class="trip-card-infos">
+                <h2><%= "#{product.name} (#{product.activity})"%></h2>
+                <% @bookings_by_date = Booking.where(product_id: product.id, date: @date)%>
+                <% @participants_array = @bookings_by_date.map do |booking| %>
+                  <% booking.guests.size + 1 %>
+                <% end %>
+                <% @participants_array.empty? ? @total_participants = 0 : @total_participants = @participants_array.reduce(:+) %>
+                <p><%= "There are #{product.capacity - @total_participants} spots left on the boat, total capacity of #{product.capacity}"%></p>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
@@ -34,18 +38,40 @@
               <% end %>
               <% @participants_array.empty? ? @total_participants = 0 : @total_participants = @participants_array.reduce(:+) %>
               <p><%= "There are #{product.capacity - @total_participants} spots left on the boat, total capacity of #{product.capacity}"%></p>
+    </div>
+    
+    <div class="trip-cards flex-card">
+      <h3> Booked trips for tomorrow </h3>
+        <% @products.each do |product| %>
+        <% if product.status%>
+          <%= link_to company_products_path do%>
+            <div class="trip-card mb-2 d-flex">
+              <%= cl_image_tag product.photo.key %>
+              <div class="trip-card-infos">
+                <h2><%= "#{product.name} (#{product.activity})"%></h2>
+                <% @bookings_by_date = Booking.where(product_id: product.id, date: @date + 1)%>
+                <% @participants_array = @bookings_by_date.map do |booking| %>
+                  <% booking.guests.size + 1 %>
+                <% end %>
+                <% @participants_array.empty? ? @total_participants = 0 : @total_participants = @participants_array.reduce(:+) %>
+                <p><%= "There are #{product.capacity - @total_participants} spots left on the boat, total capacity of #{product.capacity}"%></p>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 
-  <%= line_chart company_charts_booking_chart_path %>
-
-
-  <%= pie_chart company_charts_product_chart_path %>
-
-  <%#= pie_chart @booking.group(:date).count %>
-
+  
+  <div class='flex-graph'>
+    <%= column_chart company_charts_booking_chart_path, ytitle: "nº of bookings" , colors: ["#68b0ab", "#28df99"], title:"Daily bookings" %>
+    <%= line_chart company_charts_financials_chart_path, ytitle: "R$", colors: ["#68b0ab", "#28df99"], title:"Daily income" %>
   </div>
+  <div class='flex-graph'>
+    <%= line_chart company_charts_participants_chart_path, ytitle: "nº of participants", colors: ["#68b0ab", "#28df99"]%>
+    <%= pie_chart company_charts_product_chart_path, colors: ["#68b0ab", "#28df99"] %>
+  </div>
+  </div>  
+</div>
+

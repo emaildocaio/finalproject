@@ -28,6 +28,7 @@
 @import "components/notification";
 @import "components/pagination";
 @import "components/grid";
+@import "pages/dashboard";
 
 // Geocode and Mapbox
 @import 'mapbox-gl/dist/mapbox-gl';
@@ -37,5 +38,4 @@
   width: 700px;
   margin-bottom: 50px;
 }
-
 
