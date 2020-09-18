@@ -2,13 +2,13 @@
 <%= provide(:turbolinks_cache, 'no-cache') %>
 
 <div class="container">
-  <h1><%= current_user.company.name %></h1>
+  <h1><%= current_user.company.name %> - Bookings</h1>
   <div class='flexbox'>
    <a href="bookings.csv" button type="button" class="btn btn-primary export-btn">Export</a>
    <%#= link_to 'Export',  %>
   </div>
   <div class="row-calendar">
-    <div class="col-6">
+    <div class="col-6 mb-5">
     <%= simple_form_for :search, url: company_bookings_path, method: :get do |f| %>
 
       <%= f.input :start_date, as: :string, required: true,
