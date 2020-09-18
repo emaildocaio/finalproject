@@ -69,7 +69,7 @@
       <%= line_chart company_charts_financials_chart_path, ytitle: "R$", colors: ["#004461ff", "#0091b7ff"], title:"Daily income" %>
     </div>
     <div class='flex-graph p-5' data-turbolinks='false'>
-      <%= line_chart company_charts_participants_chart_path, ytitle: "nº of participants", colors: ["#004461ff", "#0091b7ff"], title:"Participants" %>
+      <%= line_chart company_charts_participants_chart_path, ytitle: "nº of participants", colors: ["#004461ff", "#0091b7ff"], title:"Participants", library: { spanGaps: true } %>
       <%= pie_chart company_charts_product_chart_path, colors: ["#004461ff", "#0091b7ff"], title:"My products' bookings" %>
     </div>
   </div>
