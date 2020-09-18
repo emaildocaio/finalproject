@@ -44,3 +44,22 @@
   top: 40px;
   position: relative;
 }
+
+.company {
+    img{
+     width: 120px;
+     height: 80px;
+     object-fit: cover;
+
+    }
+}
+
+#notifications-link {
+  margin-left: 24px;
+}
+
+.navbar-nav .mr-auto {
+  a {
+    color: white;
+  }
+}
