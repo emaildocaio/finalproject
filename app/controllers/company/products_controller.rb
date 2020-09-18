@@ -7,14 +7,23 @@ class Company::ProductsController < ApplicationController
 
     @product = @products.first
     if params[:search].nil?
-      @bookings = Booking.where(product: @product).order(date: :asc)
+      @bookings = Booking.where(product: @product)
+                        .includes([:guests, :shopping_cart])
+                        .includes(shopping_cart: :user)
+                        .order(date: :asc)
     else
       @product = @products.find(params[:search][:product])
       if params[:search][:date].present?
         @date = params[:search][:date]
-        @bookings = Booking.where(product: @product, date: @date).order(date: :asc)
+        @bookings = Booking.where(product: @product, date: @date)
+                          .includes([:guests, :shopping_cart])
+                          .includes(shopping_cart: :user)
+                          .order(date: :asc)
       else
-        @bookings = Booking.where(product: @product).order(date: :asc)
+        @bookings = Booking.where(product: @product)
+                          .includes([:guests, :shopping_cart])
+                          .includes(shopping_cart: :user)
+                          .order(date: :asc)
       end
     end
     respond_to do |format|

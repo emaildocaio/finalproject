@@ -1,20 +1,28 @@
 class Company::FinancialsController < ApplicationController
   def index
     if params[:search].nil?
-      @bookings = Booking.where(product: current_user.company.products).order(date: :asc)
+      @bookings = Booking.where(product: current_user.company.products)
+                        .includes([:shopping_cart, :product])
+                        .includes(shopping_cart: :user)
+                        .order(date: :asc)
     else
       @dates = build_dates
       case @dates.size
       when 1
-        @bookings = Booking.where(product: current_user.company.products, date: @dates[0]).order(date: :asc)
+        @bookings = Booking.where(product: current_user.company.products, date: @dates[0])
+                          .includes([:shopping_cart, :product])
+                          .includes(shopping_cart: :user)
+                          .order(date: :asc)
       else
-        @bookings = Booking.where(product: current_user.company.products, date: @dates[0]..@dates[2]).order(date: :asc)
+        @bookings = Booking.where(product: current_user.company.products, date: @dates[0]..@dates[2])
+                          .includes([:shopping_cart, :product])
+                          .includes(shopping_cart: :user)
+                          .order(date: :asc)
       end
     end
 
     ### This line is overwriting the queries above and returning ALL bookings
     # @bookings = Booking.all.paginate(:page => params[:page], :per_page => 3)
-
   end
 
   def dashboard
