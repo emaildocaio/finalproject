@@ -60,20 +60,6 @@ class Company::BookingsController < ApplicationController
     authorize @bookings
   end
 
-  # def participants_chart
-  #   @bookings = Booking.where(product: current_user.company.products)
-  #   authorize @bookings
-  #   @totalpart = {}
-  #   @bookings.each do |booking|
-  #     if totalpart.key?("#{booking.product.name} #{booking.date.strftime('%d/%m')}")
-  #      totalpart["#{booking.product.name} #{booking.date.strftime('%d/%m')}"] += booking.guests.size + 1
-  #      else
-  #      totalpart["#{booking.product.name} #{booking.date.strftime('%d/%m')}"] = booking.guests.size + 1
-  #      end
-  #     end
-  #   render json: @totalpart
-  # end
-
   def participants_chart
     @products = current_user.company.products
     @data = @products.map do |product|
