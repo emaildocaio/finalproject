@@ -2,7 +2,10 @@
 
 <div>
   <ul>
-    <% @shopping_cart.bookings.each do |booking| %>
+    <% @shopping_cart.bookings
+                    .includes(:product)
+                    .includes(product: [ { photo_attachment: [ :blob ] } ])
+                    .each do |booking| %>
       <li>
       <div class="row d-flex card-product mt-3 mb-3">
           <div class="d-flex ml-5">
@@ -13,7 +16,7 @@
               <% participants = booking.guests.size + 1 %>
               <p style="font-size:20px"> R$ <%= booking.price %> for <%= participants %> people
               on <%= booking.date.strftime(' %d - %B, %Y') %> </p>
-            </div> 
+            </div>
           </div>
           <div class="row d-flex">
             <div class="ml-5">
