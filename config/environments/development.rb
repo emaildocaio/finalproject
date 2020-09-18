@@ -64,4 +64,10 @@ Rails.application.configure do
 
   # ngrok host
   config.hosts << "7d586488d191.ngrok.io"
+
+  # Bullet configuration
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.rails_logger = true
+  end
 end
