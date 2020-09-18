@@ -11,9 +11,9 @@
               <h4>You selected the <%= booking.product.name %> tour:</h4>
               <%# booking_price = booking.product.price %>
               <% participants = booking.guests.size + 1 %>
-              <p> R$ <%= booking.price %> for <%= participants %> people
-              on <%= booking.date %> </p>
-            </div>
+              <p style="font-size:20px"> R$ <%= booking.price %> for <%= participants %> people
+              on <%= booking.date.strftime(' %d - %B, %Y') %> </p>
+            </div> 
           </div>
           <div class="row d-flex">
             <div class="ml-5">
