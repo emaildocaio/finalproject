@@ -7,7 +7,7 @@
       <ul>
          <% @pay_shopping_carts = @pay_shopping_carts.order(updated_at: :desc) %>
         <% @pay_shopping_carts.each do |shopping_cart| %>
-          <h4> <strong> Order number <%= shopping_cart.id %></strong> </h4>
+          <!-- ><h4> <strong> Order number <%= shopping_cart.id %></strong> </h4> < -->
           <% shopping_cart.bookings.each do |booking| %>
             <div class="card-product card-cart-index p-4 m-4">
               <li>
@@ -39,7 +39,7 @@
   <!-- > <i class="far fa-window-close" ></i> <--> 
     <div>
       <% @cancel_shopping_carts.each do |shopping_cart| %>
-      <p> Order number <%= shopping_cart.id %> </p>
+      <!-- > <p> Order number <%= shopping_cart.id %> </p> <-->
       <% shopping_cart.bookings.each do |booking| %>
       <li> 1x <%= booking.product.name %>,
 

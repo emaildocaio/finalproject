@@ -27,10 +27,10 @@
               <div class="card-product-infos">
                 <%= link_to product_path(product), data: { turbolinks: false } do %>
                   <h2> <%= product.name %> </h2>
-                  <p class="index-desc"> <%= product.description.first(100) %>... </p>
+                  <p class="index-desc", style="font-size:17px"> <%= product.description.first(100) %>... </p>
                 <p>Come enyor our <strong> <%= product.activity %></strong>.</p>
                 <p>Offered by <strong> <%= product.company.name %> </strong> </p>
-                <p>R$ <%= product.price %></p>
+                <p style="font-size:17px">R$ <%= product.price %></p>
                 <% end %>
 
                 <% product.review_values[0].times do %>

@@ -1,4 +1,5 @@
 <div class="container">
+
 <div>
   <ul>
     <% @shopping_cart.bookings.each do |booking| %>
@@ -10,9 +11,9 @@
               <h4>You selected the <%= booking.product.name %> tour:</h4>
               <%# booking_price = booking.product.price %>
               <% participants = booking.guests.size + 1 %>
-              <p> R$ <%= booking.price %> for <%= participants %> people
-              on <%= booking.date %> </p>
-            </div>
+              <p style="font-size:20px"> R$ <%= booking.price %> for <%= participants %> people
+              on <%= booking.date.strftime(' %d - %B, %Y') %> </p>
+            </div> 
           </div>
           <div class="row d-flex">
             <div class="ml-5">
@@ -31,7 +32,10 @@
 
   </div>
 
-  <%= link_to "Checkout", shopping_carts_path, method: :post, class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
+  <div style="text-align:center">
+    <%= link_to "Checkout", shopping_carts_path, method: :post, class: "btn btn-primary" unless @shopping_cart.bookings.empty?%>
+    <%= link_to "Booking history", shopping_carts_path, class: "btn btn-primary" %>
+  </div>
 
 <!-- <button id="pay" class="btn btn-primary">Pay</button>
  <script src="https://js.stripe.com/v3/"></script>
@@ -45,6 +49,3 @@
         });
       </script>
  -->
-
-  <%= link_to "Booking history", shopping_carts_path, class: "btn btn-primary" %>
-
