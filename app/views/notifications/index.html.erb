@@ -1,3 +1,4 @@
+<div class="container">
 <h2> Recent bookings </h2>
 <div class="notifications-container">
   <% @notifications.each do |notification| %>
@@ -9,10 +10,15 @@
         </p>
       </div>
       <div class="notification-actions">
-        <a href="#">Go to product <i class="fas fa-ship"></i></a>
+        <%= link_to "Go to bookings  ", company_bookings_path %><i class="fas fa-ship ml-1"></i>
+
       </div>
     </div>
       <% notification.read = true %>
       <% notification.save %>
   <% end %>
+</div>
+    <div class="m-5 digg_pagination">
+    <%= will_paginate @notifications %>
+  </div>
 </div>

@@ -8,18 +8,33 @@
   <meta name="turbolinks-cache-control" content="no-cache">
 <% end %>
 
-<div class="container mb-5">
+<div class="container mt-4 mb-5">
     <div class="row">
       <div class="galeria">
-        <div id="image-main">
-        <% if @product.photo.attached?%>
-          <%= cl_image_tag @product.photo.key%>
-        <% end %>
+        <div class="d-flex">
+        <div class="row">
+          <div class="col-12">
+           <div id="image-main">
+              <% if @product.photo.attached?%>
+                <%= cl_image_tag @product.photo.key%>
+              <% end %>
+              </div>
+          </div>
         </div>
-        <div id="image-sec">
-          <%= image_tag("melhor.jpg")%>
-           <%= image_tag("melhor.jpg")%>
+
+        <div>
+          <div class="col-md-1">
+              <div id="image-sec">
+                <%= image_tag("passeio1.jpg")%>
+              </div>
+          </div>
+          <div class="col-md-1">
+              <div id="image-sec">
+                <%= image_tag("passeio2.jpg")%>
+              </div>
+          </div>
         </div>
+      </div>
       </div>
     </div>
 

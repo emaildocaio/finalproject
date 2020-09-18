@@ -10,13 +10,13 @@
         <div class='mb-2'>
          <!-- <li> -->
 
-            <div class="d-flex">
-              <%= cl_image_tag product.photo.key%>
+            <div class="d-flex company">
+              <%= cl_image_tag product.photo.key, class:"company-img" %>
+            <div class='btn-spacing align-middle'>
               <%= link_to product.name, product_path(product.id), :class => "product-name" %>
-            </div>
-            <div class='btn-spacing'>
               <%= link_to 'Edit', edit_product_path(product.id), :class => "btn btn-primary btn-sm" %>
               <%= link_to 'Delete', product_path(product.id), method: :delete, data: {confirm: "Are you sure you want to delete #{product.name}?"}, :class => "btn btn-primary btn-sm" %>
+            </div>
             </div>
         <!-- </li> -->
         </div>
