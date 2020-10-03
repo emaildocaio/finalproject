@@ -24,6 +24,13 @@ h2 {
 
 }
 
+.carousel-inner img{
+  height: 100vh;
+  object-fit: cover;
+  object-position: 0 0;
+
+}
+
 .carousel-hero {
   position: relative;
   top: 0;
@@ -59,7 +66,20 @@ h2 {
 
 
 .title-third {
-  background-image: linear-gradient(45deg, #0091b7ff, #004461ff);
+  background-image: linear-gradient(45deg, #3cc5d5ff, #004461ff);
   padding: 13px;
 }
+
+.bem-vindo{
+  margin: auto;
+  justify-content: space-around;
+  text-align-last: center;
+  i {
+    font-size:35px;
+  }
+  font-family: Roboto;
+}
+
+
+
 
