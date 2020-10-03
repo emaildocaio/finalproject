@@ -24,6 +24,11 @@ h2 {
 
 }
 
+.carousel-inner img{
+  height: 100vh;
+  object-fit: cover;
+}
+
 .carousel-hero {
   position: relative;
   top: 0;
