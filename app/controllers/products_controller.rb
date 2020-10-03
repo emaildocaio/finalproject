@@ -4,17 +4,29 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @products = Product.where(status: true).paginate(:page => params[:page], :per_page => 10)
+    @products = Product.where(status: true)
+                      .includes([:company, :reviews])
+                      .with_attached_photo
+                      .paginate(:page => params[:page], :per_page => 10)
     @companies = Company.all
     @markers = company_markers
 
     if params[:search].present?
       if params[:search][:name].empty?
         @products = Product.where(status: true)
+                          .includes([:company, :reviews])
+                          .with_attached_photo
+                          .paginate(:page => params[:page], :per_page => 10)
       elsif params[:search].present?
         @products = @products.search_by_name_and_activity(params[:search][:name])
+                            .includes([:company, :reviews])
+                            .with_attached_photo
+                            .paginate(:page => params[:page], :per_page => 10)
       elsif params[:activity].present?
         @products = @products.where(activity: params[:activity])
+                            .includes([:company, :reviews])
+                            .with_attached_photo
+                            .paginate(:page => params[:page], :per_page => 10)
       end
     end
 
@@ -22,7 +34,10 @@ class ProductsController < ApplicationController
 
   def day_trip
     skip_authorization
-    @products = Product.where(status: true, activity: "Day Trip").paginate(:page => params[:page], :per_page => 5)
+    @products = Product.where(status: true, activity: "Day Trip")
+                      .includes([:company, :reviews])
+                      .with_attached_photo
+                      .paginate(:page => params[:page], :per_page => 5)
     @companies = Company.all
     @markers = company_markers
     render :index
@@ -30,7 +45,10 @@ class ProductsController < ApplicationController
 
     def dive
     skip_authorization
-    @products = Product.where(status: true, activity: "Dive").paginate(:page => params[:page], :per_page => 5)
+    @products = Product.where(status: true, activity: "Dive")
+                      .includes([:company, :reviews])
+                      .with_attached_photo
+                      .paginate(:page => params[:page], :per_page => 5)
     @companies = Company.all
     @markers = company_markers
     render :index

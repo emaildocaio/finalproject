@@ -4,7 +4,7 @@
     <p>This is what you have registered with us!</p>
     <h3>Company: <strong><%= @company.name %></strong> </h3>
     <p><%= "My tours:" %> </p>
-    <p><% companies = @company.products %></p>
+    <p><% companies = @company.products.with_attached_photo %></p>
     <!-- <ul> -->
       <% companies.each do |product|  %>
         <div class='mb-2'>

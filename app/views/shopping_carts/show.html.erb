@@ -2,7 +2,10 @@
 
 <div>
   <ul>
-    <% @shopping_cart.bookings.each do |booking| %>
+    <% @shopping_cart.bookings
+                    .includes(:product)
+                    .includes(product: [ { photo_attachment: [ :blob ] } ])
+                    .each do |booking| %>
       <li>
       <div class="row d-flex card-product mt-3 mb-3">
           <div class="d-flex ml-5">
@@ -11,9 +14,14 @@
               <h4>You selected the <%= booking.product.name %> tour:</h4>
               <%# booking_price = booking.product.price %>
               <% participants = booking.guests.size + 1 %>
-              <p style="font-size:20px"> R$ <%= booking.price %> for <%= pluralize( participants, 'person' ) %>
-              on <%= booking.date.strftime(' %d - %B, %Y') %>
-            <div class="ml-1">
+
+              <p style="font-size:20px"> R$ <%= booking.price %> for <%= participants %> people
+              on <%= booking.date.strftime(' %d - %B, %Y') %> </p>
+            </div>
+          </div>
+          <div class="row d-flex">
+            <div class="ml-5">
+
               <p><%= link_to "Reschedule", edit_booking_path(booking.id) %> <i class="fas fa-calendar"></i> </p>
               <p> <%= link_to "Remove from your cart", booking_path(booking.id), method: :delete, remote: true %> <i class="fas fa-trash-alt"></i> </p>
             </div>
