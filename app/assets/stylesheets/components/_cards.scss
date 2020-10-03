@@ -51,18 +51,33 @@ li {
   background-size: cover;
   background-position: center;
   height: 300px;
+  width: 260px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 54px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  h3 {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 35px;
+    text-align: center;
+    font-family: Roboto;
+  }
+}
+
+.card-bemvindo {
+  max-width: 260px;
+  border: 1px solid rgba(0, 68, 97, 0.4);
+  padding: 20px;
+  color: rgba(82, 82, 82, 0.8);
 }
 
 
+.card-line {
+  margin: auto;
+}
 
   .cards {
   display: grid;
@@ -71,7 +86,12 @@ li {
   height: 300px;
   color: white;
   object-fit: cover;
+}
 
+.bem-vindo .btn-primary p {
+  margin-bottom: 0;
+  padding-bottom: 8px;
+  padding-top: 8px;
 }
 
 // Smallest device
