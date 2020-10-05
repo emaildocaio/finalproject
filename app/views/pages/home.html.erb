@@ -36,17 +36,23 @@
         }
       }
     </script>
+
+    <a href="#bemvindo">
+      <div class="arrow">
+        <span></span>
+      </div>
+    </a>
   </div>
 </div>
 
 <div class="container">
-  <div class="title-bemvindo">
-  <h2 class="mt-4">Bem-vindo a Arraial do Cabo!</h2>
-  <h5 class="container mt-0 mb-5">Aqui você escontra tudo o que você precisa para curtir o melhor da cidade. Dicas das melhores
-  praias, restaurantes, passeios de barco e hospedagem.</h5>
+  <div class="title-bemvindo" id="bemvindo">
+    <h2 class="mt-4">Bem-vindo a Arraial do Cabo!</h2>
+    <h5 class="container mt-0 mb-5">Aqui você escontra tudo o que você precisa para curtir o melhor da cidade. Dicas das melhores
+    praias, restaurantes, passeios de barco e hospedagem.</h5>
   </div>
   <div class="row bem-vindo d-flex">
-    <div class="card-bemvindo">
+    <div class="card-bemvindo col-sm-12 col-md-6 col-lg-3 col-xl-3">
       <i class="fas fa-bed"></i>
       <h3>Hospedagem</h3>
       <p>Confira os melhores hotéis e pousadas da cidade</p>
@@ -56,7 +62,7 @@
         </div>
       <% end %>
     </div>
-    <div class="card-bemvindo">
+    <div class="card-bemvindo col-sm-12 col-md-6 col-lg-3 col-xl-3">
       <i class="fas fa-ship"></i>
       <h3>Passeios</h3>
       <p>Encontre os melhores passeios de barco da região</p>
@@ -66,7 +72,7 @@
         </div>
       <% end %>
     </div>
-    <div class="card-bemvindo">
+    <div class="card-bemvindo col-sm-12 col-md-6 col-lg-3 col-xl-3">
       <i class="fas fa-fish"></i>
       <h3>Mergulho</h3>
       <p>Explore as belezas da "Capital Nacional do Mergulho</p>
@@ -76,7 +82,7 @@
         </div>
       <% end %>
     </div>
-    <div class="card-bemvindo">
+    <div class="card-bemvindo col-sm-12 col-md-6 col-lg-3 col-xl-3">
       <i class="fas fa-utensils"></i>
       <h3>Restaurantes</h3>
       <p>Descubra a culinário da cidade de Arraial do Cabo</p>
@@ -91,41 +97,56 @@
 </div>
 
 
-<div class="container praias">
-  <h2 class="mt-5">Escolha a sua praia favorita</h2>
-  <div class="row">
-    <div class="d-flex card-line">
-      <div class="card-category mr-2" style="background-image: linear-gradient(rgba(0,0,0,0.3),
-        rgba(0,0,0,0.3)), url(<%= image_path("prainha-1.jpg") %>)">
+<div class="container">
+  <div class="title-bemvindo" id="bemvindo">
+    <h2 class="mt-4">Escolha sua praia favorita!</h2>
+  </div>
+  <div class="row bem-vindo d-flex  ">
+  </script>
+    <div class="card-praia col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path("prainha-1.jpg") %>)">
         <h3>Prainha</h3>
       </div>
-      <div class="card-category ml-2 mr-2" style="background-image: linear-gradient(rgba(0,0,0,0.3),
-        rgba(0,0,0,0.3)), url(<%= image_path("praia-grande.jpg") %>)">
+    </div>
+    <div class="card-praia col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path("praia-grande.jpg") %>)">
         <h3>Praia Grande</h3>
       </div>
-      <div class="card-category ml-2 mr-2" style="background-image: linear-gradient(rgba(0,0,0,0.3),
-        rgba(0,0,0,0.3)), url(<%= image_path("prainhas-1.jpg") %>)">
+    </div>
+    <div class="card-praia col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),
+      rgba(0,0,0,0.3)), url(<%= image_path("prainhas-1.jpg") %>)">
         <h3>Prainhas do Pontal</h3>
       </div>
-      <div class="card-category ml-2" style="background-image: linear-gradient(rgba(0,0,0,0.3),
-        rgba(0,0,0,0.3)), url(<%= image_path("forno-1.jpg") %>)">
+    </div>
+    <div class="card-praia col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <div class="card-category"  style="background-image: linear-gradient(rgba(0,0,0,0.3),
+      rgba(0,0,0,0.3)), url(<%= image_path("forno-1.jpg") %>)">
         <h3>Praia do Forno</h3>
       </div>
     </div>
-    <div class="d-flex card-line mt-3">
-      <div class="card-category mr-2" style="background-image: linear-gradient(rgba(0,0,0,0.3),
+  </div>
+  <div id="owl-carousel" class="row bem-vindo d-flex">
+    <div class="card-praia col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),
         rgba(0,0,0,0.3)), url(<%= image_path("farol-1.jpg") %>)">
         <h3>Ilha do Farol</h3>
       </div>
-      <div class="card-category ml-2 mr-2" style="background-image: linear-gradient(rgba(0,0,0,0.3),
+    </div>
+    <div class="card-praia col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),
         rgba(0,0,0,0.3)), url(<%= image_path("praia-brava-1.jpg") %>)">
         <h3>Praia Brava</h3>
       </div>
-      <div class="card-category ml-2 mr-2" style="background-image: linear-gradient(rgba(0,0,0,0.3),
+    </div>
+    <div class="card-praia col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),
         rgba(0,0,0,0.3)), url(<%= image_path("anjos-1.jpg") %>)">
         <h3>Praia dos Anjos</h3>
       </div>
-      <div class="card-category ml-2" style="background-image: linear-gradient(rgba(0,0,0,0.3),
+    </div>
+    <div class="card-praia col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),
         rgba(0,0,0,0.3)), url(<%= image_path("pontal.jpg") %>)">
         <h3>Praia do Pontal</h3>
       </div>
@@ -133,53 +154,72 @@
   </div>
 </div>
 
+
+
+
+
+
 <div>
   <h2 class="mt-5">O guia em video</h2>
   <iframe class="mt-5" width="100%" height="500" src="https://www.youtube.com/embed/ZoX3jDj0_Ok" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-<div class="top-products">
-  <h2 class="mt-5">Top trips</h2>
-  <div class="d-flex mb-5">
-    <%= link_to product_path(@products.first.id) do %>
-    <div class="card-trip mr-2">
-      <%= cl_image_tag @products.first.photo.key%>
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= "#{@products.first.name} - #{@products.first.activity}" %></h2>
-          <p><%= @products.first.description.truncate(100) %></p>
+<!-- <div class="container">
+  <div class="top-products">
+    <h2 class="mt-5">Top trips</h2>
+    <div class="d-flex mb-5">
+      <%= link_to product_path(@products.first.id) do %>
+        <div class="card-trip mr-2">
+          <%= cl_image_tag @products.first.photo.key%>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= "#{@products.first.name} - #{@products.first.activity}" %></h2>
+              <p><%= @products.first.description.truncate(20) %></p>
+            </div>
+            <h2 class="card-trip-pricing"><%="R$ #{@products.first.price}" %></h2>
+          </div>
         </div>
-        <h2 class="card-trip-pricing"><%="R$ #{@products.first.price}" %></h2>
-      </div>
-    </div>
-    <% end %>
-    <%= link_to product_path(@products.second.id) do %>
-    <div class="card-trip ml-2 mr-2">
-      <%= cl_image_tag @products.second.photo.key%>
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= "#{@products.second.name} - #{@products.second.activity}" %></h2>
-          <p><%= @products.second.description.truncate(100) %></p>
+      <% end %>
+      <%= link_to product_path(@products.second.id) do %>
+        <div class="card-trip ml-2 mr-2">
+          <%= cl_image_tag @products.second.photo.key%>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= "#{@products.second.name} - #{@products.second.activity}" %></h2>
+              <p><%= @products.second.description.truncate(20) %></p>
+            </div>
+            <h2 class="card-trip-pricing ml-1" ><%="R$ #{@products.second.price}" %></h2>
+          </div>
         </div>
-        <h2 class="card-trip-pricing ml-1" ><%="R$ #{@products.second.price}" %></h2>
-      </div>
-    </div>
-    <%end%>
-    <%= link_to product_path(@products.third.id) do %>
-    <div class="card-trip ml-2">
-      <%= cl_image_tag @products.third.photo.key%>
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= "#{@products.third.name} - #{@products.third.activity}" %></h2>
-          <p><%= @products.third.description.truncate(100) %></p>
+      <%end%>
+      <%= link_to product_path(@products.third.id) do %>
+        <div class="card-trip ml-2">
+          <%= cl_image_tag @products.third.photo.key%>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= "#{@products.third.name} - #{@products.third.activity}" %></h2>
+              <p><%= @products.third.description.truncate(20) %></p>
+            </div>
+            <h2 class="card-trip-pricing"><%="R$ #{@products.third.price}" %></h2>
+          </div>
         </div>
-        <h2 class="card-trip-pricing"><%="R$ #{@products.third.price}" %></h2>
-      </div>
+      <%end%>
     </div>
-    <%end%>
+  </div>
+</div> -->
+
+<div class="container hospedagem-destaque">
+  <div class="card-trip">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <div class="card-trip-infos">
+      <div>
+        <h2>Title here</h2>
+        <p>Short description here!</p>
+      </div>
+      <h2 class="card-trip-pricing">£99.99</h2>
+    </div>
   </div>
 </div>
-
 
 
 

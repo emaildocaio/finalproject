@@ -51,10 +51,26 @@ li {
   background-size: cover;
   background-position: center;
   height: 300px;
-  width: 260px;
+   max-width: 260px;
   display: flex;
   justify-content: center;
   align-items: center;
+  h3 {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 35px;
+    text-align: center;
+    font-family: Roboto;
+  }
+}
+
+.card-praia {
+  max-width: 300px;
+  margin-top: 30px;
+  display: grid;
   h3 {
     color: white;
     font-size: 25px;
@@ -76,7 +92,7 @@ li {
   padding-right: 15px;
   color: rgba(82, 82, 82, 0.8);
   height: 315px;
-  margin-top: 15px;
+  margin-top: 10px;
   display: grid;
 }
 
@@ -91,9 +107,9 @@ li {
   transition: 0.1s;
 }
 
-
-.card-line {
+.praia-line {
   margin: auto;
+  width: 100vw;
 }
 
   .cards {
